@@ -1,0 +1,296 @@
+// Variables declaration
+$bg-dark: #030303;
+$bg-white: #DBDBDB;
+$dark-red: #710707;
+$font-gold: #9D8665;
+
+// Overall styling
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    border-sizing: inherit;
+    font-family: Roboto;
+    font-style: normal;
+}
+a:hover, {
+    color: $font-gold;
+}
+a:active {
+    color: #7E6C51;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1440px;
+}
+h2 {
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    border-bottom: 3px solid $dark-red;
+    padding-bottom: 25px;
+}
+section {
+    padding: 75px 0;
+}
+.bright-section {
+    background-color: #fff;
+    * {
+        color: #000;
+    }
+    h2 {
+        color: $font-gold;
+    }
+}
+.dark-section {
+    background-color: $bg-dark;
+    * {
+        color: #fff;
+    }
+}
+
+// Header
+header .container {
+    padding-top: 33px;
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+        display: inline-block;
+        font-family: Forum;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 28px;
+        line-height: 31px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+    h3::before {
+        display: inline-block;
+        width: 49px;
+        height: 26px;
+        content: "";
+        background-image: url(../img/svg/logo-img.svg);
+        margin-right: 25px;
+    }
+    nav ul {
+        display: flex;
+        align-items: center;
+        font-weight: 200;
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: 2px;
+        li {
+            margin-left: 55px;
+        }
+        li:first-child {
+            margin: 0;
+        }
+    }
+}
+
+// Welcome section
+#welcome {
+    padding: 0;
+ .container {
+    height: 842px;
+    background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.5) 16.19%, rgba(0, 0, 0, 0) 30.73%), url(../img/welcome-slider/1.jpg);
+    background-size: 1000px 750px;
+    background-position: 100% calc(100% - 60px);
+    background-repeat: no-repeat;
+    position: relative;
+    .louvre-bait {
+        width: 598px;
+        height: 388px;
+        position: absolute;
+        top: 182px;
+        z-index: 10;
+        h1 {
+            display: inline-block;
+            margin-bottom: 25px;
+            font-family: Forum;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 80px;
+            line-height: 90px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        p {
+            display: inline-block;
+            margin-bottom: 75px;
+            font-weight: 300;
+            font-size: 28px;
+            line-height: 33px;
+            letter-spacing: 2px;
+        }
+        .discover-btn {
+            display: inline-block;
+            width: 360px;
+            height: 75px;
+            background: #710707;
+            border-radius: 10px;
+            font-weight: 300;
+            font-size: 22px;
+            line-height: 26px;
+            letter-spacing: 2px;
+        }
+    }
+    .slider-wrapper {
+        width: 600px;
+        height: 120px;
+        position: absolute;
+        bottom:0;
+        right:0;
+        background-color: $bg-dark;
+        display: flex;
+        align-items: center;
+        .slider {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .slider-counter {
+                margin-left: 74px;
+                margin-right: 55px;
+                width: 76px;
+                font-weight: normal;
+                font-size: 22px;
+                line-height: 40px;
+                text-transform: uppercase;
+                display: flex;
+                justify-content: space-between;
+            }
+            .slider-index {
+                display: flex;
+                justify-content: space-between;
+                width: 180px;
+                .slider-white-box {
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                }
+                .active-box {
+                    background-color: #D2B183;
+                }
+            }
+            .slider-arrows {
+                margin-left: 60px;
+                margin-right: 75px;
+                width: 80px;
+                display: flex;
+                justify-content: space-between;
+                .left-arrow img {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+}
+
+// Visiting section
+#visiting .container {
+    h2 {
+        margin-bottom: 75px;
+    }
+    .v-tour-grid {
+        display: flex;
+        gap: 60px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        a {
+            position: relative;
+        }
+        .v-tour-item {
+            img {
+                width: 440px;
+                height: 285px;
+            }
+            h3 {
+                font-family: Forum;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 32px;
+                line-height: 35px;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                position: relative;
+                margin-bottom: 22px;
+            }
+            h4 {
+                font-weight: 200;
+                font-size: 22px;
+                line-height: 26px;
+                margin-bottom: 10px;
+            }
+            p {
+                font-weight: 200;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            &::after {
+                display: inline-block;
+                content: "";
+                position: absolute;
+                bottom: 67px;
+                left: 0;
+                width: 300px;
+                height: 3px;
+                background-color: $dark-red;
+                transition: width 0.75s ease-in-out;
+            }
+            &:hover::after {
+                width: 440px;
+            }
+            // h3::after { 
+            //     display: inline-block;
+            //     content: "";
+            //     position: absolute;
+            //     bottom: -10px;
+            //     left: 0;
+            //     width: 300px;
+            //     height: 3px;
+            //     background-color: $dark-red;
+            //     transition: width 0.3s linear;
+            // }
+            // &:hover h3::after {
+            //     width: 440px;
+            // }
+        }
+    }
+}
+
+// Explore section
+#explore .container {
+    display: flex;
+    justify-content: space-between;
+    .picture-story {
+        display: flex;
+        flex-direction: column;
+        max-width: 660px;
+        h2 {
+            margin-bottom: 75px;
+        }
+        p {
+            margin-bottom: 25px;
+            font-weight: 300;
+            font-size: 22px;
+            line-height: 38px;
+            span.highlight {
+                color: $font-gold;
+            }
+        }
+    }
+    .magic {
+        margin-top: 15px;
+        width: 720px;
+        height: 700px;
+    }
+}

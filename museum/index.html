@@ -1,226 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/fonts.css">
-    <link rel="stylesheet" href="styles/style.sass">
-    <title>Museum</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favicon.ico">
+  <title>Museum</title>
 </head>
 <body>
-    <header>
-        <h1>Louvre</h1>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#visiting">Visiting</a>
-                </li>
-                <li>
-                    <a href="#explore">Explore</a>
-                </li>
-                <li>
-                    <a href="#video">Video</a>
-                </li>
-                <li>
-                    <a href="#gallery">Gallery</a>
-                </li>
-                <li>
-                    <a href="#tickets">Tickets</a>
-                </li>
-                <li>
-                    <a href="#contacts">Contacts</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id='welcome'>
-            <h2>Picture Explore</h2>
-            <h3>From the castle to the museum</h3>
-            <button>Discover the Louvre</button>
-            <div class="welcome-slider">
-                <img src="" alt="">
-                <div class="slider">
-                    <button></button>
-                    <button></button>
-                </div>
-            </div>
-        </section>
-        <section id='visiting'>
-            <h2>Virtual Tour</h2>
-            <div class="v-tour-grid">
-                <div class="v-tour-item">
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                    <h3>Royal Palace</h3>
-                    <h4>360° Virtual Tour</h4>
-                    <p>Google Street Panorama View</p>
-                </div>
-                <div class="v-tour-item">
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                    <h3>Denon Wing</h3>
-                    <h4>360° Virtual Tour</h4>
-                    <p>Google Street Panorama View</p>
-                </div>
-                <div class="v-tour-item">
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                    <h3>Collonnade Perrault</h3>
-                    <h4>360° Virtual Tour</h4>
-                    <p>Google Street Panorama View</p>
-                </div>
-                <div class="v-tour-item">
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                    <h3>Greek Hall</h3>
-                    <h4>360° Virtual Tour</h4>
-                    <p>Google Street Panorama View</p>
-                </div>
-                <div class="v-tour-item">
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                    <h3>Mona Lisa</h3>
-                    <h4>360° Virtual Tour</h4>
-                    <p>Google Street Panorama View</p>
-                </div>
-                <div class="v-tour-item">
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                    <h3>Night Palace</h3>
-                    <h4>360° Virtual Tour</h4>
-                    <p>Google Street Panorama View</p>
-                </div>
-            </div>
-        </section>
-        <section id='explore'>
-            <h2>Picture Explore</h2>
-            <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
-            <p>It was cleaned in 1984 to remove a "yellow veil" of dust that had gathered since the previous restoration in the 19th century.</p>
-            <p>The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p>
-            <img src="" alt="">
-        </section>
-        <section id='video'>
-            <h2>Video Journey</h2>
-            <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
-            <div class="video-block">
-                <video src="" class="main"></video>
-                <div class="video-slider">
-                    <video src=""></video>
-                    <video src=""></video>
-                    <video src=""></video>
-                    <button></button>
-                    <button></button>
-                </div>
-            </div>
-        </section>
-        <section id='gallery'>
-            <h2>Art Gallery</h2>
-            <!-- #8 на https://habr.com/ru/company/skillbox/blog/442658/ -->
-            <div id="columns">
-
-            </div>
-        </section>
-        <section id='tickets'>
-            <h2>Buy tickets</h2>
-            <img src="" alt="">
-            <form action="" class="buy-tickets">
-                <div class="ticket-types">
-                    <h4>Ticket Type</h4>
-                    <input type="radio" name="ticket-type" id="permanent">
-                    <label for="permanent">Permanent exhibition</label><br>
-                    <input type="radio" name="ticket-type" id="temporary">
-                    <label for="temporary">Temporary exhibition</label><br>
-                    <input type="radio" name="ticket-type" id="combined">
-                    <label for="combined">Combined admission</label>
-                </div>
-                <div class="amounts">
-                    <h4>Amount</h4>
-                    <label for="basic">Basic 18+</label>
-                    <input type="text" name="amount" id="basic">
-                    <label for="senior">Senior 65+</label>
-                    <input type="text" name="amount" id="senior">
-                </div>
-                <h3>Total €220</h3>
-                <button>Buy now</button>
-            </form>
-        </section>
-        <section class="parallax">
-            <img src="" alt="">
-        </section>
-        <section id='contacts'>
-            <h2>Contacts</h2>
-            <div class="contact-info">
-                <h3>Palais Royal Musee du Louvre</h3>
-                <ul>
-                    <li>address: 75001 Paris, France</li>
-                    <li>phone: +33(0) 1 40 20 50 50</li>
-                    <li>mail: info@louvre.fr</li>
-                </ul>
-            </div>
-            <a href="">
-                <img src="" alt="">
-            </a>
-        </section>
-    </main>
-    <footer>
-        <div class='main-footer'>
-            <span class="logo">Louvre</span>
-            <nav class="footer-nav">
-                <ul>
-                    <li>
-                        <a href="#visiting">Visiting</a>
-                    </li>
-                    <li>
-                        <a href="#expolore">Explore</a>
-                    </li>
-                    <li>
-                        <a href="#video">Video</a>
-                    </li>
-                    <li>
-                        <a href="#gallery">Gallery</a>
-                    </li>
-                    <li>
-                        <a href="#tickets">Tickets</a>
-                    </li>
-                    <li>
-                        <a href="#contacts">Contacts</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="social">
-                <ul>
-                    <li>
-                        <a href=""><img src="" alt=""></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="" alt=""></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="" alt=""></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="" alt=""></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="" alt=""></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="last-string">
-            <h4>© 2021</h4>
-            <h4>The Rolling Scopes School</h4>
-            <h4>KissMyUSSR</h4>
-        </div>
-    </footer>
+  <header class="dark-section">
+		<div class="container">
+			<h3>Louvre</h3>
+			<nav>
+				<ul>
+					<li>
+						<a href="#visiting">Visiting</a>
+					</li>
+					<li>
+						<a href="#explore">Explore</a>
+					</li>
+					<li>
+						<a href="#video">Video</a>
+					</li>
+					<li>
+						<a href="#gallery">Gallery</a>
+					</li>
+					<li>
+						<a href="#tickets">Tickets</a>
+					</li>
+					<li>
+						<a href="#contacts">Contacts</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+  </header>
+  <main>
+    <section id='welcome' class="dark-section">
+			<div class="container">
+				<div class="louvre-bait">
+					<h1>Welcome<br>to the Louvre</h1>
+					<p>From the castle to the museum</p>
+					<button type="button" class="discover-btn">Discover the Louvre</button>
+				</div>
+				<div class="slider-wrapper">
+					<div class="slider">
+						<div class="slider-counter">
+							<div class="slider-counter-current">01</div>
+							<div class="slider-counter-bar">|</div>
+							<div class="slider-counter-all">05</div>
+						</div>
+						<div class="slider-index">
+							<div class="slider-white-box active-box"></div>
+							<div class="slider-white-box"></div>
+							<div class="slider-white-box"></div>
+							<div class="slider-white-box"></div>
+							<div class="slider-white-box"></div>
+						</div>
+						<div class="slider-arrows">
+							<button class="left-arrow"><img src="img/svg/arrow.svg" alt="left"></button>
+							<button class="right-arrow"><img src="img/svg/arrow.svg" alt="right"></button>
+						</div>
+					</div>
+				</div>
+      </div>
+    </section>
+    <section id='visiting' class="bright-section">
+			<div class="container">
+				<h2>Virtual Tour</h2>
+				<div class="v-tour-grid">
+					<a href="https://www.google.com/maps/@48.8606882,2.3356791,3a,90y,328.36h,87.55t/data=!3m7!1e1!3m5!1sAF1QipMZ9YgnArbwEIbTDANeSQYFu9gNqpW_2Sv8FBvY!2e10!3e12!7i4352!8i1815">
+						<div class="v-tour-item">
+							<img src="img/visiting/Royal-Palace.jpg" alt="Royal-Palace">
+							<h3>Royal Palace</h3>
+							<h4>360° Virtual Tour</h4>
+							<p>Google Street Panorama View</p>
+						</div>
+						<div class="underline">
+						</div>
+					</a>
+					<a href="https://www.google.com/maps/@48.8563254,2.3352706,3a,75y,90t/data=!3m7!1e1!3m5!1sAF1QipNRj_CwP4coDMYdCHj6qHeBeJpI2VxU5BUsOX4F!2e10!3e12!7i11000!8i5500">
+						<div class="v-tour-item">
+						<img src="img/visiting/Denon-Wing.jpg" alt="Denon-Wing">
+						<h3>Denon Wing</h3>
+						<h4>360° Virtual Tour</h4>
+						<p>Google Street Panorama View</p>
+					</div>
+					</a>
+					<a href="https://www.google.com/maps/@48.8601723,2.3395439,3a,88.4y,322.04h,84.25t/data=!3m7!1e1!3m5!1sAF1QipNMZGQuEA-pAUvIG_eP_2f3gWTKZEJ6XLVJ-Pgb!2e10!3e12!7i10240!8i5120">
+						<div class="v-tour-item">
+						<img src="img/visiting/Colonnade-Perrault.jpg" alt="Colonnade-Perrault">
+						<h3>Collonnade Perrault</h3>
+						<h4>360° Virtual Tour</h4>
+						<p>Google Street Panorama View</p>
+					</div>
+					</a>
+					<a href="https://www.google.com/maps/@48.860183,2.3356156,3a,90y,177.69h,95.61t/data=!3m7!1e1!3m5!1sAF1QipP7uFZnTITRe-7AEVAgHAfqiCL-03gvBHcYWgF3!2e10!3e12!7i5472!8i2736">
+						<div class="v-tour-item">
+						<img src="img/visiting/Greek-hall.jpg" alt="Greek-hall">
+						<h3>Greek Hall</h3>
+						<h4>360° Virtual Tour</h4>
+						<p>Google Street Panorama View</p>
+					</div>
+					</a>
+					<a href="https://www.google.com/maps/@48.8598788,2.3355157,3a,82.2y,7.53h,94t/data=!3m7!1e1!3m5!1sAF1QipO1wkUUbyzpPjj-OR0mR5etZJT-xl-40XK8rDQ3!2e10!3e12!7i10240!8i5120">
+						<div class="v-tour-item">
+						<img src="img/visiting/Mona-Lisa.jpg" alt="Mona-Lisa">
+						<h3>Mona Lisa</h3>
+						<h4>360° Virtual Tour</h4>
+						<p>Google Street Panorama View</p>
+					</div>
+					</a>
+					<a href="https://www.google.com/maps/@48.8563254,2.3352706,3a,90y,21.26h,79.91t/data=!3m7!1e1!3m5!1sAF1QipPpGAowYatVyk3MMGnZAaQkYm2EUk-Dlca06SS5!2e10!3e12!7i11304!8i5652">
+						<div class="v-tour-item">
+						<img src="img/visiting/Night-Palace.jpg" alt="Night-Palace">
+						<h3>Night Palace</h3>
+						<h4>360° Virtual Tour</h4>
+						<p>Google Street Panorama View</p>
+					</div>
+					</a>
+				</div>
+			</div>
+    </section>
+    <section id='explore' class="dark-section">
+			<div class="container">
+				<div class="picture-story">
+					<h2>Picture Explore</h2>
+					<p>Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
+					<p>It was cleaned in 1984 to remove a <span class="highlight">"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.</p>
+					<p>The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p>
+				</div>
+				<div class="magic">
+					<img src="img/explore-slider/before.jpg" alt="before-cleaning">
+					<!-- <img src="img/explore-slider/after.jpg" alt="after-cleaning"> -->
+				</div>
+			</div>
+    </section>
+    <section id='video' class="bright-section">
+			<div class="container">
+				<h2>Video Journey</h2>
+				<p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
+				<div class="video-block">
+					<video src="" class="main"></video>
+					<div class="video-slider">
+						<video src=""></video>
+						<video src=""></video>
+						<video src=""></video>
+						<button></button>
+						<button></button>
+					</div>
+				</div>
+			</div>
+    </section>
+    <section id='gallery' class="dark-section">
+			<div class="container">
+				<h2>Art Gallery</h2>
+				<!-- #8 на https://habr.com/ru/company/skillbox/blog/442658/ -->
+				<div id="columns">
+				</div>
+			</div>
+    </section>
+    <section id='tickets' class="bright-section">
+			<div class="container">
+				<h2>Buy tickets</h2>
+				<img src="" alt="">
+				<form action="" class="buy-tickets">
+					<h4>Ticket Type</h4>
+					<ul>
+						<li>
+							<input type="radio" name="ticket-type" id="permanent">
+							<label for="permanent">Permanent exhibition</label><br>
+						</li>
+						<li>
+							<input type="radio" name="ticket-type" id="temporary">
+							<label for="temporary">Temporary exhibition</label><br>
+						</li>
+						<li>
+							<input type="radio" name="ticket-type" id="combined">
+							<label for="combined">Combined admission</label>
+						</li>
+					</ul>
+					<h4>Amount</h4>
+					<ul>
+						<li>
+							<label for="basic">Basic 18+</label>
+							<input type="number" name="amount" id="basic">
+						</li>
+						<li>
+							<label for="senior">Senior 65+</label>
+							<input type="number" name="amount" id="senior">
+						</li>
+					</ul>
+					<h3>Total €220</h3>
+					<button>Buy now</button>
+				</form>
+			</div>
+    </section>
+    <section class="parallax">
+      <img src="" alt="">
+    </section>
+    <section id='contacts' class="bright-section">
+			<div class="container">
+				<h2>Contacts</h2>
+				<div class="contact-info">
+					<h3>Palais Royal Musee du Louvre</h3>
+					<ul>
+						<li>address: 75001 Paris, France</li>
+						<li>phone: +33(0) 1 40 20 50 50</li>
+						<li>mail: info@louvre.fr</li>
+					</ul>
+				</div>
+				<a href="">
+					<img src="" alt="">
+				</a>
+			</div>
+    </section>
+  </main>
+  <footer class="dark-section">
+		<div class="container">
+			<div class='main-footer'>
+				<div class="logo">Louvre</div>
+				<nav class="footer-nav">
+					<ul>
+						<li>
+							<a href="#visiting">Visiting</a>
+						</li>
+						<li>
+							<a href="#expolore">Explore</a>
+						</li>
+						<li>
+							<a href="#video">Video</a>
+						</li>
+						<li>
+							<a href="#gallery">Gallery</a>
+						</li>
+						<li>
+							<a href="#tickets">Tickets</a>
+						</li>
+						<li>
+							<a href="#contacts">Contacts</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="social">
+					<ul>
+						<li>
+							<a href=""><img src="" alt=""></a>
+						</li>
+						<li>
+							<a href=""><img src="" alt=""></a>
+						</li>
+						<li>
+							<a href=""><img src="" alt=""></a>
+						</li>
+						<li>
+							<a href=""><img src="" alt=""></a>
+						</li>
+						<li>
+							<a href=""><img src="" alt=""></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="last-string">
+				<h4>© 2021</h4>
+				<h4>The Rolling Scopes School</h4>
+				<h4>KissMyUSSR</h4>
+			</div>
+		</div>
+  </footer>
 </body>
 </html>
