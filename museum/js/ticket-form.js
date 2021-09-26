@@ -37,6 +37,6 @@ buyNowBtn.addEventListener("click", event => {
 // Close button
 closeBtn.addEventListener("click", event => {
   event.preventDefault();
-  bookingTicketForm.hidden = true;
   bookingTicketFormContainer.style.left = `${-1 * window.screen.width}px`;
+  setTimeout(() => bookingTicketForm.hidden = true, 550);
 });
