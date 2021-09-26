@@ -1144,7 +1144,7 @@ aside.booking-ticket .container form.booking-form .personal-info-column input[ty
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column input[type="date"]:not(.has-value):before {
-  content: attr(placeholder);
+  content: "Date";
   padding-right: 44px;
   font-size: 18px;
   position: relative;
@@ -1165,7 +1165,7 @@ aside.booking-ticket .container form.booking-form .personal-info-column input[ty
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column input[type="time"]:not(.has-value):before {
-  content: attr(placeholder);
+  content: "Time";
   padding-right: 57px;
   font-size: 18px;
   position: relative;
