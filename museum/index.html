@@ -16,6 +16,9 @@
     <title>Museum</title>
   </head>
   <body>
+    <h1>
+      Louvre
+    </h1>
     <header class="dark-section">
       <div class="container">
         <h3 class="logo">Louvre</h3>
@@ -47,7 +50,7 @@
       <section id="welcome" class="dark-section">
         <div class="container">
           <div class="louvre-bait">
-            <h1>Welcome<br />to the Louvre</h1>
+            <h2>Welcome<br />to the Louvre</h2>
             <p>From the castle to the museum</p>
             <button type="button" class="discover-btn">
               Discover the Louvre
@@ -142,7 +145,7 @@
           <div class="picture-story">
             <h2>Picture Explore</h2>
             <p>
-              Las Meninas is a 1656 painting by Diego Velázquez, the leading
+              Las Meninas is a 1656 painting by Diego Velázquez, the leading<br>
               artist of the Spanish Golden Age.
             </p>
             <p>
@@ -167,20 +170,29 @@
             Enter and visit one of the most famous museums in the world and
             enjoy masterpieces such as Mona Lisa or Hammurabi's Code
           </p>
-          <div class="main-video">
-            <img src="video/poster0-replace.jpg" alt="About Louvre" />
+          <div class="player">
+            <div class="controls-onscreen">
+              <video src="video/video0.mp4" poster="/video/poster0.jpg"></video>
+              <button class="controls controls-pause"></button>
+            </div>
+            <div class="controls-container">
+              <button class="controls controls-play"></button>
+              <input type="range" value="53" min="0" max="100" step="1" class="progress">
+              <div class="controls-other">
+                <button class="controls controls-sound"></button>
+                <input type="range" value="43" min="0" max="100" step="1" class="progress volume">
+                <button class="controls controls-fullscreen"></button>
+              </div>
+            </div>
           </div>
           <div class="video-block">
-            <img
-              src="video/poster3.jpg"
-              alt="Exposition - Le Corps et l’Ame"
-            /><img
-              src="video/poster1.jpg"
-              alt="Au Louvre ! La Venus de Milo"
-            /><img
-              src="video/poster2.jpg"
-              alt="Promenade dans les collections mesop..."
-            />
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/zp1BXPX8jcU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe><iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe><iframe src="https://www.youtube.com/embed/NOhDysLnTvY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe><iframe src="https://www.youtube.com/embed/aWmJ5DgyWPI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe><iframe src="https://www.youtube.com/embed/2OR0OCr6uRE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
             <div class="video-slider">
               <button>
                 <img
@@ -212,7 +224,9 @@
         <div class="container">
           <h2>Art Gallery</h2>
           <div class="columns">
-            <script src="js/gallery.js"></script>
+            <div class="wrapper">
+              <script src="js/gallery.js"></script>
+            </div>
           </div>
         </div>
       </section>
@@ -234,7 +248,7 @@
                 </li>
                 <li>
                   <input type="radio" name="ticket-type" id="combined" />
-                  <label for="combined">Combined admission</label>
+                  <label for="combined">Combined Admission</label>
                 </li>
               </ul>
             </div>
@@ -242,15 +256,12 @@
               <h4>Amount</h4>
               <ul>
                 <li>
-                  <label for="basic">Basic 18+</label><br />
+                  <label for="basic">Basic 18+</label><br>
                   <div class="ticket-counter">
                     <button
                       type="button"
                       onclick="this.nextElementSibling.stepDown()"
-                      class="decrease-btn"
-                    >
-                      –
-                    </button>
+                      class="decrease-btn">–</button>
                     <input
                       type="number"
                       min="0"
@@ -262,22 +273,17 @@
                     <button
                       type="button"
                       onclick="this.previousElementSibling.stepUp()"
-                      class="increase-btn"
-                    >
-                      +
-                    </button>
+                      class="increase-btn">+</button>
                   </div>
                 </li>
                 <li>
-                  <label for="senior">Senior 65+</label><br />
+                  <label for="senior">Senior 65+</label><br>
                   <div class="ticket-counter">
                     <button
                       type="button"
                       onclick="this.nextElementSibling.stepDown()"
                       class="increase-btn"
-                    >
-                      –
-                    </button>
+                    >–</button>
                     <input
                       type="number"
                       min="0"
@@ -297,7 +303,7 @@
                 </li>
               </ul>
               <h3>Total €220</h3>
-              <button class="buy-now">Buy now</button>
+              <button class="buy-now">Buy Now</button>
             </div>
           </form>
         </div>
@@ -311,8 +317,8 @@
               <h3>Palais Royal Musee du Louvre</h3>
               <ul>
                 <li>address: 75001 Paris, France</li>
-                <li>phone: +33(0) 1 40 20 50 50</li>
-                <li>mail: info@louvre.fr</li>
+                <li>phone: <a href="tel:+33140205050">+33(0) 1 40 20 50 50</a></li>
+                <li>mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></li>
               </ul>
             </div>
             <img
@@ -342,27 +348,11 @@
             </nav>
           </div>
           <div class="social">
-            <ul>
-              <li>
-                <a href=""><img src="img/svg/Youtube.svg" alt="Youtube" /></a>
-              </li>
-              <li>
-                <a href=""
-                  ><img src="img/svg/Instagram.svg" alt="Instagram"
-                /></a>
-              </li>
-              <li>
-                <a href=""><img src="img/svg/Facebook.svg" alt="Facebook" /></a>
-              </li>
-              <li>
-                <a href=""><img src="img/svg/Twitter.svg" alt="Twitter" /></a>
-              </li>
-              <li>
-                <a href=""
-                  ><img src="img/svg/Pinterest.svg" alt="Pinterest"
-                /></a>
-              </li>
-            </ul>
+            <a href="https://www.youtube.com/user/louvre"><img src="img/svg/Youtube.svg" alt="Youtube" /></a>
+            <a href="https://www.instagram.com/museelouvre/"><img src="img/svg/Instagram.svg" alt="Instagram"></a>
+            <a href="https://www.facebook.com/museedulouvre"><img src="img/svg/Facebook.svg" alt="Facebook" /></a>
+            <a href="http://twitter.com/museelouvre"><img src="img/svg/Twitter.svg" alt="Twitter" /></a>
+            <a href="https://www.pinterest.fr/museedulouvre/"><img src="img/svg/Pinterest.svg" alt="Pinterest"></a>
           </div>
         </div>
       </div>
@@ -370,7 +360,7 @@
         <div class="container">
           <p>© 2021</p>
           <p>The Rolling Scopes School</p>
-          <p>KissMyUSSR</p>
+          <p>Username</p>
         </div>
       </div>
     </footer>
@@ -387,11 +377,22 @@
               <h2>Booking Tickets</h2>
               <h3>Tour to Louvre</h3>
             </div>
-            <input type="date" required="required" placeholder="Date" /><input
-              type="time"
-              required="required"
-              placeholder="Time"
-            />
+            <div class="icon-handler date">
+              <input 
+              type="date" 
+              required="required" 
+              placeholder="Date"
+              onchange="this.className=(this.value!=''?'has-value':'')"
+              >
+            </div>
+            <div class="icon-handler time">
+              <input 
+              type="time" 
+              required="required" 
+              placeholder="Time" 
+              onchange="this.className=(this.value!=''?'has-value':'')"
+              >
+            </div>
             <div class="icon-handler name">
               <input type="text" required="required" placeholder="Name" />
             </div>
@@ -402,11 +403,11 @@
               <input type="tel" required="required" placeholder="Phone" />
             </div>
             <div class="icon-handler t-type">
-              <select
-                name="ticket-type"
-                required="required"
-                placeholder="Ticket Type"
-              ></select>
+              <select name="ticket-type" required="required">
+              <option value="placeholder" disabled selected>Ticket Type</option>
+              <option value="basic">Basic 18+</option>
+              <option value="basic">Senior 65+</option>
+            </select>
             </div>
             <div class="entry-ticket">
               <h5>Entry Ticket</h5>
@@ -424,7 +425,7 @@
                     type="number"
                     min="0"
                     max="20"
-                    value="1"
+                    value="2"
                     readonly
                     class="counter-number"
                   />
@@ -451,7 +452,7 @@
                     type="number"
                     min="0"
                     max="20"
-                    value="1"
+                    value="2"
                     readonly
                     class="counter-number"
                   />
@@ -505,10 +506,10 @@
                 />
                 <label>Expiration date</label>
                 <div class="expiration-month">
-                  <input type="number" min="1" max="12" required="required" />
+                  <input type="number" min="1" max="12" value="03" required="required" />
                 </div>
                 <div class="expiration-year">
-                  <input type="number" min="2021" required="required" />
+                  <input type="number" min="2021" value="2024" required="required" />
                 </div>
                 <label for="name">Cardholder name</label>
                 <input type="text" id="name" required="required" />
@@ -527,7 +528,7 @@
                 <div class="black-line"></div>
                 <div class="cvc-cvv">
                   <label for="cvc-cvv">CVC/CVV</label>
-                  <input type="number" id="cvc-cvv" required="required" />
+                  <input type="number" id="cvc-cvv" required="required" min="0" max="999"/>
                   <div class="aligner">
                     <p>The last 3 or 4 digits on back of the card</p>
                   </div>
@@ -537,13 +538,14 @@
             <button class="book-btn">Book</button>
           </div>
         </form>
+        <button class="close-booking-form">
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
       </div>
-      <button class="close-booking-form">
-        <span class="line"></span>
-        <span class="line"></span>
-      </button>
     </aside>
     <script src="js/welcome-slider.js"></script>
     <script src="js/ticket-form.js"></script>
+    <script src="js/video.js"></script>
   </body>
 </html>

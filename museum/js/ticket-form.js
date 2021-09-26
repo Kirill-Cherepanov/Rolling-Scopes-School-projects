@@ -2,10 +2,10 @@ const bookBtn = document.querySelector("button.book-btn");
 const closeBtn = document.querySelector("button.close-booking-form");
 const buyNowBtn = document.querySelector("button.buy-now");
 const bookingTicketForm = document.querySelector("aside.booking-ticket");
+const bookingTicketFormContainer = bookingTicketForm.children[0];
 
 // Ripple effect button
 bookBtn.addEventListener("click", event => {
-  event.preventDefault();
   const button = event.currentTarget;
   let btnCoords = button.getBoundingClientRect();
 
@@ -30,6 +30,7 @@ bookBtn.addEventListener("click", event => {
 buyNowBtn.addEventListener("click", event => {
   event.preventDefault();
   bookingTicketForm.hidden = false;
+  setTimeout(() => bookingTicketFormContainer.style.left = `${((window.screen.width - 1440) / 2)}px`, 50);
 });
 
 
@@ -37,4 +38,5 @@ buyNowBtn.addEventListener("click", event => {
 closeBtn.addEventListener("click", event => {
   event.preventDefault();
   bookingTicketForm.hidden = true;
+  bookingTicketFormContainer.style.left = `${-1 * window.screen.width}px`;
 });
