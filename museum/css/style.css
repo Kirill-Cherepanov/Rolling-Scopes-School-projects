@@ -12,7 +12,16 @@ html {
   font-style: normal;
 }
 
+a {
+  -webkit-transition: -webkit-transform 0.35s ease-in-out;
+  transition: -webkit-transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
+}
+
 a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   color: #9d8665;
 }
 
@@ -208,8 +217,8 @@ header .container {
   font-weight: 300;
   font-size: 22px;
   letter-spacing: 2px;
-  -webkit-transition: 0.25s all;
-  transition: 0.25s all;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
 }
 
 #welcome .container .louvre-bait .discover-btn:hover {
@@ -329,16 +338,6 @@ header .container {
   position: relative;
 }
 
-#visiting .container .v-tour-grid .v-tour-item {
-  -webkit-transition: all 0.75s ease-in-out;
-  transition: all 0.75s ease-in-out;
-}
-
-#visiting .container .v-tour-grid .v-tour-item:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
 #visiting .container .v-tour-grid .v-tour-item:hover img {
   -webkit-box-shadow: 0 0 4px 1px;
   box-shadow: 0 0 10px 5px #9d8665;
@@ -434,16 +433,25 @@ header .container {
   height: 700px;
 }
 
-#video .container h2 {
+#video .container .video__text-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 75px;
+}
+
+#video .container .video__text-wrapper h2 {
   display: inline-block;
   border: 0;
   padding: 0;
-  margin: 0 115px 75px 0;
 }
 
-#video .container p {
-  display: inline-block;
-  max-width: calc(100% - 720px);
+#video .container .video__text-wrapper p {
+  -ms-flex-preferred-size: calc(100% - 720px);
+      flex-basis: calc(100% - 720px);
   font-weight: 300;
   font-size: 22px;
   line-height: 38px;
@@ -677,15 +685,36 @@ header .container {
   height: 3000px;
 }
 
+#gallery .container .columns .wrapper::before, #gallery .container .columns .wrapper::after {
+  content: "";
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  width: 0;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
 #gallery .container .columns .wrapper .gallery-img-container {
   width: calc(100% / 3 - 24px);
   margin-bottom: 24px;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
 }
 
 #gallery .container .columns .wrapper .gallery-img-container img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+#gallery .container .columns .wrapper .gallery-img-container:hover {
+  -webkit-box-shadow: 0 0 5px 5px #9d8665;
+          box-shadow: 0 0 5px 5px #9d8665;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 #gallery .container .columns .wrapper .gallery-img-container:nth-child(3n+1) {
@@ -712,16 +741,6 @@ header .container {
 
 #gallery .container .columns .wrapper .gallery-img-container:nth-child(3) {
   margin-top: 50px;
-}
-
-#gallery .container .columns .wrapper::before, #gallery .container .columns .wrapper::after {
-  content: "";
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  width: 0;
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
 }
 
 #gallery .bg-shadow {
@@ -903,6 +922,18 @@ header .container {
   height: 50px;
   background: #000;
   color: #fff;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#tickets .container form.buy-tickets .amounts button.buy-now:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: #9d8665;
+}
+
+#tickets .container form.buy-tickets .amounts button.buy-now:active {
+  background-color: #897150;
 }
 
 .parallax {
@@ -1000,8 +1031,15 @@ footer .main-footer .container .left-column .footer-nav .column {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   row-gap: 25px;
   wrap: nowrap;
+}
+
+footer .main-footer .container .left-column .footer-nav .column li {
+  margin: 0;
 }
 
 footer .main-footer .container .social {
@@ -1017,11 +1055,9 @@ footer .main-footer .container .social {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
-footer .main-footer .container .social a {
+footer .main-footer .container .social li a {
   display: block;
   width: 46px;
   height: 46px;
@@ -1030,12 +1066,12 @@ footer .main-footer .container .social a {
   position: relative;
 }
 
-footer .main-footer .container .social a:hover {
+footer .main-footer .container .social li a:hover {
   -webkit-filter: invert(57%) sepia(29%) saturate(389%) hue-rotate(356deg) brightness(89%) contrast(90%);
           filter: invert(57%) sepia(29%) saturate(389%) hue-rotate(356deg) brightness(89%) contrast(90%);
 }
 
-footer .main-footer .container .social a img {
+footer .main-footer .container .social li a img {
   position: absolute;
   margin: auto;
   top: 0;
@@ -1054,16 +1090,26 @@ footer .last-string .container {
   padding: 50px 0 52px;
 }
 
-footer .last-string .container p {
+footer .last-string .container a, footer .last-string .container p {
   font-weight: 200;
   font-size: 22px;
   line-height: 22px;
   letter-spacing: 2px;
+  -webkit-transition: -webkit-transform 0.35s ease-in-out;
+  transition: -webkit-transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
 }
 
-footer .last-string .container p:nth-of-type(2) {
+footer .last-string .container a:nth-of-type(2), footer .last-string .container p:nth-of-type(2) {
   position: relative;
   left: 17px;
+}
+
+footer .last-string .container a:hover, footer .last-string .container p:hover {
+  color: #9d8665;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 aside.booking-ticket {

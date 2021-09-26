@@ -16,8 +16,12 @@ html {
   font-family: Roboto;
   font-style: normal;
 }
-a:hover {
-  color: $font-gold;
+a {
+  transition: transform 0.35s ease-in-out;
+    &:hover {
+    transform: scale(1.1);
+    color: $font-gold;
+  }
 }
 a:active {
   color: #7e6c51;
@@ -177,7 +181,7 @@ header .container {
         font-weight: 300;
         font-size: 22px;
         letter-spacing: 2px;
-        transition: 0.25s all;
+        transition: 0.2s all;
         &:hover {
           color: white;
           background-color: $font-gold;
@@ -259,14 +263,10 @@ header .container {
       position: relative;
     }
     .v-tour-item {
-      transition: all 0.75s ease-in-out;
-      &:hover {
-        transform: scale(1.1);
-        img {
+      &:hover img {
           -webkit-box-shadow: 0 0 4px 1px;
           box-shadow: 0 0 10px 5px $font-gold;
           border-radius: 2px;
-        }
       }
       img {
         width: 440px;
@@ -343,18 +343,22 @@ header .container {
 
 // Video section
 #video .container {
-  h2 {
-    display: inline-block;
-    border: 0;
-    padding: 0;
-    margin: 0 115px 75px 0;
-  }
-  p {
-    display: inline-block;
-    max-width: calc(100% - 720px);
-    font-weight: 300;
-    font-size: 22px;
-    line-height: 38px;
+  .video__text-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 75px;
+    h2 {
+      display: inline-block;
+      border: 0;
+      padding: 0;
+    }
+    p {
+      flex-basis: calc(100% - 720px);
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 38px;
+    }
+
   }
   .controls {
     border: none;
@@ -509,26 +513,31 @@ header .container {
         flex-flow: column wrap;
         align-content: space-between;
         height: 3000px;
-        .gallery-img-container {
-          width: calc(100% / 3 - 24px);
-          margin-bottom: 24px;
-          img {
-            display: block;
-            width: 100%;
-            height: auto;
-          }
-          &:nth-child(3n+1) { order: 1; }
-          &:nth-child(3n+2) { order: 2; }
-          &:nth-child(3n)   { order: 3; }
-          &:first-child     { margin-top: 50px; }
-          &:nth-child(3)    { margin-top: 50px; }
-        }
         &::before,
         &::after {
           content: "";
           flex-basis: 100%;
           width: 0;
           order: 2;
+        }
+        .gallery-img-container {
+          width: calc(100% / 3 - 24px);
+          margin-bottom: 24px;
+          transition: transform 0.5s ease-in-out;
+          img {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+          &:hover {
+            box-shadow: 0 0 5px 5px $font-gold;
+            transform: scale(1.05);
+          }
+          &:nth-child(3n+1) { order: 1; }
+          &:nth-child(3n+2) { order: 2; }
+          &:nth-child(3n)   { order: 3; }
+          &:first-child     { margin-top: 50px; }
+          &:nth-child(3)    { margin-top: 50px; }
         }
       }
     }
@@ -683,6 +692,14 @@ header .container {
         height: 50px;
         background: #000;
         color: #fff;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+          background-color: $font-gold;
+        }
+        &:active {
+          background-color: #897150;
+        }
       }
     }
   }
@@ -756,8 +773,12 @@ footer {
           .column {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
             row-gap: 25px;
             wrap: nowrap;
+            li {
+              margin: 0;
+            }
           }
         }
       }
@@ -767,8 +788,7 @@ footer {
         display: flex;
         align-self: flex-end;
         justify-content: space-between;
-        flex-wrap: wrap;
-        a {
+        li a {
           display: block;
           width: 46px;
           height: 46px;
@@ -794,14 +814,19 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 50px 0 52px;
-    p {
+    a, p {
       font-weight: 200;
       font-size: 22px;
       line-height: 22px;
       letter-spacing: 2px;
+      transition: transform 0.35s ease-in-out;
       &:nth-of-type(2) {
         position: relative;
         left: 17px;
+      }
+      &:hover {
+        color: $font-gold;
+        transform: scale(1.2);
       }
     }
   }
