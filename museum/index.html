@@ -256,7 +256,7 @@
               <h4>Amount</h4>
               <ul>
                 <li>
-                  <label for="basic">Basic 18+</label><br>
+                  <label for="basic-ticket">Basic 18+</label><br>
                   <div class="ticket-counter">
                     <button
                       type="button"
@@ -264,7 +264,7 @@
                       class="decrease-btn">–</button>
                     <input
                       type="number"
-                      id="basic"
+                      id="basic-ticket"
                       min="0"
                       max="20"
                       value="1"
@@ -278,7 +278,7 @@
                   </div>
                 </li>
                 <li>
-                  <label for="senior">Senior 65+</label><br>
+                  <label for="senior-ticket">Senior 65+</label><br>
                   <div class="ticket-counter">
                     <button
                       type="button"
@@ -287,7 +287,7 @@
                     >–</button>
                     <input
                       type="number"
-                      id="senior"
+                      id="senio-ticketr"
                       min="0"
                       max="20"
                       value="1"
@@ -404,7 +404,7 @@
             </div>
             <div class="icon-handler t-type">
               <select name="ticket-type" required="required" size="1">
-                <option value="placeholder" disabled selected>Ticket Type</option>
+                <option value="placeholder" disabled hidden selected>Ticket Type</option>
                 <option value="basic">Permanent exhibition</option>
                 <option value="basic">Temporary exhibition</option>
                 <option value="basic">Combined Admission</option>
@@ -413,7 +413,7 @@
             <div class="entry-ticket">
               <h5>Entry Ticket</h5>
               <div class="counter basic">
-                <label for="basic">Basic 18+ (20 €)</label>
+                <label for="basic-form">Basic 18+ (20 €)</label>
                 <div class="ticket-counter">
                   <button
                     type="button"
@@ -424,7 +424,7 @@
                   </button>
                   <input
                     type="number"
-                    id="basic"
+                    id="basic-form"
                     min="0"
                     max="20"
                     value="2"
@@ -441,7 +441,7 @@
                 </div>
               </div>
               <div class="counter senior">
-                <label for="senior">Senior 65+ (10 €)</label>
+                <label for="senior-form">Senior 65+ (10 €)</label>
                 <div class="ticket-counter">
                   <button
                     type="button"
@@ -452,7 +452,7 @@
                   </button>
                   <input
                     type="number"
-                    id="senior"
+                    id="senior-form"
                     min="0"
                     max="20"
                     value="2"
