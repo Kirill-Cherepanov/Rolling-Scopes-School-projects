@@ -261,17 +261,18 @@ header .container {
     justify-content: space-evenly;
     a {
       position: relative;
+      transition: all 0.5s ease-in-out;
     }
     .v-tour-item {
       &:hover img {
-          -webkit-box-shadow: 0 0 4px 1px;
           box-shadow: 0 0 10px 5px $font-gold;
-          border-radius: 2px;
+          border-radius: 10px;
       }
       img {
         width: 440px;
         height: 285px;
         margin-bottom: 22px;
+        transition: all 0.5s ease-in-out;
       }
       h3 {
         font-family: Forum;
@@ -304,7 +305,7 @@ header .container {
         width: 300px;
         height: 3px;
         background-color: $dark-red;
-        transition: width 0.75s ease-in-out;
+        transition: width 0.5s ease-in-out;
       }
       &:hover::after {
         width: 440px;
@@ -499,7 +500,7 @@ header .container {
   position: relative;
   .container {
     max-height: 2125px;
-    overflow: hidden;
+    overflow-y: hidden;
     h2 {
       border: 0;
       margin-bottom: 75px;
@@ -530,7 +531,7 @@ header .container {
             height: auto;
           }
           &:hover {
-            box-shadow: 0 0 5px 5px $font-gold;
+            box-shadow: 0 0 5px 5px lighten($font-gold, 15%);
             transform: scale(1.05);
           }
           &:nth-child(3n+1) { order: 1; }
