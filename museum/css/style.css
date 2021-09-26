@@ -22,6 +22,7 @@ a:active {
 
 .container {
   margin: 0 auto;
+  padding: 0 20px;
   max-width: 1440px;
 }
 
@@ -161,7 +162,7 @@ header .container {
   background: -webkit-gradient(linear, left top, right top, from(#000), color-stop(16.19%, rgba(0, 0, 0, 0.5)), color-stop(30.73%, rgba(0, 0, 0, 0))), url(../img/welcome-slider/1.jpg);
   background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.5) 16.19%, rgba(0, 0, 0, 0) 30.73%), url(../img/welcome-slider/1.jpg);
   background-size: 1000px 750px;
-  background-position: 100% calc(100% - 60px);
+  background-position: calc(100% - 20px) calc(100% - 60px);
   background-repeat: no-repeat;
   position: relative;
 }
@@ -197,24 +198,27 @@ header .container {
 }
 
 #welcome .container .louvre-bait .discover-btn {
-  display: inline-block;
+  display: block;
   width: 360px;
   height: 75px;
+  line-height: 75px;
+  text-align: center;
   background: #710707;
   border-radius: 10px;
   font-weight: 300;
   font-size: 22px;
-  line-height: 26px;
   letter-spacing: 2px;
   -webkit-transition: 0.25s all;
   transition: 0.25s all;
 }
 
 #welcome .container .louvre-bait .discover-btn:hover {
+  color: white;
   background-color: #9d8665;
 }
 
 #welcome .container .louvre-bait .discover-btn:active {
+  color: white;
   background-color: #897150;
 }
 
@@ -273,6 +277,7 @@ header .container {
 }
 
 #welcome .container .slider-wrapper .slider .slider-index .slider-white-box {
+  cursor: pointer;
   width: 16px;
   height: 16px;
   background-color: #fff;
@@ -322,6 +327,22 @@ header .container {
 
 #visiting .container .v-tour-grid a {
   position: relative;
+}
+
+#visiting .container .v-tour-grid .v-tour-item {
+  -webkit-transition: all 0.75s ease-in-out;
+  transition: all 0.75s ease-in-out;
+}
+
+#visiting .container .v-tour-grid .v-tour-item:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#visiting .container .v-tour-grid .v-tour-item:hover img {
+  -webkit-box-shadow: 0 0 4px 1px;
+  box-shadow: 0 0 10px 5px #9d8665;
+  border-radius: 2px;
 }
 
 #visiting .container .v-tour-grid .v-tour-item img {
@@ -1109,6 +1130,7 @@ aside.booking-ticket .container form.booking-form .personal-info-column .head h2
   padding: 0;
   margin-bottom: 15px;
   letter-spacing: inherit;
+  color: #9d8665;
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .head h3 {
@@ -1126,6 +1148,18 @@ aside.booking-ticket .container form.booking-form .personal-info-column select {
   appearance: none;
   background: transparent url(../img/svg/input-options.svg) no-repeat 100% center;
   background-position-x: calc(100% - 13px);
+  font-weight: 300;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column select option:checked,
+aside.booking-ticket .container form.booking-form .personal-info-column select option:hover {
+  background: #e7e7e7 !important;
+  -webkit-box-shadow: 0 0 10px 100px #e7e7e7 inset !important;
+          box-shadow: 0 0 10px 100px #e7e7e7 inset !important;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column select:focus option:checked {
+  background: #e7e7e7 !important;
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column input[type="date"] {

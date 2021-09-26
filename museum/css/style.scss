@@ -24,6 +24,7 @@ a:active {
 }
 .container {
   margin: 0 auto;
+  padding: 0 20px;
   max-width: 1440px;
 }
 h2 {
@@ -133,7 +134,7 @@ header .container {
       ),
       url(../img/welcome-slider/1.jpg);
     background-size: 1000px 750px;
-    background-position: 100% calc(100% - 60px);
+    background-position: calc(100% - 20px) calc(100% - 60px);
     background-repeat: no-repeat;
     position: relative;
     .louvre-bait {
@@ -153,6 +154,9 @@ header .container {
         letter-spacing: 5px;
         text-transform: uppercase;
         border: none;
+        @media (max-width: ) {
+          
+        }
       }
       p {
         display: inline-block;
@@ -163,20 +167,23 @@ header .container {
         letter-spacing: 2px;
       }
       .discover-btn {
-        display: inline-block;
+        display: block;
         width: 360px;
         height: 75px;
+        line-height: 75px;
+        text-align :center;
         background: $dark-red;
         border-radius: 10px;
         font-weight: 300;
         font-size: 22px;
-        line-height: 26px;
         letter-spacing: 2px;
         transition: 0.25s all;
         &:hover {
+          color: white;
           background-color: $font-gold;
         }
         &:active {
+          color: white;
           background-color: #897150;
         }
       }
@@ -211,6 +218,7 @@ header .container {
           justify-content: space-between;
           width: 180px;
           .slider-white-box {
+            cursor: pointer;
             width: 16px;
             height: 16px;
             background-color: #fff;
@@ -251,6 +259,15 @@ header .container {
       position: relative;
     }
     .v-tour-item {
+      transition: all 0.75s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+        img {
+          -webkit-box-shadow: 0 0 4px 1px;
+          box-shadow: 0 0 10px 5px $font-gold;
+          border-radius: 2px;
+        }
+      }
       img {
         width: 440px;
         height: 285px;
@@ -292,20 +309,6 @@ header .container {
       &:hover::after {
         width: 440px;
       }
-      // h3::after {
-      //     display: inline-block;
-      //     content: "";
-      //     position: absolute;
-      //     bottom: -10px;
-      //     left: 0;
-      //     width: 300px;
-      //     height: 3px;
-      //     background-color: $dark-red;
-      //     transition: width 0.3s linear;
-      // }
-      // &:hover h3::after {
-      //     width: 440px;
-      // }
     }
   }
 }
@@ -850,6 +853,7 @@ aside.booking-ticket {
             padding: 0;
             margin-bottom: 15px;
             letter-spacing: inherit;
+            color: $font-gold;
           }
           h3 {
             font-weight: normal;
@@ -866,6 +870,15 @@ aside.booking-ticket {
           appearance: none;
           background: transparent url(../img/svg/input-options.svg) no-repeat 100% center;
           background-position-x: calc(100% - 13px);
+          font-weight: 300;
+          option:checked,
+          option:hover {
+            background: #e7e7e7 !important;
+            box-shadow: 0 0 10px 100px #e7e7e7 inset !important;
+          }
+          &:focus option:checked {
+            background: #e7e7e7 !important;
+          }
         }
         input[type="date"] {
           margin-right: 16px;
