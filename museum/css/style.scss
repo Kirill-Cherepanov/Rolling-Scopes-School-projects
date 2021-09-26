@@ -880,6 +880,9 @@ aside.booking-ticket {
             top: 5px;
           }
           &:not(.has-value):before{
+            display: inline-block;
+            width: 38px;
+            height: 21px;
             content: "Date";
             padding-right: 44px;
             font-size: 18px;
