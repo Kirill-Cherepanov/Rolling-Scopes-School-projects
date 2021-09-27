@@ -223,12 +223,14 @@ header .container {
 
 #welcome .container .louvre-bait .discover-btn:hover {
   color: white;
+  -webkit-transform: scale(1);
+          transform: scale(1);
   background-color: #9d8665;
 }
 
 #welcome .container .louvre-bait .discover-btn:active {
   color: white;
-  background-color: #897150;
+  background-color: #b19e84;
 }
 
 #welcome .container .slider-wrapper {
@@ -292,6 +294,10 @@ header .container {
   background-color: #fff;
 }
 
+#welcome .container .slider-wrapper .slider .slider-index .slider-white-box:hover {
+  background-color: #9d8665;
+}
+
 #welcome .container .slider-wrapper .slider .slider-index .active-box {
   background-color: #d2b183;
 }
@@ -313,6 +319,11 @@ header .container {
 #welcome .container .slider-wrapper .slider .slider-arrows .left-arrow img {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+#welcome .container .slider-wrapper .slider .slider-arrows .left-arrow:hover, #welcome .container .slider-wrapper .slider .slider-arrows .right-arrow:hover {
+  -webkit-filter: invert(56%) sepia(20%) saturate(566%) hue-rotate(356deg) brightness(92%) contrast(87%);
+          filter: invert(56%) sepia(20%) saturate(566%) hue-rotate(356deg) brightness(92%) contrast(87%);
 }
 
 #visiting .container h2 {
@@ -647,6 +658,11 @@ header .container {
   margin-right: 20px;
 }
 
+#video .container .video-block .video-slider .video-index .video-circle:hover {
+  cursor: pointer;
+  background-color: #710707;
+}
+
 #video .container .video-block .video-slider .video-index .video-circle:last-of-type {
   margin: 0;
 }
@@ -715,8 +731,8 @@ header .container {
 }
 
 #gallery .container .columns .wrapper .gallery-img-container:hover {
-  -webkit-box-shadow: 0 0 5px 5px #bbab94;
-          box-shadow: 0 0 5px 5px #bbab94;
+  -webkit-box-shadow: 0 0 5px 5px #b19e84;
+          box-shadow: 0 0 5px 5px #b19e84;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
@@ -931,13 +947,12 @@ header .container {
 }
 
 #tickets .container form.buy-tickets .amounts button.buy-now:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  color: #000;
   background-color: #9d8665;
 }
 
 #tickets .container form.buy-tickets .amounts button.buy-now:active {
-  background-color: #897150;
+  background-color: #b19e84;
 }
 
 .parallax {
@@ -1105,15 +1120,15 @@ footer .last-string .container a, footer .last-string .container p {
   transition: transform 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out;
 }
 
-footer .last-string .container a:nth-of-type(2), footer .last-string .container p:nth-of-type(2) {
-  position: relative;
-  left: 17px;
-}
-
 footer .last-string .container a:hover, footer .last-string .container p:hover {
   color: #9d8665;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+footer .last-string .container a:first-of-type {
+  position: relative;
+  left: 31px;
 }
 
 aside.booking-ticket {

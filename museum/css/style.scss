@@ -22,10 +22,11 @@ a {
     transform: scale(1.1);
     color: $font-gold;
   }
+  &:active {
+    color: #7e6c51;
+  }
 }
-a:active {
-  color: #7e6c51;
-}
+
 .container {
   margin: 0 auto;
   padding: 0 20px;
@@ -184,11 +185,12 @@ header .container {
         transition: 0.2s all;
         &:hover {
           color: white;
+          transform: scale(1);
           background-color: $font-gold;
         }
         &:active {
           color: white;
-          background-color: #897150;
+          background-color: lighten($font-gold, 10%);
         }
       }
     }
@@ -226,6 +228,9 @@ header .container {
             width: 16px;
             height: 16px;
             background-color: #fff;
+            &:hover {
+              background-color: $font-gold;
+            }
           }
           .active-box {
             background-color: #d2b183;
@@ -241,6 +246,11 @@ header .container {
           bottom: 2px;
           .left-arrow img {
             transform: rotate(180deg);
+          }
+          .left-arrow, .right-arrow {
+            &:hover {
+              filter: invert(56%) sepia(20%) saturate(566%) hue-rotate(356deg) brightness(92%) contrast(87%);
+            }
           }
         }
       }
@@ -482,6 +492,10 @@ header .container {
           background-color: #999999;
           border-radius: 50%;
           margin-right: 20px;
+          &:hover {
+            cursor: pointer;
+            background-color: #710707;
+          }
         }
         .video-circle:last-of-type {
           margin: 0;
@@ -531,7 +545,7 @@ header .container {
             height: auto;
           }
           &:hover {
-            box-shadow: 0 0 5px 5px lighten($font-gold, 15%);
+            box-shadow: 0 0 5px 5px lighten($font-gold, 10%);
             transform: scale(1.05);
           }
           &:nth-child(3n+1) { order: 1; }
@@ -695,11 +709,11 @@ header .container {
         color: #fff;
         transition: all 0.2s ease-in-out;
         &:hover {
-          transform: scale(1.1);
+          color: #000;
           background-color: $font-gold;
         }
         &:active {
-          background-color: #897150;
+          background-color: lighten($font-gold, 10%);
         }
       }
     }
@@ -821,14 +835,14 @@ footer {
       line-height: 22px;
       letter-spacing: 2px;
       transition: transform 0.35s ease-in-out;
-      &:nth-of-type(2) {
-        position: relative;
-        left: 17px;
-      }
       &:hover {
         color: $font-gold;
         transform: scale(1.2);
       }
+    }
+    a:first-of-type {
+      position: relative;
+      left: 31px;
     }
   }
 }
