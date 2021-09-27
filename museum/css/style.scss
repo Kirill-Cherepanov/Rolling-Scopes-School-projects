@@ -4,6 +4,17 @@ $bg-white: #dbdbdb;
 $dark-red: #710707;
 $font-gold: #9d8665;
 
+@function getFormulae($w1, $w2, $d1, $d2) {
+  $k: #{ ($w1 - $w2) / ($d1 - $d2) };
+  $c: #{ $w1 + (-1) * ($w1 - $w2) / ($d1 - $d2) * $d1};
+  @if #{$c} > 0 {
+    @return calc( #{$k} * 100% + #{$c} );
+  }
+  @else {
+    @return calc( #{$k} * 100% + #{ -1 * $c} );
+  }
+}
+
 // Overall styling
 html {
   box-sizing: border-box;
@@ -18,12 +29,12 @@ html {
 }
 a {
   transition: transform 0.35s ease-in-out;
-    &:hover {
+  &:hover, &:hover > * {
     transform: scale(1.1);
-    color: $font-gold;
+    filter: invert(56%) sepia(23%) saturate(469%) hue-rotate(356deg) brightness(92%) contrast(93%);
   }
-  &:active {
-    color: #7e6c51;
+  &:active, &:active > * {
+    filter: invert(45%) sepia(23%) saturate(534%) hue-rotate(357deg) brightness(89%) contrast(84%);
   }
 }
 
@@ -101,52 +112,138 @@ h3.logo {
   }
 }
 // Navigation
-nav ul {
-  display: flex;
-  align-items: center;
-  font-weight: 200;
-  font-size: 22px;
-  line-height: 26px;
-  letter-spacing: 2px;
-  li {
-    margin-left: 55px;
-  }
-  li:first-child {
-    margin: 0;
-  }
-}
+// nav ul {
+//   display: flex;
+//   align-items: center;
+//   font-weight: 200;
+//   font-size: 22px;
+//   line-height: 26px;
+//   letter-spacing: 2px;
+//   li {
+//     margin-left: 55px;
+//     &:first-child {
+//       margin: 0;
+//     }
+//   }
+// }
 
 // Header
 header .container {
-  padding-top: 33px;
-  height: 85px;
+  height: 150px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
+  @media (max-width: 1024px) {
+    height: 130px;
+  }
+  nav {
+    flex-basis: 775px;
+    flex-grow: 1;
+    ul {
+      display: flex;
+      align-items: center;
+      font-weight: 200;
+      font-size: 22px;
+      line-height: 26px;
+      letter-spacing: 2px;
+      justify-content: right;
+      li {
+        margin-left: 55px;
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+    @media (max-width: 1024px) {
+      background-color: $bg-dark;
+      width: 30vw;
+      position: absolute;
+      top: 0;
+      left: -30vw;
+      z-index: 5;
+      margin-top: 150px;
+      transition: 0.5s left ease-out;
+      ul {
+        display: block;
+        width: 100%;
+        height: 57.129vw;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 23px;
+        li {
+          width: 119px;
+          margin-bottom: 25px;
+          &:first-child { 
+            margin: 0 0 25px 55px; 
+            padding-top: 35px;
+          }
+          a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .nav-list-decor {
+              display: inline-block;
+              width: 7px;
+              height: 12px;
+              background: no-repeat url(../img/svg/nav-decor.svg);
+            }
+          }
+        }
+      }
+    }
+  }
+  .header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 18px;
+    background-color: #000;
+    .dash {
+      width: 32px;
+      height: 2px;
+      background-color: #fff;
+      transition: 0.5s transform;
+    }
+    &.active-burger .dash {
+      &:nth-of-type(1) { transform: translateY(8px) rotate(-45deg); }
+      &:nth-of-type(2) { display: none; }
+      &:nth-of-type(3) { transform: translateY(-8px) rotate(45deg); }
+    }
+    @media (max-width: 1024px) {
+      display: flex;
+      flex-grow: 1;
+      align-items: flex-end;
+    }
+  }
 }
 
 // Welcome section
 #welcome {
   padding: 0;
   .container {
-    transition: 0.5s all;
-    height: 842px;
+    transition: 0.5s background;
+    height: 810px;
     background: linear-gradient(
         90deg,
-        #000 0%,
-        rgba(0, 0, 0, 0.5) 16.19%,
-        rgba(0, 0, 0, 0) 30.73%
+        #000 31%,
+        rgba(0, 0, 0, 0.5) 46.19%,
+        rgba(0, 0, 0, 0) 60.73%
       ),
       url(../img/welcome-slider/1.jpg);
-    background-size: 1000px 750px;
     background-position: calc(100% - 20px) calc(100% - 60px);
+    background-size: auto calc(100% - 60px);
     background-repeat: no-repeat;
     position: relative;
+    @media (max-width: 1417px) {
+      height: 57.129vw;
+    }
     .louvre-bait {
       width: 598px;
       height: 388px;
-      position: absolute;
-      top: 182px;
+      padding-top: getFormulae(158px, 60px, 1480px, 1020px);
+      position: relative;
+      transition: 0.75s left;
       h2 {
         display: inline-block;
         margin-bottom: 25px;
@@ -159,8 +256,8 @@ header .container {
         letter-spacing: 5px;
         text-transform: uppercase;
         border: none;
-        @media (max-width: ) {
-          
+        @media (max-width: 1200px) {
+          font-size: 50px;
         }
       }
       p {
@@ -170,19 +267,24 @@ header .container {
         font-size: 28px;
         line-height: 33px;
         letter-spacing: 2px;
+        @media (max-width: 1200px) {
+          font-size: 24px;
+          line-height: 28px;
+          margin-bottom: 50px;
+        }
       }
       .discover-btn {
         display: block;
         width: 360px;
         height: 75px;
         line-height: 75px;
-        text-align :center;
+        text-align: center;
         background: $dark-red;
         border-radius: 10px;
         font-weight: 300;
         font-size: 22px;
         letter-spacing: 2px;
-        transition: 0.2s all;
+        transition: 0.2s background-color;
         &:hover {
           color: white;
           transform: scale(1);
@@ -192,24 +294,29 @@ header .container {
           color: white;
           background-color: lighten($font-gold, 10%);
         }
+        @media (max-width: 1200px) {
+          width: 300px;
+          height: 60px;
+          font-size: 20px;
+          line-height: 60px;
+        }
       }
     }
     .slider-wrapper {
-      width: 600px;
+      width: calc(-0.21739130434782608 * (100% - 1480px) + 600px);
       height: 120px;
       position: absolute;
       bottom: 0;
-      right: 0;
+      right: 20px;
       background-color: $bg-dark;
       display: flex;
+      justify-content: right;
       align-items: center;
       .slider {
-        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         .slider-counter {
-          margin-left: 74px;
           margin-right: 55px;
           width: 76px;
           font-weight: normal;
@@ -218,6 +325,10 @@ header .container {
           text-transform: uppercase;
           display: flex;
           justify-content: space-between;
+          @media (max-width: 1024px) {
+            font-size: 20px;
+            margin-right: 45px;
+          }
         }
         .slider-index {
           display: flex;
@@ -228,9 +339,6 @@ header .container {
             width: 16px;
             height: 16px;
             background-color: #fff;
-            &:hover {
-              background-color: $font-gold;
-            }
           }
           .active-box {
             background-color: #d2b183;
@@ -247,10 +355,25 @@ header .container {
           .left-arrow img {
             transform: rotate(180deg);
           }
-          .left-arrow, .right-arrow {
-            &:hover {
-              filter: invert(56%) sepia(20%) saturate(566%) hue-rotate(356deg) brightness(92%) contrast(87%);
+        }
+        @media (max-width: 1024px) {
+          position: relative;
+          top: 1px;
+          left: 4px;
+          .slider-counter {
+            font-size: 20px;
+            width: 71px;
+            margin-left: 45px;
+          }
+          .slider-index {
+            width: 160px;
+            .slider-white-box {
+              width: 12px;
+              height: 12px;
             }
+          }
+          .slider-arrows {
+            margin-left: 45px;
           }
         }
       }
@@ -811,7 +934,7 @@ footer {
           border-radius: 50%;
           position: relative;
           &:hover {
-            filter: invert(57%) sepia(29%) saturate(389%) hue-rotate(356deg) brightness(89%) contrast(90%);
+            filter: invert(62%) sepia(0%) saturate(107%) hue-rotate(203deg) brightness(96%) contrast(98%);
           }
           img {
             position: absolute;

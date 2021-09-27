@@ -3,12 +3,11 @@ const sliderArrows = document.querySelector('.slider-arrows');
 const indexBoxes = document.querySelector('.slider-index');
 const sliderCounter = document.querySelector('.slider-counter-current');
 const backgrounds = [];
+let currBg = 0;
 
 for (let i = 1; i < 6; i++)  {
-  backgrounds.push(`linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 16.19%, rgba(0, 0, 0, 0) 30.73%), url("./img/welcome-slider/${i}.jpg")`);
+  backgrounds.push(`linear-gradient(90deg, #000 31%, rgba(0, 0, 0, 0.5) 46.19%, rgba(0, 0, 0, 0) 60.73%), url("./img/welcome-slider/${i}.jpg")`);
 }
-
-let currBg = 0;
 
 sliderArrows.addEventListener('mousedown', e => {
   let arrow = e.target.closest('button');
@@ -43,14 +42,13 @@ function changeBg(from, to, direction = to - from > 0 ? true : false) {
     indexBoxes.children[to].classList.add('active-box');
     sliderCounter.textContent = `0${to + 1}`;
 
-
     welcome.style.backgroundImage = backgrounds[to];
     welcome.style.transitionDuration = '0s';
     welcome.style.backgroundPositionX = !direction ? '400%, 400%' : '-300%, -300%';
 
     setTimeout(() => {
       welcome.style.transitionDuration = '0.5s';
-      welcome.style.backgroundPositionX = '100%, 100%';
+      welcome.style.backgroundPositionX = 'calc(100% - 20px), calc(100% - 20px)';
     }, 50)
   }, 400)
 };
