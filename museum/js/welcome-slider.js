@@ -1,4 +1,4 @@
-const welcome = document.querySelector('#welcome .container');
+const container = document.querySelector('#welcome .container .louvre-bait');
 const sliderArrows = document.querySelector('.slider-arrows');
 const indexBoxes = document.querySelector('.slider-index');
 const sliderCounter = document.querySelector('.slider-counter-current');
@@ -34,7 +34,7 @@ function changeBg(from, to, direction = to - from > 0 ? true : false) {
   if (direction && to === 5) to = 0;
   else if (!direction && to === -1) to = 4;
   currBg = to;
-  welcome.style.backgroundPositionX = direction ? '400%, 400%' : '-300%, -300%';
+  container.style.backgroundPositionX = direction ? '400%, 400%' : '-200%, -200%';
 
   setTimeout(() => {
     console.log(from);
@@ -42,13 +42,13 @@ function changeBg(from, to, direction = to - from > 0 ? true : false) {
     indexBoxes.children[to].classList.add('active-box');
     sliderCounter.textContent = `0${to + 1}`;
 
-    welcome.style.backgroundImage = backgrounds[to];
-    welcome.style.transitionDuration = '0s';
-    welcome.style.backgroundPositionX = !direction ? '400%, 400%' : '-300%, -300%';
+    container.style.backgroundImage = backgrounds[to];
+    container.style.transitionDuration = '0s';
+    container.style.backgroundPositionX = !direction ? '400%, 400%' : '-200%, -200%';
 
     setTimeout(() => {
-      welcome.style.transitionDuration = '0.5s';
-      welcome.style.backgroundPositionX = 'calc(100% - 20px), calc(100% - 20px)';
+      container.style.transitionDuration = '0.5s';
+      container.style.backgroundPositionX = '100%, 100%';
     }, 50)
   }, 400)
 };
