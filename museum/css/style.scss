@@ -1432,12 +1432,16 @@ header .container {
 
 // Parallax
 .parallax {
+  margin: 900px 0;
   height: 400px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("../img/parallax.jpg");
+  @media (max-width: 768px) {
+    height: 300px;
+  }
 }
 
 // Contacts section

@@ -2091,12 +2091,19 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
 }
 
 .parallax {
+  margin: 900px 0;
   height: 400px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("../img/parallax.jpg");
+}
+
+@media (max-width: 768px) {
+  .parallax {
+    height: 300px;
+  }
 }
 
 #contacts .container h2 {
