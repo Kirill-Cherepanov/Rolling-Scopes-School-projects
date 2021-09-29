@@ -507,23 +507,6 @@
             </div>
             <div class="card-form">
               <div class="card-front">
-                <label for="card-number">Card Number</label>
-                <input
-                  type="number"
-                  id="card-number"
-                  min="100000000000000"
-                  max="9999999999999999"
-                  required="required"
-                />
-                <label>Expiration date</label>
-                <div class="expiration-month">
-                  <input type="number" min="1" max="12" value="03" required="required" />
-                </div>
-                <div class="expiration-year">
-                  <input type="number" min="2021" value="2024" required="required" />
-                </div>
-                <label for="name">Cardholder name</label>
-                <input type="text" id="name" required="required" />
                 <img
                   src="./img/svg/Visa.svg"
                   alt="Visa logo"
@@ -534,6 +517,19 @@
                   alt="Mastercard logo"
                   class="mc-logo"
                 />
+                <label for="card-number">Card Number</label>
+                <input
+                  type="number"
+                  id="card-number"
+                  min="100000000000000"
+                  max="9999999999999999"
+                  required="required"
+                />
+                <label>Expiration date</label>
+                <input type="number" class="expiration-month" min="1" max="12" value="03" required="required" />
+                <input type="number" class="expiration-year" min="2021" value="2024" required="required" />
+                <label for="name">Cardholder name</label>
+                <input type="text" id="name" required="required" />
               </div>
               <div class="card-back">
                 <div class="black-line"></div>

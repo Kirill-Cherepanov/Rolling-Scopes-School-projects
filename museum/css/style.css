@@ -2472,6 +2472,7 @@ aside.booking-ticket {
   height: 100%;
   width: 100%;
   position: fixed;
+  overflow-y: scroll;
   top: 0;
   left: 0;
   z-index: 9;
@@ -2479,18 +2480,54 @@ aside.booking-ticket {
 }
 
 aside.booking-ticket .container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
   background-color: #fff;
   width: 1440px;
   height: 845px;
-  position: fixed;
+  padding: 91px 0;
+  position: relative;
   top: calc((100% - 845px) / 2);
   z-index: 10;
   -webkit-transition: all 0.75s ease-out;
   transition: all 0.75s ease-out;
 }
 
+@media (max-width: 1440px) {
+  aside.booking-ticket .container {
+    width: 100%;
+    left: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  aside.booking-ticket .container {
+    padding: 75px 0 30px;
+    height: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  aside.booking-ticket .container {
+    top: 0;
+    width: 590px;
+    padding: 80px 30px 40px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  aside.booking-ticket .container {
+    width: 100%;
+    padding-bottom: 50px;
+  }
+}
+
 aside.booking-ticket .container form.booking-form {
-  padding: 91px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2503,6 +2540,18 @@ aside.booking-ticket .container form.booking-form {
       flex-wrap: wrap;
 }
 
+@media (max-width: 1000px) {
+  aside.booking-ticket .container form.booking-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 aside.booking-ticket .container form.booking-form * {
   color: #030303;
 }
@@ -2511,9 +2560,34 @@ aside.booking-ticket .container form.booking-form .personal-info-column {
   width: 400px;
 }
 
+@media (max-width: 1000px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column {
+    width: 530px;
+    margin-bottom: 51px;
+  }
+}
+
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column {
+    width: 100%;
+  }
+}
+
 aside.booking-ticket .container form.booking-form .personal-info-column .head {
   border-bottom: 3px solid #710707;
   margin-bottom: 58px;
+}
+
+@media (max-width: 1000px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column .head {
+    margin-bottom: 39px;
+  }
+}
+
+@media (max-width: 420px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column .head {
+    margin-bottom: 40px;
+  }
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .head .logo-img {
@@ -2534,6 +2608,13 @@ aside.booking-ticket .container form.booking-form .personal-info-column .head h2
   color: #9d8665;
 }
 
+@media (max-width: 420px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column .head h2 {
+    font-size: 32px;
+    line-height: 35px;
+  }
+}
+
 aside.booking-ticket .container form.booking-form .personal-info-column .head h3 {
   font-weight: normal;
   font-size: 18px;
@@ -2542,72 +2623,17 @@ aside.booking-ticket .container form.booking-form .personal-info-column .head h3
   margin-bottom: 10px;
 }
 
-aside.booking-ticket .container form.booking-form .personal-info-column select {
-  padding-bottom: 12px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: transparent url(../img/svg/input-options.svg) no-repeat 100% center;
-  background-position-x: calc(100% - 13px);
-  font-weight: 300;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column select option:checked,
-aside.booking-ticket .container form.booking-form .personal-info-column select option:hover {
-  background: #e7e7e7 !important;
-  -webkit-box-shadow: 0 0 10px 100px #e7e7e7 inset !important;
-          box-shadow: 0 0 10px 100px #e7e7e7 inset !important;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column select:focus option:checked {
-  background: #e7e7e7 !important;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column input[type="date"] {
-  margin-right: 16px;
-  width: 190px;
-  font-size: 15px;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column input[type="date"]::-webkit-calendar-picker-indicator {
-  background: url(../img/svg/input-options.svg) no-repeat;
-  width: 17px;
-  height: 17px;
-  position: relative;
-  left: 6px;
-  top: 5px;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column input[type="date"]:not(.has-value):before {
-  display: inline-block;
-  width: 38px;
-  height: 21px;
-  content: "Date";
-  padding-right: 44px;
+aside.booking-ticket .container form.booking-form .personal-info-column input, aside.booking-ticket .container form.booking-form .personal-info-column select {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #030303;
+  font-weight: normal;
   font-size: 18px;
-  position: relative;
-  top: 2px;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column input[type="time"] {
-  width: 190px;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column input[type="time"]::-webkit-calendar-picker-indicator {
-  background: url(../img/svg/input-options.svg) no-repeat;
-  width: 17px;
-  height: 17px;
-  position: relative;
-  left: 6px;
-  top: 5px;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column input[type="time"]:not(.has-value):before {
-  content: "Time";
-  padding-right: 57px;
-  font-size: 18px;
-  position: relative;
-  top: 2px;
+  line-height: 21px;
+  margin-bottom: 20px;
+  height: 45px;
+  width: 100%;
+  padding: 10px 14px 13px 45px;
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler {
@@ -2627,7 +2653,22 @@ aside.booking-ticket .container form.booking-form .personal-info-column .icon-ha
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.date {
+  width: calc((100% - 20px) / 2);
+  margin-right: 16px;
   display: inline-block;
+}
+
+@media (max-width: 1000px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.date {
+    width: calc((100% - 28px) / 2);
+    margin-right: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.date {
+    width: 100%;
+  }
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.date::before {
@@ -2638,8 +2679,46 @@ aside.booking-ticket .container form.booking-form .personal-info-column .icon-ha
   background-image: url(../img/svg/calendar.svg);
 }
 
-aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time {
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.date input {
+  width: 100%;
+  font-size: 15px;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.date input::-webkit-calendar-picker-indicator {
+  background: url(../img/svg/input-options.svg) no-repeat;
+  width: 17px;
+  height: 17px;
+  position: relative;
+  left: 6px;
+  top: 5px;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.date input:not(.has-value):before {
   display: inline-block;
+  width: 38px;
+  height: 21px;
+  content: "Date";
+  padding-right: calc(100% - 85px);
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time {
+  width: calc((100% - 20px) / 2);
+  display: inline-block;
+}
+
+@media (max-width: 1000px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time {
+    width: calc((100% - 28px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time {
+    width: 100%;
+  }
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time::before {
@@ -2648,6 +2727,27 @@ aside.booking-ticket .container form.booking-form .personal-info-column .icon-ha
   top: 15px;
   left: 15px;
   background-image: url(../img/svg/clock.svg);
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time input {
+  width: 100%;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time input::-webkit-calendar-picker-indicator {
+  background: url(../img/svg/input-options.svg) no-repeat;
+  width: 17px;
+  height: 17px;
+  position: relative;
+  left: 6px;
+  top: 5px;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time input:not(.has-value):before {
+  content: "Time";
+  padding-right: calc(100% - 72px);
+  font-size: 18px;
+  position: relative;
+  top: 2px;
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.email::before {
@@ -2678,17 +2778,25 @@ aside.booking-ticket .container form.booking-form .personal-info-column .icon-ha
   margin-bottom: 20px;
 }
 
-aside.booking-ticket .container form.booking-form .personal-info-column input, aside.booking-ticket .container form.booking-form .personal-info-column select {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: 1px solid #030303;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  margin-bottom: 20px;
-  height: 45px;
-  width: 400px;
-  padding: 10px 14px 13px 45px;
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler select {
+  padding-bottom: 12px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent url(../img/svg/input-options.svg) no-repeat 100% center;
+  background-position-x: calc(100% - 13px);
+  font-weight: 300;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler select option:checked,
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler select option:hover {
+  background: #e7e7e7 !important;
+  -webkit-box-shadow: 0 0 10px 100px #e7e7e7 inset !important;
+          box-shadow: 0 0 10px 100px #e7e7e7 inset !important;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler select:focus option:checked {
+  background: #e7e7e7 !important;
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .entry-ticket {
@@ -2698,9 +2806,9 @@ aside.booking-ticket .container form.booking-form .personal-info-column .entry-t
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
-  width: 400px;
+  width: 100%;
   height: auto;
-  padding: 10px 15px 15px;
+  padding: 10px 15px 13px;
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .entry-ticket h5 {
@@ -2759,16 +2867,22 @@ aside.booking-ticket .container form.booking-form .personal-info-column .entry-t
   color: #fff;
 }
 
-aside.booking-ticket .container form.booking-form .personal-info-column .entry-ticket .counter .ticket-counter .counter-number {
+aside.booking-ticket .container form.booking-form .personal-info-column .entry-ticket .counter .ticket-counter input.counter-number {
   padding: 0;
   margin: 0;
   width: 35px;
   height: 25px;
   padding: 0;
   margin: 0;
-  text-align: right;
+  text-align: center;
   position: relative;
   font-weight: normal;
+}
+
+aside.booking-ticket .container form.booking-form .personal-info-column .entry-ticket .counter .ticket-counter input.counter-number::-webkit-outer-spin-button, aside.booking-ticket .container form.booking-form .personal-info-column .entry-ticket .counter .ticket-counter input.counter-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
 }
 
 aside.booking-ticket .container form.booking-form .payment-info-column {
@@ -2781,12 +2895,38 @@ aside.booking-ticket .container form.booking-form .payment-info-column {
   position: relative;
 }
 
+@media (max-width: 1000px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 25px 15px 0 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column {
+    width: 100%;
+    height: 885px;
+  }
+}
+
 aside.booking-ticket .container form.booking-form .payment-info-column .booking-louvre-img {
   width: 150px;
   height: 120px;
-  position: absolute;
-  left: 350px;
-  top: 25px;
+  float: right;
+  clear: both;
+}
+
+@media (max-width: 420px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .booking-louvre-img {
+    width: 120px;
+    height: 96px;
+  }
 }
 
 aside.booking-ticket .container form.booking-form .payment-info-column h3 {
@@ -2887,6 +3027,12 @@ aside.booking-ticket .container form.booking-form .payment-info-column .total sp
   font-weight: 500;
 }
 
+@media (max-width: 1000px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .total {
+    margin-bottom: 15px;
+  }
+}
+
 aside.booking-ticket .container form.booking-form .payment-info-column .card-form {
   position: relative;
   height: 241px;
@@ -2903,6 +3049,31 @@ aside.booking-ticket .container form.booking-form .payment-info-column .card-fro
   z-index: 1;
 }
 
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-front {
+    width: 330px;
+    height: 209px;
+  }
+}
+
+@media (max-width: 420px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-front {
+    width: 100%;
+  }
+}
+
+aside.booking-ticket .container form.booking-form .payment-info-column .card-front .visa-logo {
+  float: right;
+  clear: both;
+  margin-top: 20px;
+}
+
+aside.booking-ticket .container form.booking-form .payment-info-column .card-front .mc-logo {
+  float: right;
+  clear: both;
+  margin-top: 15px;
+}
+
 aside.booking-ticket .container form.booking-form .payment-info-column .card-front label {
   display: block;
   font-size: 12px;
@@ -2914,46 +3085,49 @@ aside.booking-ticket .container form.booking-form .payment-info-column .card-fro
 aside.booking-ticket .container form.booking-form .payment-info-column .card-front input {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  display: block;
+  display: inline-block;
   height: 35px;
   margin-bottom: 10px;
   border: none;
   padding: 10px;
+  border: 0.5px solid #A4A4A3;
 }
 
 aside.booking-ticket .container form.booking-form .payment-info-column .card-front #card-number {
   width: 215px;
 }
 
-aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-month,
-aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-year {
-  display: inline-block;
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-front #card-number {
+    width: calc(100% - 73px);
+  }
 }
 
-aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-month input,
-aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-year input {
+aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-month,
+aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-year {
   margin-bottom: 10px;
   width: 100px;
+}
+
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-month,
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-year {
+    width: calc((100% - 88px) / 2);
+  }
 }
 
 aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-month {
   margin-right: 10px;
 }
 
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-front .expiration-month {
+    margin-right: 10px;
+  }
+}
+
 aside.booking-ticket .container form.booking-form .payment-info-column .card-front #name {
-  width: 320px;
-}
-
-aside.booking-ticket .container form.booking-form .payment-info-column .card-front .visa-logo {
-  position: absolute;
-  left: 285px;
-  top: 34px;
-}
-
-aside.booking-ticket .container form.booking-form .payment-info-column .card-front .mc-logo {
-  position: absolute;
-  left: 287px;
-  top: 65px;
+  width: calc(100% + 2px);
 }
 
 aside.booking-ticket .container form.booking-form .payment-info-column .card-back {
@@ -2963,9 +3137,30 @@ aside.booking-ticket .container form.booking-form .payment-info-column .card-bac
   width: 360px;
   background-color: #939393;
   padding: 25px 0 15px;
-  position: absolute;
+  position: relative;
   left: 110px;
-  top: 30px;
+  bottom: 181px;
+}
+
+@media (max-width: 1000px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-back {
+    left: 140px;
+  }
+}
+
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-back {
+    left: 0;
+    top: 0;
+    margin-top: 25px;
+    width: 330px;
+  }
+}
+
+@media (max-width: 420px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column .card-back {
+    width: 100%;
+  }
 }
 
 aside.booking-ticket .container form.booking-form .payment-info-column .card-back .black-line {
@@ -2978,7 +3173,7 @@ aside.booking-ticket .container form.booking-form .payment-info-column .card-bac
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 75px;
-  margin-left: 265px;
+  margin-left: calc(100% - 95px);
   text-align: center;
 }
 
@@ -3031,11 +3226,24 @@ aside.booking-ticket .container form.booking-form .payment-info-column button.bo
   font-size: 22px;
   line-height: 26px;
   display: block;
-  margin: 26px 0 0 auto;
+  margin: 26px 0 25px auto;
   position: relative;
   overflow: hidden;
   -webkit-transition: all 400ms;
   transition: all 400ms;
+}
+
+@media (max-width: 1024px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column button.book-btn {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+
+@media (max-width: 600px) {
+  aside.booking-ticket .container form.booking-form .payment-info-column button.book-btn {
+    top: 216px;
+  }
 }
 
 aside.booking-ticket .container button.close-booking-form {
@@ -3044,6 +3252,12 @@ aside.booking-ticket .container button.close-booking-form {
   height: 30px;
   right: 30px;
   top: 30px;
+}
+
+@media (max-width: 1024px) {
+  aside.booking-ticket .container button.close-booking-form {
+    right: 27px;
+  }
 }
 
 aside.booking-ticket .container button.close-booking-form .line {
