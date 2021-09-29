@@ -1750,25 +1750,23 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 }
 
-#tickets .container h2 {
-  margin-bottom: 75px;
-}
-
-#tickets .container img {
-  width: 720px;
-  height: 550px;
-  margin-right: 60px;
-}
-
 #tickets .container form.buy-tickets {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: calc(100% - 780px);
-  vertical-align: top;
+}
+
+@media (max-width: 420px) {
+  #tickets .container form.buy-tickets {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 #tickets .container form.buy-tickets [type="radio"]:checked,
@@ -1828,18 +1826,51 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   transform: scale(1);
 }
 
-#tickets .container form.buy-tickets h3,
-#tickets .container form.buy-tickets h4 {
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 33px;
+#tickets .container form.buy-tickets input::-webkit-outer-spin-button,
+#tickets .container form.buy-tickets input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
 }
 
-#tickets .container form.buy-tickets h3 {
-  letter-spacing: 1.65px;
+#tickets .container form.buy-tickets .tickets__img-wrapper {
+  background: center no-repeat url("../img/tickets/tickets-img.jpg");
+  background-size: cover;
+  width: 720px;
+  height: 550px;
+}
+
+@media (max-width: 1024px) {
+  #tickets .container form.buy-tickets .tickets__img-wrapper {
+    width: 700px;
+    height: 440px;
+  }
+}
+
+@media (max-width: 768px) {
+  #tickets .container form.buy-tickets .tickets__img-wrapper {
+    width: 444px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 420px) {
+  #tickets .container form.buy-tickets .tickets__img-wrapper {
+    width: 100%;
+    height: 160px;
+  }
+}
+
+#tickets .container form.buy-tickets .ticket-types {
+  margin-left: 60px;
+  -ms-flex-preferred-size: 480px;
+      flex-basis: 480px;
 }
 
 #tickets .container form.buy-tickets .ticket-types h4 {
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
   margin-bottom: 50px;
 }
 
@@ -1852,27 +1883,103 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   margin-right: 22px;
 }
 
+@media (max-width: 1024px) {
+  #tickets .container form.buy-tickets .ticket-types {
+    display: none;
+  }
+}
+
 #tickets .container form.buy-tickets .amounts {
   text-align: right;
 }
 
+@media (max-width: 1024px) {
+  #tickets .container form.buy-tickets .amounts {
+    margin-left: 30px;
+    margin-right: 29px;
+  }
+}
+
+@media (max-width: 768px) {
+  #tickets .container form.buy-tickets .amounts {
+    margin-right: 49px;
+  }
+}
+
+@media (max-width: 420px) {
+  #tickets .container form.buy-tickets .amounts {
+    margin: auto;
+    width: 175px;
+    margin: 40px auto 0;
+  }
+}
+
 #tickets .container form.buy-tickets .amounts h4 {
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
   margin-bottom: 25px;
+}
+
+@media (max-width: 1024px) {
+  #tickets .container form.buy-tickets .amounts h4 {
+    text-align: left;
+    margin-bottom: 29px;
+  }
+}
+
+@media (max-width: 768px) {
+  #tickets .container form.buy-tickets .amounts h4 {
+    margin-bottom: 39px;
+  }
+}
+
+@media (max-width: 420px) {
+  #tickets .container form.buy-tickets .amounts h4 {
+    text-align: center;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 20px;
+  }
 }
 
 #tickets .container form.buy-tickets .amounts label {
   display: block;
+  margin: 10px 0 15px 25px;
   text-align: left;
-  margin-left: 25px;
-  margin-top: 10px;
   font-weight: 300;
   font-size: 22px;
   line-height: 26px;
 }
 
+@media (max-width: 1024px) {
+  #tickets .container form.buy-tickets .amounts label {
+    margin: 29px 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #tickets .container form.buy-tickets .amounts label {
+    margin: 25px 0 10px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  #tickets .container form.buy-tickets .amounts label {
+    margin: 20px 0 15px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
 #tickets .container form.buy-tickets .amounts .ticket-counter {
-  width: 144px;
-  height: 44px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 150px;
+  height: 50px;
   border: 3px solid #000;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1885,14 +1992,18 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
           align-items: center;
 }
 
+@media (max-width: 1024px) {
+  #tickets .container form.buy-tickets .amounts .ticket-counter {
+    width: 175px;
+  }
+}
+
 #tickets .container form.buy-tickets .amounts .ticket-counter button {
   font-weight: normal;
   font-size: 32px;
   line-height: 37px;
   text-align: center;
   margin: 0 14px;
-  position: relative;
-  top: 2px;
 }
 
 #tickets .container form.buy-tickets .amounts .ticket-counter input.counter-number {
@@ -1902,11 +2013,52 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   font-weight: 300;
   font-size: 22px;
   line-height: 26px;
-  text-align: right;
+  text-align: center;
 }
 
 #tickets .container form.buy-tickets .amounts h3 {
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 1.65px;
   margin: 50px 0 60px;
+}
+
+@media (max-width: 1024px) {
+  #tickets .container form.buy-tickets .amounts h3 {
+    margin: 25px 0 69px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  #tickets .container form.buy-tickets .amounts h3 {
+    margin: 39px 0 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  #tickets .container form.buy-tickets .amounts h3 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0;
+    margin: 40px 0 40px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  #tickets .container form.buy-tickets .amounts h3 .total-amount {
+    display: inline-block;
+    margin-left: 17px;
+  }
+}
+
+@media (max-width: 420px) {
+  #tickets .container form.buy-tickets .amounts h3 .total-amount {
+    margin-left: 0;
+  }
 }
 
 #tickets .container form.buy-tickets .amounts button.buy-now {
@@ -1920,6 +2072,13 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   color: #fff;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 420px) {
+  #tickets .container form.buy-tickets .amounts button.buy-now {
+    font-size: 16px;
+    line-height: 0px;
+  }
 }
 
 #tickets .container form.buy-tickets .amounts button.buy-now:hover {

@@ -1190,152 +1190,241 @@ header .container {
 }
 
 // Tickets section
-#tickets .container {
-  h2 {
-    margin-bottom: 75px;
+#tickets .container form.buy-tickets {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 420px) {
+    flex-direction: column;
   }
-  img {
+  // Radio decoration
+  [type="radio"]:checked,
+  [type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="radio"]:checked + label,
+  [type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+  }
+  [type="radio"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 17px;
+    height: 17px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    border-radius: 100%;
+  }
+  [type="radio"]:checked + label:after,
+  [type="radio"]:not(:checked) + label:after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: #000;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  // Remove increamentors in input
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+  }
+  .tickets__img-wrapper {
+    background: center no-repeat url("../img/tickets/tickets-img.jpg");
+    background-size: cover;
     width: 720px;
     height: 550px;
-    margin-right: 60px;
+    @media (max-width: 1024px) {
+      width: 700px;
+      height: 440px;
+    }
+    @media (max-width: 768px) {
+      width: 444px;
+      height: 340px;
+    }
+    @media (max-width: 420px) {
+      width: 100%;
+      height: 160px;
+    }
   }
-  form.buy-tickets {
-    display: inline-flex;
-    justify-content: space-between;
-    width: calc(100% - 780px);
-    vertical-align: top;
-
-    [type="radio"]:checked,
-    [type="radio"]:not(:checked) {
-      position: absolute;
-      left: -9999px;
-    }
-    [type="radio"]:checked + label,
-    [type="radio"]:not(:checked) + label {
-      position: relative;
-      padding-left: 40px;
-      cursor: pointer;
-      display: inline-block;
-      font-weight: 300;
-      font-size: 22px;
-      line-height: 26px;
-    }
-    [type="radio"]:checked + label:before,
-    [type="radio"]:not(:checked) + label:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 5px;
-      width: 17px;
-      height: 17px;
-      border: 2px solid #000;
-      box-sizing: border-box;
-      border-radius: 100%;
-    }
-    [type="radio"]:checked + label:after,
-    [type="radio"]:not(:checked) + label:after {
-      content: "";
-      width: 7px;
-      height: 7px;
-      background: #000;
-      position: absolute;
-      top: 10px;
-      left: 5px;
-      border-radius: 100%;
-      -webkit-transition: all 0.2s ease;
-      transition: all 0.2s ease;
-    }
-    [type="radio"]:not(:checked) + label:after {
-      opacity: 0;
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    [type="radio"]:checked + label:after {
-      opacity: 1;
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    h3,
+  .ticket-types {
+    margin-left: 60px;
+    flex-basis: 480px;
     h4 {
       font-weight: bold;
       font-size: 28px;
       line-height: 33px;
+      margin-bottom: 50px;
+    }
+    li {
+      margin-top: 25px;
+    }
+    input {
+      margin: 0;
+      margin-right: 22px;
+    }
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+  .amounts {
+    text-align: right;
+    @media (max-width: 1024px) {
+      margin-left: 30px;
+      margin-right: 29px;
+    }
+    @media (max-width: 768px) {
+      margin-right: 49px;
+    }
+    @media (max-width: 420px) {
+      margin: auto;
+      width: 175px;
+      margin: 40px auto 0;
+    }
+    h4 {
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 33px;
+      margin-bottom: 25px;
+      @media (max-width: 1024px) {
+        text-align: left;
+        margin-bottom: 29px;
+      }
+      @media (max-width: 768px) {
+        margin-bottom: 39px;
+      }
+      @media (max-width: 420px) {
+        text-align: center;
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 20px;
+      }
+    }
+    label {
+      display: block;
+      margin: 10px 0 15px 25px;
+      text-align: left;
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 26px;
+      @media (max-width: 1024px) {
+        margin: 29px 0 10px;
+      }
+      @media (max-width: 768px) {
+        margin: 25px 0 10px;
+        margin-left: 0;
+      }
+      @media (max-width: 420px) {
+        margin: 20px 0 15px;
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+    .ticket-counter {
+      flex-shrink: 0;
+      box-sizing: border-box;
+      width: 150px;
+      height: 50px;
+      border: 3px solid #000;
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      @media (max-width: 1024px) {
+        width: 175px;
+      }
+      button {
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 37px;
+        text-align: center;
+        margin: 0 14px;
+      }
+      input.counter-number {
+        border: 0;
+        padding: 0;
+        width: 38px;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 26px;
+        text-align: center;
+      }
     }
     h3 {
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 33px;
       letter-spacing: 1.65px;
-    }
-    .ticket-types {
-      h4 {
-        margin-bottom: 50px;
-      }
-      li {
-        margin-top: 25px;
-      }
-      input {
-        margin: 0;
-        margin-right: 22px;
-      }
-    }
-    .amounts {
-      text-align: right;
-      h4 {
-        margin-bottom: 25px;
-      }
-      label {
-        display: block;
+      margin: 50px 0 60px;
+      @media (max-width: 1024px) {
+        margin: 25px 0 69px;
         text-align: left;
-        margin-left: 25px;
-        margin-top: 10px;
-        font-weight: 300;
-        font-size: 22px;
-        line-height: 26px;
       }
-      .ticket-counter {
-        width: 144px;
-        height: 44px;
-        border: 3px solid #000;
-        display: inline-flex;
-        justify-content: space-between;
-        align-items: center;
-        button {
-          font-weight: normal;
-          font-size: 32px;
-          line-height: 37px;
-          text-align: center;
-          margin: 0 14px;
-          position: relative;
-          top: 2px;
+      @media (max-width: 768px) {
+        margin: 39px 0 40px;
+      }
+      @media (max-width: 420px) {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0;
+        margin: 40px 0 40px;
+        text-align: center;
+      }
+      .total-amount {
+        @media (max-width: 1024px) {
+          display: inline-block;
+          margin-left: 17px;
         }
-        input.counter-number {
-          border: 0;
-          padding: 0;
-          width: 38px;
-          font-weight: 300;
-          font-size: 22px;
-          line-height: 26px;
-          text-align: right;
+        @media (max-width: 420px) {
+          margin-left: 0;
         }
       }
-      h3 {
-        margin: 50px 0 60px;
+    }
+    button.buy-now {
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 26px;
+      letter-spacing: 2px;
+      width: 175px;
+      height: 50px;
+      background: #000;
+      color: #fff;
+      transition: all 0.2s ease-in-out;
+      @media (max-width: 420px) {
+        font-size: 16px;
+        line-height: 0px;
       }
-      button.buy-now {
-        font-weight: 300;
-        font-size: 22px;
-        line-height: 26px;
-        letter-spacing: 2px;
-        width: 175px;
-        height: 50px;
-        background: #000;
-        color: #fff;
-        transition: all 0.2s ease-in-out;
-        &:hover {
-          color: #000;
-          background-color: $font-gold;
-        }
-        &:active {
-          background-color: lighten($font-gold, 10%);
-        }
+      &:hover {
+        color: #000;
+        background-color: $font-gold;
+      }
+      &:active {
+        background-color: lighten($font-gold, 10%);
       }
     }
   }

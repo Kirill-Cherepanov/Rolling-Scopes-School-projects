@@ -247,18 +247,19 @@
       <section id="tickets" class="bright-section">
         <div class="container">
           <h2>Buy tickets</h2>
-          <img src="img/tickets/tickets-img.jpg" alt="tickets image" 
-          /><form class="buy-tickets">
+          <form class="buy-tickets">
+            <div class="tickets__img-wrapper">
+            </div>
             <div class="ticket-types">
               <h4>Ticket Type</h4>
               <ul>
                 <li>
                   <input type="radio" name="ticket-type" id="permanent" checked/>
-                  <label for="permanent">Permanent exhibition</label><br />
+                  <label for="permanent">Permanent exhibition</label>
                 </li>
                 <li>
                   <input type="radio" name="ticket-type" id="temporary" />
-                  <label for="temporary">Temporary exhibition</label><br />
+                  <label for="temporary">Temporary exhibition</label>
                 </li>
                 <li>
                   <input type="radio" name="ticket-type" id="combined" />
@@ -270,7 +271,7 @@
               <h4>Amount</h4>
               <ul>
                 <li>
-                  <label for="basic-ticket">Basic 18+</label><br>
+                  <label for="basic-ticket">Basic 18+</label>
                   <div class="ticket-counter">
                     <button
                       type="button"
@@ -292,7 +293,7 @@
                   </div>
                 </li>
                 <li>
-                  <label for="senior-ticket">Senior 65+</label><br>
+                  <label for="senior-ticket">Senior 65+</label>
                   <div class="ticket-counter">
                     <button
                       type="button"
@@ -318,7 +319,7 @@
                   </div>
                 </li>
               </ul>
-              <h3>Total €220</h3>
+              <h3>Total €<span class="total-amount">220</span></h3>
               <button class="buy-now">Buy Now</button>
             </div>
           </form>
