@@ -6,7 +6,8 @@ const backgrounds = [];
 let currBg = 0;
 
 for (let i = 1; i < 6; i++)  {
-  backgrounds.push(`linear-gradient(90deg, #000 31%, rgba(0, 0, 0, 0.5) 46.19%, rgba(0, 0, 0, 0) 60.73%), url("./img/welcome-slider/${i}.jpg")`);
+  // backgrounds.push(`linear-gradient(90deg, #000 30.555%, rgba(0, 0, 0, 0.5) 41.745%, rgba(0, 0, 0, 0) 52.285%), url("./img/welcome-slider/${i}.jpg")`);
+  backgrounds.push(['linear-gradient(90deg, #000 30.555%, rgba(0, 0, 0, 0.5) 41.745%, rgba(0, 0, 0, 0) 52.285%)', `url("./img/welcome-slider/${i}.jpg")`]);
 }
 
 sliderArrows.addEventListener('mousedown', e => {
@@ -34,17 +35,25 @@ function changeBg(from, to, direction = to - from > 0 ? true : false) {
   if (direction && to === 5) to = 0;
   else if (!direction && to === -1) to = 4;
   currBg = to;
-  container.style.backgroundPositionX = direction ? '400%, 400%' : '-200%, -200%';
+  if (window.screen.width > 768) {
+    container.style.backgroundPositionX = direction ? '100%, 100vw' : '100%, -80vw';
+  } else {
+    container.style.backgroundPositionX = direction ? '100vw' : '-100vw';
+  }
 
   setTimeout(() => {
-    console.log(from);
     indexBoxes.children[from].classList.remove('active-box');
     indexBoxes.children[to].classList.add('active-box');
     sliderCounter.textContent = `0${to + 1}`;
 
-    container.style.backgroundImage = backgrounds[to];
     container.style.transitionDuration = '0s';
-    container.style.backgroundPositionX = !direction ? '400%, 400%' : '-200%, -200%';
+    if (window.screen.width > 768) {
+      container.style.backgroundPositionX = !direction ? '100%, 100vw' : '100%, -80vw';
+      container.style.backgroundImage = backgrounds[to].join(', ');
+    } else {
+      container.style.backgroundPositionX = !direction ? '100vw' : '-100vw';
+      container.style.backgroundImage = backgrounds[to][1];
+    }
 
     setTimeout(() => {
       container.style.transitionDuration = '0.5s';
