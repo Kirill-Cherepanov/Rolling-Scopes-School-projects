@@ -375,7 +375,11 @@ header .container {
     }
   }
   .header__burger-container {
-    flex-grow: 1;
+    display: none;
+    @media (max-width: 1024px) {
+      display: block;
+      flex-grow: 1;
+    }
   }
   .header__burger {
     display: none;
