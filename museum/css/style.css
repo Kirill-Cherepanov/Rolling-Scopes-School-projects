@@ -1209,6 +1209,10 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
 }
 
 #explore .container .magic {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   margin-top: 15px;
@@ -1265,16 +1269,23 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   z-index: 2;
 }
 
+@media (max-width: 1024px) {
+  #explore .container .magic .separator-container {
+    left: calc(60.5% - 15px);
+    width: 40px;
+  }
+}
+
 @media (max-width: 768px) {
   #explore .container .magic .separator-container {
     left: calc(60.5% - 20px);
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 420px) {
   #explore .container .magic .separator-container {
-    left: calc(60.5% - 10px);
     width: 20px;
+    left: calc(60.5% - 10px);
   }
 }
 
@@ -1289,12 +1300,13 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
 
 @media (max-width: 768px) {
   #explore .container .magic .separator-container:before {
-    height: calc(50% - 4px);
+    height: calc(50% - 9px);
   }
 }
 
 @media (max-width: 420px) {
   #explore .container .magic .separator-container:before {
+    height: calc(50% - 4px);
     width: 3px;
   }
 }
@@ -1325,12 +1337,13 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
 
 @media (max-width: 768px) {
   #explore .container .magic .separator-container:after {
-    height: calc(50% - 16px);
+    height: calc(50% - 31px);
   }
 }
 
 @media (max-width: 420px) {
   #explore .container .magic .separator-container:after {
+    height: calc(50% - 16px);
     width: 3px;
   }
 }
