@@ -1,0 +1,110 @@
+[33mcommit d84aefd7ee27188e0ccf26a476d5a168356ab9d0[m[33m ([m[1;36mHEAD -> [m[1;32mmuseum-adaptive[m[33m)[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Mon Sep 27 19:59:22 2021 +0300
+
+    feat: add Welcome section and footer 1020px adaptive
+
+[33mcommit 9e97fade33add3382209d4abc315b7826b408a6a[m[33m ([m[1;31morigin/gh-pages[m[33m, [m[1;32mgh-pages[m[33m)[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Mon Sep 27 14:05:11 2021 +0300
+
+    feat: finalize the 1st part of the project #2
+
+[33mcommit c5baf636d3c672247368b902cf1b3d2b1f4a648b[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 19:14:01 2021 +0300
+
+    feat: finalize the 1st part of the project (hopefully)
+
+[33mcommit 11c39afbcb9811bb61b175982bf7a739b8441265[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 18:18:47 2021 +0300
+
+    feat: add a whole new level of interactivity
+
+[33mcommit 8660f3271c674cf6dc795d2217c342ffbe079978[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 17:39:28 2021 +0300
+
+    feat: add animation on aside form closure
+
+[33mcommit 7c64d6be2f9efb4444a48a6944cb6253ec5b0b2a[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 17:34:32 2021 +0300
+
+    feat: increase scale on hover in virtual tour
+
+[33mcommit 137ec2a3ea04e4f6f3966e0a269095a2ccdba798[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 15:52:20 2021 +0300
+
+    refactor: fix input date and time placeholders attempt #1 (it works locally)
+
+[33mcommit 36a65e9050c87a5d7438e468f3bd76fe599a4a5d[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 15:30:14 2021 +0300
+
+    refactor: fix some stuff for W3 validation attempt #3
+
+[33mcommit 88f730da9bd50ea8dbe7fee1da9bd08f66e8e2e0[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 15:15:55 2021 +0300
+
+    refactor: fix some stuff for W3 validation attempt #2
+
+[33mcommit 57339661a026fc8bb9105109a13930647117300d[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 15:06:13 2021 +0300
+
+    refactor: fix some stuff for W3 validation attempt #1
+
+[33mcommit fcfbb3ca1ab4ce6f4c5a83a7eafa69f49c4f8e2a[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 14:45:28 2021 +0300
+
+    refactor: fix typo in footer nav, fix url for main video, check the t-type radio in tickets
+
+[33mcommit 15a32fa16b63b5636e1dc501724264ff3cfda444[m
+Merge: 488ecc4 dcc2d50
+Author: KissMyUSSR <52123816+KissMyUSSR@users.noreply.github.com>
+Date:   Sun Sep 26 14:24:19 2021 +0300
+
+    Merge pull request #1 from rolling-scopes-school/museum
+    
+    Museum #1
+
+[33mcommit dcc2d5089a4f2bd0b3f72953c8790ddac922a992[m[33m ([m[1;31morigin/museum[m[33m)[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 26 14:21:57 2021 +0300
+
+    feat: finalize the static version
+
+[33mcommit e64af680f4ec1bc1c09ceadaf905b0bd9e38d57e[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Thu Sep 23 18:25:18 2021 +0300
+
+    feat: finalize the booking ticket form and add the footer
+
+[33mcommit c313b73d9f83dee4e4ae2a711f11e7761d782fd8[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Wed Sep 22 23:59:08 2021 +0300
+
+    feat: add almost the whole 1st-phase content
+
+[33mcommit f63245b634a159b609e7afa5b7ac912ea6f1cc8d[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sun Sep 19 00:12:25 2021 +0300
+
+    feat: add header, welcome, visiting and explore sections
+
+[33mcommit 9790523328dfab300175c39bf822d32df146e651[m
+Author: Kirill Cherepanov <cherkirr@gmail.com>
+Date:   Sat Sep 18 13:13:57 2021 +0300
+
+    feat: add basic file structure and create html structure
+
+[33mcommit 488ecc469f9884e41826d62cdcb6e56a28915c9a[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: rs-app[bot] <57502719+rs-app[bot]@users.noreply.github.com>
+Date:   Thu Sep 2 14:31:52 2021 +0000
+
+    Initial commit

@@ -1,4 +1,4 @@
-const galleryImgContainer = document.querySelector('.columns .wrapper');
+const galleryImgContainer = document.querySelector('.columns');
 let imgArray = [];
 
 for (let i = 1; i < 16; i++) {

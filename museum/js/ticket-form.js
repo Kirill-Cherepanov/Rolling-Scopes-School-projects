@@ -30,13 +30,13 @@ bookBtn.addEventListener("click", event => {
 buyNowBtn.addEventListener("click", event => {
   event.preventDefault();
   bookingTicketForm.hidden = false;
-  setTimeout(() => bookingTicketFormContainer.style.left = `${((window.screen.width - 1440) / 2)}px`, 50);
+  setTimeout(() => bookingTicketFormContainer.style.left = '0', 50);
 });
 
 
 // Close button
 closeBtn.addEventListener("click", event => {
   event.preventDefault();
-  bookingTicketFormContainer.style.left = `${-1 * window.screen.width}px`;
+  bookingTicketFormContainer.style.left = '-120vw';
   setTimeout(() => bookingTicketForm.hidden = true, 550);
 });
