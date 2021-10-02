@@ -437,6 +437,7 @@ header .container {
       height: getFormulaeVW(861px, 545px, 768px, 420px)
     }
     .louvre-bait {
+      touch-action: none;
       width: 100%;
       height: 750px;
       position: relative;
@@ -848,6 +849,7 @@ header .container {
     }
   }
   .magic {
+    touch-action: none;
     user-select: none;
     flex-shrink: 0;
     margin-top: 15px;
@@ -882,6 +884,7 @@ header .container {
       }
     }
     .separator-container {
+      touch-action: none;
       height: 100%;
       width: 40px;
       position: absolute;
@@ -1136,26 +1139,32 @@ header .container {
     @media (max-width: 420px) {
       margin-top: 40px;
     }
-    .video-wrapper {
-      display: flex;
-      width: 100%;
+    .video__slider {
       overflow-x: hidden;
-      iframe {
-        width: calc((100% - 84px) / 3);
-        height: 254px;
-        flex-shrink: 0;
-        margin-right: 42px;
-        @media (max-width: 1480px) {
-          height: getFormulaeVW(254px, 170px, 1480px, 1024px);
-        }
+      .video__slider-wrapper {
+        transform: translateX(calc(-1 * (100% - 84px) / 3 - 42px));
+        display: flex;
+        width: 100%;
         @media (max-width: 768px) {
-          width: calc((100% - 20px) / 2);
-          height: getFormulaeVW(199px, 101px, 768px, 420px);
-          margin-right: 20px;
+          transform: translateX(calc(-1 * (100% - 20px) / 2 - 20px));
+        }
+        iframe {
+          width: calc((100% - 84px) / 3);
+          height: 254px;
+          flex-shrink: 0;
+          margin-right: 42px;
+          @media (max-width: 1480px) {
+            height: getFormulaeVW(254px, 170px, 1480px, 1024px);
+          }
+          @media (max-width: 768px) {
+            width: calc((100% - 20px) / 2);
+            height: getFormulaeVW(199px, 101px, 768px, 420px);
+            margin-right: 20px;
+          }
         }
       }
     }
-    .video-slider {
+    .video__slider-controls {
       display: flex;
       justify-content: center;
       margin-top: 37px;
@@ -1785,7 +1794,7 @@ aside.booking-ticket {
     padding: 91px 0;
     position: relative;
     top: calc((100% - 845px) / 2);
-    left: 100%;
+    left: -100%;
     z-index: 10;
     transition: all 0.75s ease-out;
     @media (max-width: 1440px) {

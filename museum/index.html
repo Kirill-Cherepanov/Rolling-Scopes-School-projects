@@ -13,13 +13,15 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="img/favicon.ico" />
+    <!-- <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
     <title>Museum</title>
   </head>
   <body>
     <h1>
       Louvre
     </h1>
-    <header class="dark-section">
+    <!-- <header class="dark-section">
       <div class="container">
         <h3 class="logo">Louvre</h3>
         <nav style="left: -100vw">
@@ -64,9 +66,9 @@
           </div>
         </div>
       </div>
-    </header>
+    </header> -->
     <main>
-      <section id="welcome" class="dark-section">
+      <!-- <section id="welcome" class="dark-section">
         <div class="container">
           <div class="louvre-bait">
             <div class="welcome__text" style="left: 0">
@@ -100,8 +102,8 @@
             </div>
           </div>
         </div>
-      </section>
-      <section id="visiting" class="bright-section">
+      </section> -->
+      <!-- <section id="visiting" class="bright-section">
         <div class="container">
           <h2>Virtual Tour</h2>
           <div class="v-tour-grid">
@@ -158,8 +160,8 @@
             </a>
           </div>
         </div>
-      </section>
-      <section id="explore" class="dark-section">
+      </section> -->
+      <!-- <section id="explore" class="dark-section">
         <div class="container">
           <div class="picture-story">
             <h2>Picture Explore</h2>
@@ -188,8 +190,8 @@
             </div>
           </div>
         </div>
-      </section>
-      <section id="video" class="bright-section">
+      </section> -->
+      <!-- <section id="video" class="bright-section">
         <div class="container">
           <div class="video__text-wrapper">
             <h2>Video Journey</h2>
@@ -212,15 +214,17 @@
             </div>
           </div>
           <div class="video-block">
-            <div class="video-wrapper">
-              </iframe><iframe src="https://www.youtube.com/embed/aWmJ5DgyWPI?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              <iframe src="https://www.youtube.com/embed/zp1BXPX8jcU?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              </iframe><iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              </iframe><iframe src="https://www.youtube.com/embed/NOhDysLnTvY?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              </iframe><iframe src="https://www.youtube.com/embed/2OR0OCr6uRE?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video__slider">
+              <div class="video__slider-wrapper">
+                </iframe><iframe src="https://www.youtube.com/embed/aWmJ5DgyWPI?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                <iframe src="https://www.youtube.com/embed/zp1BXPX8jcU?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe><iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe><iframe src="https://www.youtube.com/embed/NOhDysLnTvY?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe><iframe src="https://www.youtube.com/embed/2OR0OCr6uRE?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
             </div>
-            <div class="video-slider">
-              <button>
+            <div class="video__slider-controls">
+              <button class="video__next-iframe">
                 <img
                   src="img/svg/left-guille­mets.svg"
                   alt="left arrow"
@@ -234,7 +238,7 @@
                 <div class="video-circle"></div>
                 <div class="video-circle"></div>
               </div>
-              <button>
+              <button class="video__prev-iframe">
                 <img
                   src="img/svg/right-guille­mets.svg"
                   alt="right arrow"
@@ -244,8 +248,8 @@
             </div>
           </div>
         </div>
-      </section>
-      <section id="gallery" class="dark-section">
+      </section> -->
+      <!-- <section id="gallery" class="dark-section">
         <div class="bg-shadow"></div>
           <div class="container">
             <h2>Art Gallery</h2>
@@ -253,7 +257,7 @@
               <script src="js/gallery.js"></script>
           </div>
         </div>
-      </section>
+      </section> -->
       <section id="tickets" class="bright-section">
         <div class="container">
           <h2>Buy tickets</h2>
@@ -286,9 +290,10 @@
                     <button
                       type="button"
                       onclick="this.nextElementSibling.stepDown()"
-                      class="decrease-btn">–</button>
+                      class="tickets__incrementor-btn">–</button>
                     <input
                       type="number"
+                      name="basic-ticket-counter"
                       id="basic-ticket"
                       min="0"
                       max="20"
@@ -299,7 +304,7 @@
                     <button
                       type="button"
                       onclick="this.previousElementSibling.stepUp()"
-                      class="increase-btn">+</button>
+                      class="tickets__incrementor-btn">+</button>
                   </div>
                 </li>
                 <li>
@@ -308,10 +313,11 @@
                     <button
                       type="button"
                       onclick="this.nextElementSibling.stepDown()"
-                      class="increase-btn"
+                      class="tickets__incrementor-btn"
                     >–</button>
                     <input
                       type="number"
+                      name="senior-ticket-counter"
                       id="senior-ticket"
                       min="0"
                       max="20"
@@ -322,21 +328,21 @@
                     <button
                       type="button"
                       onclick="this.previousElementSibling.stepUp()"
-                      class="decrease-btn"
+                      class="tickets__incrementor-btn"
                     >
                       +
                     </button>
                   </div>
                 </li>
               </ul>
-              <h3>Total €<span class="total-amount">220</span></h3>
+              <h3>Total €<span class="total-amount">30</span></h3>
               <button class="buy-now">Buy Now</button>
             </div>
           </form>
         </div>
       </section>
-      <div class="parallax"></div>
-      <section id="contacts" class="bright-section">
+      <!-- <div class="parallax"></div> -->
+      <!-- <section id="contacts" class="bright-section">
         <div class="container">
           <h2>Contacts</h2>
           <div class="contact-info">
@@ -351,9 +357,9 @@
             <div class="contacts__map-img"></div>
           </div>
         </div>
-      </section>
+      </section> -->
     </main>
-    <footer class="dark-section">
+    <!-- <footer class="dark-section">
       <div class="main-footer">
         <div class="container">
           <h3 class="logo">Louvre</h3>
@@ -383,7 +389,7 @@
           <a href="http://https://github.com/kissMyUSSR/" target="_blank">KissMyUSSR</a>
         </div>
       </div>
-    </footer>
+    </footer> -->
     <aside class="booking-ticket bright-section" hidden>
       <div class="container">
         <form class="booking-form">
@@ -423,25 +429,26 @@
             <div class="icon-handler t-type">
               <select name="ticket-type" required="required" size="1">
                 <option value="" disabled hidden selected>Ticket Type</option>
-                <option value="basic">Permanent exhibition</option>
-                <option value="basic">Temporary exhibition</option>
-                <option value="basic">Combined Admission</option>
+                <option value="permanent">Permanent exhibition</option>
+                <option value="temporary">Temporary exhibition</option>
+                <option value="combined">Combined Admission</option>
               </select>
             </div>
             <div class="entry-ticket">
               <h5>Entry Ticket</h5>
               <div class="counter basic">
-                <label for="basic-form">Basic 18+ (20 €)</label>
+                <label for="basic-form">Basic 18+ (<span class="basic-type-cost">20</span> €)</label>
                 <div class="ticket-counter">
                   <button
                     type="button"
                     onclick="this.nextElementSibling.stepDown()"
-                    class="decrease-btn"
+                    class="booking__incrementor-btn"
                   >
                     –
                   </button>
                   <input
                     type="number"
+                    name="basic-counter"
                     id="basic-form"
                     min="0"
                     max="20"
@@ -452,24 +459,25 @@
                   <button
                     type="button"
                     onclick="this.previousElementSibling.stepUp()"
-                    class="increase-btn"
+                    class="booking__incrementor-btn"
                   >
                     +
                   </button>
                 </div>
               </div>
               <div class="counter senior">
-                <label for="senior-form">Senior 65+ (10 €)</label>
+                <label for="senior-form">Senior 65+ (<span class="senior-type-cost">10</span> €)</label>
                 <div class="ticket-counter">
                   <button
                     type="button"
                     onclick="this.nextElementSibling.stepDown()"
-                    class="increase-btn"
+                    class="booking__incrementor-btn"
                   >
                     –
                   </button>
                   <input
                     type="number"
+                    name="senior-counter"
                     id="senior-form"
                     min="0"
                     max="20"
@@ -480,7 +488,7 @@
                   <button
                     type="button"
                     onclick="this.previousElementSibling.stepUp()"
-                    class="decrease-btn"
+                    class="booking__incrementor-btn"
                   >
                     +
                   </button>
@@ -501,15 +509,15 @@
             <p>Temporary exhibition</p>
             <div class="cost basic-cost">
               <span class="counter basic-counter"
-                ><span class="count basic-count">2</span>Basic (20 €)</span
+                ><span class="count basic-count">2</span>Basic (<span class="basic-type-cost">20</span> €)</span
               >
-              <span>40 €</span>
+              <span class="basic-total">40 €</span>
             </div>
             <div class="cost senior-cost">
-              <div class="counter senior-counter">
-                <span class="count senior-count">2</span>Senior (10 €)
-              </div>
-              <div>20 €</div>
+              <span class="counter senior-counter">
+                <span class="count senior-count">2</span>Senior (<span class="senior-type-cost">10</span> €)
+              </span>
+              <span class="senior-total">20 €</span>
             </div>
             <div class="total">
               <span class="total-label">Total: </span>
@@ -562,9 +570,11 @@
       </div>
     </aside>
     
-    <script src="js/header.js"></script>
-    <script src="js/welcome-slider.js"></script>
-    <script src="js/video.js"></script>
+    <!-- <script src="js/header.js"></script> -->
+    <!-- <script src="js/welcome-slider.js"></script> -->
+    <!-- <script src="js/explore.js"></script> -->
+    <!-- <script src="js/video.js"></script> -->
+    <script src="js/tickets.js"></script>
     <script src="js/ticket-form.js"></script>
     <!-- One more script in gallery section -->
   </body>

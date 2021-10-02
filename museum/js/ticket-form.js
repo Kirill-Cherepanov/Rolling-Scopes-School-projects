@@ -1,8 +1,9 @@
 const bookBtn = document.querySelector("button.book-btn");
 const closeBtn = document.querySelector("button.close-booking-form");
-const buyNowBtn = document.querySelector("button.buy-now");
 const bookingTicketForm = document.querySelector("aside.booking-ticket");
 const bookingTicketFormContainer = bookingTicketForm.children[0];
+const bookingForm = document.querySelector("aside.booking-ticket form");
+const bookingIncrementorBtns = document.querySelectorAll('.booking__incrementor-btn');
 
 // Ripple effect button
 bookBtn.addEventListener("click", event => {
@@ -26,13 +27,6 @@ bookBtn.addEventListener("click", event => {
   button.appendChild(circle);
 });
 
-// Open button
-buyNowBtn.addEventListener("click", event => {
-  event.preventDefault();
-  bookingTicketForm.hidden = false;
-  setTimeout(() => bookingTicketFormContainer.style.left = '0', 50);
-});
-
 
 // Close button
 closeBtn.addEventListener("click", event => {
@@ -40,3 +34,37 @@ closeBtn.addEventListener("click", event => {
   bookingTicketFormContainer.style.left = '-120vw';
   setTimeout(() => bookingTicketForm.hidden = true, 550);
 });
+
+
+// Calculate form
+Array.from(bookingIncrementorBtns).forEach(elem => {
+  elem.addEventListener('click', calcForm);
+});
+bookingForm['ticket-type'].addEventListener('click', calcForm);
+
+function calcForm(e) {
+  let typeCost;
+  switch (bookingForm['ticket-type'].selectedIndex) {
+    case 1:
+      typeCost = 20;
+      break;
+    case 2: 
+      typeCost = 25;
+      break;
+    case 3:
+      typeCost = 40;
+      break;
+  }
+
+  document.querySelector('aside .basic-cost .basic-count').innerText = bookingForm['basic-counter'].value;
+  document.querySelector('aside .senior-cost .senior-count').innerText = bookingForm['senior-counter'].value;
+
+  document.querySelectorAll('aside .basic-type-cost').forEach(item => item.innerText = typeCost);
+  document.querySelectorAll('aside .senior-type-cost').forEach(item => item.innerText = typeCost / 2);
+  
+  document.querySelector('aside .basic-cost .basic-total').innerText = bookingForm['basic-counter'].value * typeCost + ' €';
+  
+  document.querySelector('aside .senior-cost .senior-total').innerText = bookingForm['senior-counter'].value * typeCost / 2 + ' €';
+
+  document.querySelector('aside .total-cost').innerText = bookingForm['basic-counter'].value * typeCost + bookingForm['senior-counter'].value * typeCost / 2 + ' €';
+}
