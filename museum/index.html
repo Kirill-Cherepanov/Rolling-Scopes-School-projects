@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="img/favicon.ico" />
-    <!-- <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
     <title>Museum</title>
   </head>
   <body>
@@ -191,7 +189,7 @@
           </div>
         </div>
       </section> -->
-      <!-- <section id="video" class="bright-section">
+      <section id="video" class="bright-section">
         <div class="container">
           <div class="video__text-wrapper">
             <h2>Video Journey</h2>
@@ -200,7 +198,7 @@
               enjoy masterpieces such as Mona Lisa or Hammurabi's Code
             </p>
           </div>
-          <div class="player">
+          <div class="player" tabindex="0">
             <div class="controls-onscreen">
               <video src="./video/video0.mp4" poster="./video/poster0.jpg"></video>
               <button class="controls controls-pause"></button>
@@ -248,17 +246,17 @@
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
       <!-- <section id="gallery" class="dark-section">
         <div class="bg-shadow"></div>
           <div class="container">
             <h2>Art Gallery</h2>
             <div class="columns">
               <script src="js/gallery.js"></script>
-          </div>
+            </div>
         </div>
       </section> -->
-      <section id="tickets" class="bright-section">
+      <!-- <section id="tickets" class="bright-section">
         <div class="container">
           <h2>Buy tickets</h2>
           <form class="buy-tickets">
@@ -340,7 +338,7 @@
             </div>
           </form>
         </div>
-      </section>
+      </section> -->
       <!-- <div class="parallax"></div> -->
       <!-- <section id="contacts" class="bright-section">
         <div class="container">
@@ -390,7 +388,7 @@
         </div>
       </div>
     </footer> -->
-    <aside class="booking-ticket bright-section" hidden>
+    <!-- <aside class="booking-ticket bright-section" hidden>
       <div class="container">
         <form class="booking-form">
           <div class="personal-info-column">
@@ -411,11 +409,28 @@
               >
             </div>
             <div class="icon-handler time">
-              <input 
-              type="time" 
-              required="required" 
-              onchange="this.className=(this.value!=''?'has-value':'')"
-              >
+              <select required="required">
+                <option value="" disabled hidden selected>Time</option>
+                <option value="09 : 00">09 : 00</option>
+                <option value="09 : 30">09 : 30</option>
+                <option value="10 : 00">10 : 00</option>
+                <option value="10 : 30">10 : 30</option>
+                <option value="11 : 00">11 : 00</option>
+                <option value="11 : 30">11 : 30</option>
+                <option value="12 : 00">12 : 00</option>
+                <option value="12 : 30">12 : 30</option>
+                <option value="13 : 00">13 : 00</option>
+                <option value="13 : 30">13 : 30</option>
+                <option value="14 : 00">14 : 00</option>
+                <option value="14 : 30">14 : 30</option>
+                <option value="15 : 00">15 : 00</option>
+                <option value="15 : 30">15 : 30</option>
+                <option value="16 : 00">16 : 00</option>
+                <option value="16 : 30">16 : 30</option>
+                <option value="17 : 00">17 : 00</option>
+                <option value="17 : 30">17 : 30</option>
+                <option value="18 : 00">18 : 00</option>
+              </select>
             </div>
             <div class="icon-handler name">
               <input type="text" required="required" placeholder="Name" />
@@ -441,8 +456,7 @@
                 <div class="ticket-counter">
                   <button
                     type="button"
-                    onclick="this.nextElementSibling.stepDown()"
-                    class="booking__incrementor-btn"
+                    class="booking__incrementor-btn basic-minus"
                   >
                     –
                   </button>
@@ -458,8 +472,7 @@
                   />
                   <button
                     type="button"
-                    onclick="this.previousElementSibling.stepUp()"
-                    class="booking__incrementor-btn"
+                    class="booking__incrementor-btn basic-plus"
                   >
                     +
                   </button>
@@ -470,8 +483,7 @@
                 <div class="ticket-counter">
                   <button
                     type="button"
-                    onclick="this.nextElementSibling.stepDown()"
-                    class="booking__incrementor-btn"
+                    class="booking__incrementor-btn senior-minus"
                   >
                     –
                   </button>
@@ -487,8 +499,7 @@
                   />
                   <button
                     type="button"
-                    onclick="this.previousElementSibling.stepUp()"
-                    class="booking__incrementor-btn"
+                    class="booking__incrementor-btn senior-plus"
                   >
                     +
                   </button>
@@ -504,8 +515,8 @@
             />
             <h3>Overview</h3>
             <h4>Tour to Louvre</h4>
-            <p>Friday, August 19</p>
-            <p>16 : 30</p>
+            <p>Set date value</p>
+            <p>Set time value</p>
             <p>Temporary exhibition</p>
             <div class="cost basic-cost">
               <span class="counter basic-counter"
@@ -568,14 +579,14 @@
           <span class="line"></span>
         </button>
       </div>
-    </aside>
+    </aside> -->
     
     <!-- <script src="js/header.js"></script> -->
-    <!-- <script src="js/welcome-slider.js"></script> -->
-    <!-- <script src="js/explore.js"></script> -->
-    <!-- <script src="js/video.js"></script> -->
-    <script src="js/tickets.js"></script>
-    <script src="js/ticket-form.js"></script>
+    <!-- <script src="js/welcome-slider.js"></script>
+    <script src="js/explore.js"></script> -->
+    <script src="js/video.js"></script>
+    <!-- <script src="js/tickets.js"></script>
+    <script src="js/ticket-form.js"></script> -->
     <!-- One more script in gallery section -->
   </body>
 </html>

@@ -1442,7 +1442,7 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   position: absolute;
   width: 220px;
   height: 220px;
-  background-image: url(../img/svg/pause.svg);
+  background-image: url(../img/svg/onscreenPlay.svg);
 }
 
 @media (max-width: 1024px) {
@@ -1510,6 +1510,7 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   width: 23px;
   height: 31px;
   background-image: url(../img/svg/play.svg);
+  background-position: center;
 }
 
 @media (max-width: 1024px) {
@@ -1603,6 +1604,8 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   width: 38px;
   height: 30px;
   background-image: url(../img/svg/sound.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 @media (max-width: 1024px) {
@@ -1668,6 +1671,51 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   #video .container .controls-container .controls-fullscreen {
     -webkit-transform: scale(calc(18 / 35));
             transform: scale(calc(18 / 35));
+  }
+}
+
+#video .container .player.fullscreen {
+  position: fixed;
+  z-index: 20;
+}
+
+#video .container .player.fullscreen .controls-onscreen {
+  height: calc(100% - 85px);
+}
+
+@media (max-width: 1024px) {
+  #video .container .player.fullscreen .controls-onscreen {
+    height: calc(100% - 60px);
+  }
+}
+
+@media (max-width: 768px) {
+  #video .container .player.fullscreen .controls-onscreen {
+    height: calc(100% - 58px);
+  }
+}
+
+@media (max-width: 420px) {
+  #video .container .player.fullscreen .controls-onscreen {
+    height: calc(100% - 55px);
+  }
+}
+
+#video .container .player.fullscreen .controls-onscreen video {
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 1480px) {
+  #video .container .player.fullscreen .controls-container {
+    gap: 2%;
+  }
+  #video .container .player.fullscreen .controls-container .progress-time, #video .container .player.fullscreen .controls-container .controls-fullscreen, #video .container .player.fullscreen .controls-container .volume, #video .container .player.fullscreen .controls-container .controls-sound, #video .container .player.fullscreen .controls-container .controls-play {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
@@ -1884,10 +1932,8 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
 #gallery .container .columns .gallery-img-container {
   width: calc((100% - 72px) / 3);
   margin-bottom: 24px;
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -1896,17 +1942,16 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
   }
 }
 
+#gallery .container .columns .gallery-img-container.non-active {
+  -webkit-transform: translateY(35%);
+          transform: translateY(35%);
+  opacity: 0.5;
+}
+
 #gallery .container .columns .gallery-img-container img {
   display: block;
   width: 100%;
   height: auto;
-}
-
-#gallery .container .columns .gallery-img-container:hover {
-  -webkit-box-shadow: 0 0 5px 5px #b19e84;
-          box-shadow: 0 0 5px 5px #b19e84;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
 }
 
 #gallery .container .columns .gallery-img-container:nth-child(3n+1) {
@@ -2853,6 +2898,13 @@ aside.booking-ticket .container form.booking-form .personal-info-column .icon-ha
   position: relative;
 }
 
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler .error-hint {
+  top: 47px;
+  position: absolute;
+  color: #dd0000;
+  font-size: 12px;
+}
+
 aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler::before {
   display: inline-block;
   width: 13px;
@@ -2942,25 +2994,14 @@ aside.booking-ticket .container form.booking-form .personal-info-column .icon-ha
   background-image: url(../img/svg/clock.svg);
 }
 
-aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time input {
+aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time select {
   width: 100%;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time input::-webkit-calendar-picker-indicator {
-  background: url(../img/svg/input-options.svg) no-repeat;
-  width: 17px;
-  height: 17px;
-  position: relative;
-  left: 6px;
-  top: 5px;
-}
-
-aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.time input:not(.has-value):before {
-  content: "Time";
-  padding-right: calc(100% - 72px);
-  font-size: 18px;
-  position: relative;
-  top: 2px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent url(../img/svg/input-options.svg) no-repeat 100% center;
+  background-position-x: calc(100% - 13px);
+  font-weight: 300;
 }
 
 aside.booking-ticket .container form.booking-form .personal-info-column .icon-handler.email::before {

@@ -1000,7 +1000,7 @@ header .container {
       position: absolute;
       width: 220px;
       height: 220px;
-      background-image: url(../img/svg/pause.svg);
+      background-image: url(../img/svg/onscreenPlay.svg);
       @media (max-width: 1024px) {
         transform: scale(calc(150 / 220));
       }
@@ -1038,6 +1038,7 @@ header .container {
       width: 23px;
       height: 31px;
       background-image: url(../img/svg/play.svg);
+      background-position: center;
       @media (max-width: 1024px) {
         height: 30px;
       }
@@ -1095,6 +1096,8 @@ header .container {
       width: 38px;
       height: 30px;
       background-image: url(../img/svg/sound.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
       @media (max-width: 1024px) {
         transform: scale(calc(26 / 38));
       }
@@ -1127,6 +1130,36 @@ header .container {
       }
       @media (max-width: 420px) {
         transform: scale(calc(18 / 35));
+      }
+    }
+  }
+  .player.fullscreen {
+    position: fixed;
+    z-index: 20;
+    .controls-onscreen {
+      height: calc(100% - 85px);
+      @media (max-width: 1024px) {
+        height: calc(100% - 60px);
+      }
+      @media (max-width: 768px) {
+        height: calc(100% - 58px);
+      }
+      @media (max-width: 420px) {
+        height: calc(100% - 55px);
+      }
+      video {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .controls-container {
+      @media (min-width: 1480px) {
+        gap: 2%;
+        .progress-time, .controls-fullscreen, .volume, .controls-sound, .controls-play {
+          flex-grow: 1;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
       }
     }
   }
@@ -1260,24 +1293,25 @@ header .container {
       .gallery-img-container {
         width : calc((100% - 72px) / 3);
         margin-bottom: 24px;
-        transition: transform 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
         @media(max-width: 768px) {
           width: calc((100% - 24px) / 2);
+        }
+        &.non-active {
+          transform: translateY(35%);
+          opacity: 0.5;
         }
         img {
           display: block;
           width: 100%;
           height: auto;
         }
-        &:hover {
-          box-shadow: 0 0 5px 5px lighten($font-gold, 10%);
-          transform: scale(1.05);
-        }
         &:nth-child(3n+1) { order: 1; }
         &:nth-child(3n+2) { order: 2; }
         &:nth-child(3n)   { order: 3; }
         &:first-child     { margin-top: 50px; }
         &:nth-child(3)    { margin-top: 50px; }
+
         @media (max-width: 768px) {
           &:nth-child(2n+1) { order: 1; }
           &:nth-child(2n)   { order: 2; }
@@ -1887,6 +1921,13 @@ aside.booking-ticket {
         }
         .icon-handler {
           position: relative;
+          .error-hint {
+            top: 47px;
+            // left: 20px;
+            position: absolute;
+            color: #dd0000;
+            font-size: 12px;
+          }
           &::before {
             display: inline-block;
             width: 13px;
@@ -1955,23 +1996,12 @@ aside.booking-ticket {
               left: 15px;
               background-image: url(../img/svg/clock.svg);
             }
-            input {
+            select {
               width: 100%;
-              &::-webkit-calendar-picker-indicator {
-                background: url(../img/svg/input-options.svg) no-repeat;
-                width: 17px;
-                height: 17px;
-                position: relative;
-                left: 6px;
-                top: 5px;
-              }
-              &:not(.has-value):before{
-                content: "Time";
-                padding-right: calc(100% - 72px);
-                font-size: 18px;
-                position: relative;
-                top: 2px;
-              }
+              appearance: none;
+              background: transparent url(../img/svg/input-options.svg) no-repeat 100% center;
+              background-position-x: calc(100% - 13px);
+              font-weight: 300;
             }
           }
           &.email::before {
