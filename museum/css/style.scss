@@ -1081,7 +1081,7 @@ header .container {
     }
     .progress-time {
       width: (100% * (929 / 1380));
-      background: linear-gradient(to right, $dark-red 0%, $dark-red 53%, #c4c4c4 53%, #c4c4c4 100%);
+      background: linear-gradient(to right, $dark-red 0%, $dark-red 0%, #c4c4c4 0%, #c4c4c4 100%);
       @media (max-width: 1024px) {
         width: calc(100% * (564 / 904) + 10px);
       }
@@ -1110,7 +1110,7 @@ header .container {
     }
     .volume { 
       width: calc(100% * (155 / 1380));
-      background: linear-gradient(to right, $dark-red 0%, $dark-red 43%, #c4c4c4 43%, #c4c4c4 100%);
+      background: linear-gradient(to right, $dark-red 0%, $dark-red 100%, #c4c4c4 100%, #c4c4c4 100%);
       @media (max-width: 1024px) {
         width: (100% * (143 / 904));
       }
@@ -1172,28 +1172,21 @@ header .container {
     @media (max-width: 420px) {
       margin-top: 40px;
     }
-    .video__slider {
-      overflow-x: hidden;
-      .video__slider-wrapper {
-        transform: translateX(calc(-1 * (100% - 84px) / 3 - 42px));
-        display: flex;
+    .video__slider-wrapper {
+      display: flex;
+      width: 100%;
+      iframe {
         width: 100%;
-        @media (max-width: 768px) {
-          transform: translateX(calc(-1 * (100% - 20px) / 2 - 20px));
+        height: 254px;
+        flex-shrink: 0;
+        margin-right: 42px;
+        @media (max-width: 1480px) {
+          height: getFormulaeVW(254px, 170px, 1480px, 1024px);
         }
-        iframe {
-          width: calc((100% - 84px) / 3);
-          height: 254px;
-          flex-shrink: 0;
-          margin-right: 42px;
-          @media (max-width: 1480px) {
-            height: getFormulaeVW(254px, 170px, 1480px, 1024px);
-          }
-          @media (max-width: 768px) {
-            width: calc((100% - 20px) / 2);
-            height: getFormulaeVW(199px, 101px, 768px, 420px);
-            margin-right: 20px;
-          }
+        @media (max-width: 768px) {
+          width: calc((100% - 20px) / 2);
+          height: getFormulaeVW(199px, 101px, 768px, 420px);
+          margin-right: 20px;
         }
       }
     }
@@ -1210,25 +1203,37 @@ header .container {
       @media (max-width: 420px) {
         margin-top: 33px;
       }
-      .arrow {
+      .video__arrow {
+        position: static;
         width: 10px;
         height: 12px;
+        margin: 0;
+        background: url(../img/svg/left-guille­mets.svg);
+        &.swiper-button-next {
+          background: url(../img/svg/right-guille­mets.svg);
+        }
+        &::after {
+          content: "";
+        }
         @media (max-width: 420px) {
           transform: scale(calc(7 / 10));
         }
       }
       .video-index {
+        position: static;
         display: flex;
+        width: auto;
         justify-content: center;
         align-items: center;
         margin: 0 20px;
-        .video-circle {
+        .swiper-pagination-bullet {
           display: inline-block;
           width: 12px;
           height: 12px;
           background-color: #999999;
+          opacity: 1;
           border-radius: 50%;
-          margin-right: 20px;
+          margin: 0 20px 0 0;
           &:last-of-type {
             margin: 0;
           }
@@ -1236,7 +1241,7 @@ header .container {
             cursor: pointer;
             background-color: #710707;
           }
-          &.active-circle {
+          &.swiper-pagination-bullet-active {
             background-color: #333333;
           }
           @media (max-width: 768px) {
@@ -1640,29 +1645,21 @@ header .container {
       }
     }
   }
-  .contacts__map-img {
+  .contacts__map {
     width: 960px;
     height: 620px;
-    background-image: url(../img/contacts/contacts-louvre-1920.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     @media (max-width: 1024px) {
-      background-image: url(../img/contacts/contacts-louvre-1024.jpg);
       width: 694px;
       height: 454px;
     }
     @media (max-width: 768px) {
-      background-image: url(../img/contacts/contacts-louvre-768.jpg);
       width: 100%;
       height: 476px;
       margin-top: 40px;
     }
     @media (max-width: 420px) {
-      background-image: url(../img/contacts/contacts-louvre-420.jpg);
       height: 248px;
     }
-    
   }
 }
 

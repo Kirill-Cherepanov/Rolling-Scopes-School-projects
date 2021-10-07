@@ -37,19 +37,8 @@ function debounce(func, wait, immediate) {
 };
 
 function checkSlide(e) {
-  // What part of the content is visible in the window?
-  // const windowTop = window.scrollY;
-  const windowBottom = window.scrollY + window.innerHeight;
-
   Array.from(imgArray).forEach(function(image) {
-    // const imageTop = image.offsetTop;
-    // const imageBottom = image.offsetTop + image.height;
-    // const imageMiddle = (imageTop + imageBottom) / 2;
-
-    const slidePos = image.offsetTop + image.getBoundingClientRect().height / 3;
-    console.log(`wb: ${windowBottom} == sp: ${slidePos}`);
-
-    if (slidePos <= windowBottom) {
+    if (image.getBoundingClientRect().y <= window.innerHeight) {
       image.classList.remove('non-active');
     } else if (!image.classList.contains('non-active')) {
       image.classList.add('non-active');
@@ -58,4 +47,4 @@ function checkSlide(e) {
 }
 
 window.addEventListener('scroll', debounce(checkSlide));
-window.addEventListener('DOMContentLoaded', setTimeout(debounce(checkSlide), 300));
+// setTimeout(debounce(checkSlide), 1000);

@@ -1,10 +1,18 @@
+// General variables
 const player = document.querySelector('#video .player');
 const video = document.querySelector('#video .controls-onscreen video');
+// Player variables
 const [progress, volume] = document.querySelectorAll('#video .progress');
 const onscreenPause = document.querySelector('#video .controls-onscreen .controls-pause');
 const pause = document.querySelector('#video .controls-play');
 const sound = document.querySelector('#video .controls-sound');
 const fullscreen = document.querySelector('#video .controls-fullscreen');
+// Slider variables
+const videoBlock = document.querySelector('#video .video-block')
+const swiperWrapper = document.querySelector('#video .swiper-wrapper');
+const sliderControls = document.querySelector('#video .video__slider-controls');
+const pagination = document.querySelector('#video .video-index');
+
 
 // Video player
 const togglePlay = function () {
@@ -41,6 +49,7 @@ const getToggleVolume = function () {
 };
 
 const handleProgress = function () {
+  if (!video.duration) return;
   progress.value = (video.currentTime / video.duration) * 100;
   bgChange(progress);
 
@@ -68,7 +77,7 @@ const toggleFullscreen = function () {
       document.exitFullscreen();
     }
   });
-}
+};
 
 onscreenPause.addEventListener('pointerdown', togglePlay);
 video.addEventListener('pointerdown', togglePlay);
@@ -107,3 +116,39 @@ runOnKeys(() => video.playbackRate += 0.2, 'ShiftLeft', 'Comma');
 runOnKeys(() => video.playbackRate += 0.2, 'ShiftRight', 'Comma');
 runOnKeys(() => video.playbackRate -= 0.2, 'ShiftLeft', 'Period');
 runOnKeys(() => video.playbackRate -= 0.2, 'ShiftRight', 'Period');
+
+const changeMainVid = function() {
+  if (!video.paused) togglePlay();
+
+  let activeBullet = Array.from(pagination.children).filter(blt => blt.classList.contains('swiper-pagination-bullet-active'))[0];
+  let videoIndex = Array.from(pagination.children).indexOf(activeBullet);
+  video.src = `./video/video${videoIndex}.mp4`;
+  video.poster = `./video/poster${videoIndex}.jpg`;
+};
+
+const pauseIframes = function() {
+  let iframes = document.querySelectorAll('#video iframe');
+  iframes.forEach(iframe => {
+    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+  })
+}
+
+// Video-slider
+const onChangeSlide = function(e) {
+  if (e.target.tagName != 'BUTTON' && !e.target.classList.contains('swiper-pagination-bullet')) return;
+
+  pauseIframes();
+
+  swiperWrapper.addEventListener('transitionend', function fun() {
+    changeMainVid();
+    swiperWrapper.removeEventListener('transitionend', fun);
+    progress.value = 0;
+    bgChange(progress);
+  });
+};
+
+sliderControls.addEventListener('pointerdown', onChangeSlide);
+videoBlock.addEventListener('pointerdown', (e) => {
+  if (e.target.tagName != "IFRAME") return;
+  pauseIframes();
+});

@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@100;300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="img/favicon.ico" />
@@ -19,7 +20,7 @@
     <h1>
       Louvre
     </h1>
-    <!-- <header class="dark-section">
+    <header class="dark-section">
       <div class="container">
         <h3 class="logo">Louvre</h3>
         <nav style="left: -100vw">
@@ -64,9 +65,9 @@
           </div>
         </div>
       </div>
-    </header> -->
+    </header>
     <main>
-      <!-- <section id="welcome" class="dark-section">
+      <section id="welcome" class="dark-section">
         <div class="container">
           <div class="louvre-bait">
             <div class="welcome__text" style="left: 0">
@@ -100,8 +101,8 @@
             </div>
           </div>
         </div>
-      </section> -->
-      <!-- <section id="visiting" class="bright-section">
+      </section>
+      <section id="visiting" class="bright-section">
         <div class="container">
           <h2>Virtual Tour</h2>
           <div class="v-tour-grid">
@@ -158,8 +159,8 @@
             </a>
           </div>
         </div>
-      </section> -->
-      <!-- <section id="explore" class="dark-section">
+      </section>
+      <section id="explore" class="dark-section">
         <div class="container">
           <div class="picture-story">
             <h2>Picture Explore</h2>
@@ -188,7 +189,7 @@
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
       <section id="video" class="bright-section">
         <div class="container">
           <div class="video__text-wrapper">
@@ -205,49 +206,39 @@
             </div>
             <div class="controls-container">
               <button class="controls controls-play"></button>
-              <input type="range" value="53" min="0" max="100" step="1" class="progress progress-time">
+              <input type="range" value="0" min="0" max="100" step="1" class="progress progress-time">
               <button class="controls controls-sound"></button>
-              <input type="range" value="43" min="0" max="100" step="1" class="progress volume">
+              <input type="range" value="100" min="0" max="100" step="1" class="progress volume">
               <button class="controls controls-fullscreen"></button>
             </div>
           </div>
-          <div class="video-block">
-            <div class="video__slider">
-              <div class="video__slider-wrapper">
-                </iframe><iframe src="https://www.youtube.com/embed/aWmJ5DgyWPI?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                <iframe src="https://www.youtube.com/embed/zp1BXPX8jcU?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe><iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe><iframe src="https://www.youtube.com/embed/NOhDysLnTvY?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe><iframe src="https://www.youtube.com/embed/2OR0OCr6uRE?controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="video-block swiper">
+            <div class="video__slider-wrapper swiper-wrapper">
+              <div class="swiper-slide">
+                <iframe src="https://www.youtube.com/embed/zp1BXPX8jcU?enablejsapi=1&controls=0" title="YouTube video player" loading="lazy" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="swiper-slide">
+                <iframe src="https://www.youtube.com/embed/aWmJ5DgyWPI?enablejsapi=1&controls=0" title="YouTube video player" loading="lazy" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="swiper-slide">
+                <iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo?enablejsapi=1&controls=0" title="YouTube video player" loading="lazy" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="swiper-slide">
+                <iframe src="https://www.youtube.com/embed/NOhDysLnTvY?enablejsapi=1&controls=0" title="YouTube video player" loading="lazy" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="swiper-slide">
+                <iframe src="https://www.youtube.com/embed/2OR0OCr6uRE?enablejsapi=1&controls=0" title="YouTube video player" loading="lazy" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
             <div class="video__slider-controls">
-              <button class="video__next-iframe">
-                <img
-                  src="img/svg/left-guille­mets.svg"
-                  alt="left arrow"
-                  class="arrow left-arrow"
-                />
-              </button>
-              <div class="video-index">
-                <div class="video-circle active-circle"></div>
-                <div class="video-circle"></div>
-                <div class="video-circle"></div>
-                <div class="video-circle"></div>
-                <div class="video-circle"></div>
-              </div>
-              <button class="video__prev-iframe">
-                <img
-                  src="img/svg/right-guille­mets.svg"
-                  alt="right arrow"
-                  class="arrow right-arrow"
-                />
-              </button>
+              <button class="video__arrow swiper-button-prev"></button>
+              <div class="video-index swiper-pagination"></div>
+              <button class="video__arrow swiper-button-next"></button>
             </div>
           </div>
         </div>
       </section>
-      <!-- <section id="gallery" class="dark-section">
+      <section id="gallery" class="dark-section">
         <div class="bg-shadow"></div>
           <div class="container">
             <h2>Art Gallery</h2>
@@ -255,8 +246,8 @@
               <script src="js/gallery.js"></script>
             </div>
         </div>
-      </section> -->
-      <!-- <section id="tickets" class="bright-section">
+      </section>
+      <section id="tickets" class="bright-section">
         <div class="container">
           <h2>Buy tickets</h2>
           <form class="buy-tickets">
@@ -338,9 +329,9 @@
             </div>
           </form>
         </div>
-      </section> -->
-      <!-- <div class="parallax"></div> -->
-      <!-- <section id="contacts" class="bright-section">
+      </section>
+      <div class="parallax"></div>
+      <section id="contacts" class="bright-section">
         <div class="container">
           <h2>Contacts</h2>
           <div class="contact-info">
@@ -352,12 +343,14 @@
                 <li>mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></li>
               </ul>
             </div>
-            <div class="contacts__map-img"></div>
+            <div class="contacts__map">
+              <iframe width='100%' height='100%' src="https://api.mapbox.com/styles/v1/kot-payk/ckuhcxidv6qh818qj8d5os737.html?title=false&access_token=pk.eyJ1Ijoia290LXBheWsiLCJhIjoiY2t1aDk5NGswMDU3eTMxcXRvMDhsMnFpNiJ9.SSgICHsGwJsRYTs0vJlqHg&zoomwheel=false#16/48.860978/2.337293" title="Louvre location-copy" style="border:none;"></iframe>
+            </div>
           </div>
         </div>
-      </section> -->
+      </section>
     </main>
-    <!-- <footer class="dark-section">
+    <footer class="dark-section">
       <div class="main-footer">
         <div class="container">
           <h3 class="logo">Louvre</h3>
@@ -387,8 +380,8 @@
           <a href="http://https://github.com/kissMyUSSR/" target="_blank">KissMyUSSR</a>
         </div>
       </div>
-    </footer> -->
-    <!-- <aside class="booking-ticket bright-section" hidden>
+    </footer>
+    <aside class="booking-ticket bright-section" hidden>
       <div class="container">
         <form class="booking-form">
           <div class="personal-info-column">
@@ -579,14 +572,17 @@
           <span class="line"></span>
         </button>
       </div>
-    </aside> -->
+    </aside>
     
-    <!-- <script src="js/header.js"></script> -->
-    <!-- <script src="js/welcome-slider.js"></script>
-    <script src="js/explore.js"></script> -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/welcome-slider.js"></script>
+    <script src="js/explore.js"></script>
+    <script src="js/tickets.js"></script>
+    <script src="js/ticket-form.js"></script>
     <script src="js/video.js"></script>
-    <!-- <script src="js/tickets.js"></script>
-    <script src="js/ticket-form.js"></script> -->
+    <script src="js/swiper-slider.js"></script>
     <!-- One more script in gallery section -->
   </body>
 </html>
