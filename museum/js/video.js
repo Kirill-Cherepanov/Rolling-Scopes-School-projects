@@ -10,11 +10,11 @@ const fullscreen = document.querySelector('#video .controls-fullscreen');
 const togglePlay = function () {
   if (video.paused) {
     onscreenPause.hidden = true;
-    pause.style.backgroundImage = 'url(../img/svg/pause.svg)';
+    pause.style.backgroundImage = 'url(./img/svg/pause.svg)';
     video.play();
   } else {
     onscreenPause.hidden = false;
-    pause.style.backgroundImage = 'url(../img/svg/play.svg)';
+    pause.style.backgroundImage = 'url(./img/svg/play.svg)';
     video.pause();
   }
 };
@@ -29,11 +29,11 @@ const getToggleVolume = function () {
   return function (e) {
     if (volume.value == 0) {
       volume.value = prevVolume;
-      sound.style.backgroundImage = 'url(../img/svg/sound.svg)'
+      sound.style.backgroundImage = 'url(./img/svg/sound.svg)'
     } else {
       prevVolume = volume.value;
       volume.value = 0;
-      sound.style.backgroundImage = 'url(../img/svg/mute.svg)'
+      sound.style.backgroundImage = 'url(./img/svg/mute.svg)'
     }
     bgChange(volume);
     video.volume = volume.value / 100;
@@ -46,7 +46,7 @@ const handleProgress = function () {
 
   if (progress.value == 100) {
     onscreenPause.hidden = false;
-    pause.style.backgroundImage = 'url(../img/svg/play.svg)';
+    pause.style.backgroundImage = 'url(./img/svg/play.svg)';
   }
 };
 
@@ -58,8 +58,8 @@ const progressUpdate = function () {
 const volumeUpdate = function () {
   bgChange(volume);
   video.volume = this.value / 100;
-  if (video.volume == 0) sound.style.backgroundImage = 'url(../img/svg/mute.svg)'
-  else sound.style.backgroundImage = 'url(../img/svg/sound.svg)'
+  if (video.volume == 0) sound.style.backgroundImage = 'url(./img/svg/mute.svg)'
+  else sound.style.backgroundImage = 'url(./img/svg/sound.svg)'
 };
 
 const toggleFullscreen = function () {
