@@ -437,6 +437,7 @@ header .container {
       height: getFormulaeVW(861px, 545px, 768px, 420px)
     }
     .louvre-bait {
+      touch-action: none;
       width: 100%;
       height: 750px;
       position: relative;
@@ -848,6 +849,7 @@ header .container {
     }
   }
   .magic {
+    touch-action: none;
     user-select: none;
     flex-shrink: 0;
     margin-top: 15px;
@@ -882,6 +884,7 @@ header .container {
       }
     }
     .separator-container {
+      touch-action: none;
       height: 100%;
       width: 40px;
       position: absolute;
@@ -997,7 +1000,7 @@ header .container {
       position: absolute;
       width: 220px;
       height: 220px;
-      background-image: url(../img/svg/pause.svg);
+      background-image: url(../img/svg/onscreenPlay.svg);
       @media (max-width: 1024px) {
         transform: scale(calc(150 / 220));
       }
@@ -1035,6 +1038,7 @@ header .container {
       width: 23px;
       height: 31px;
       background-image: url(../img/svg/play.svg);
+      background-position: center;
       @media (max-width: 1024px) {
         height: 30px;
       }
@@ -1077,7 +1081,7 @@ header .container {
     }
     .progress-time {
       width: (100% * (929 / 1380));
-      background: linear-gradient(to right, $dark-red 0%, $dark-red 53%, #c4c4c4 53%, #c4c4c4 100%);
+      background: linear-gradient(to right, $dark-red 0%, $dark-red 0%, #c4c4c4 0%, #c4c4c4 100%);
       @media (max-width: 1024px) {
         width: calc(100% * (564 / 904) + 10px);
       }
@@ -1092,6 +1096,8 @@ header .container {
       width: 38px;
       height: 30px;
       background-image: url(../img/svg/sound.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
       @media (max-width: 1024px) {
         transform: scale(calc(26 / 38));
       }
@@ -1104,7 +1110,7 @@ header .container {
     }
     .volume { 
       width: calc(100% * (155 / 1380));
-      background: linear-gradient(to right, $dark-red 0%, $dark-red 43%, #c4c4c4 43%, #c4c4c4 100%);
+      background: linear-gradient(to right, $dark-red 0%, $dark-red 100%, #c4c4c4 100%, #c4c4c4 100%);
       @media (max-width: 1024px) {
         width: (100% * (143 / 904));
       }
@@ -1127,6 +1133,36 @@ header .container {
       }
     }
   }
+  .player.fullscreen {
+    position: fixed;
+    z-index: 20;
+    .controls-onscreen {
+      height: calc(100% - 85px);
+      @media (max-width: 1024px) {
+        height: calc(100% - 60px);
+      }
+      @media (max-width: 768px) {
+        height: calc(100% - 58px);
+      }
+      @media (max-width: 420px) {
+        height: calc(100% - 55px);
+      }
+      video {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .controls-container {
+      @media (min-width: 1480px) {
+        gap: 2%;
+        .progress-time, .controls-fullscreen, .volume, .controls-sound, .controls-play {
+          flex-grow: 1;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
+  }
   .video-block {
     width: 100%;
     margin-top: 40px;
@@ -1136,12 +1172,11 @@ header .container {
     @media (max-width: 420px) {
       margin-top: 40px;
     }
-    .video-wrapper {
+    .video__slider-wrapper {
       display: flex;
       width: 100%;
-      overflow-x: hidden;
       iframe {
-        width: calc((100% - 84px) / 3);
+        width: 100%;
         height: 254px;
         flex-shrink: 0;
         margin-right: 42px;
@@ -1149,13 +1184,12 @@ header .container {
           height: getFormulaeVW(254px, 170px, 1480px, 1024px);
         }
         @media (max-width: 768px) {
-          width: calc((100% - 20px) / 2);
           height: getFormulaeVW(199px, 101px, 768px, 420px);
           margin-right: 20px;
         }
       }
     }
-    .video-slider {
+    .video__slider-controls {
       display: flex;
       justify-content: center;
       margin-top: 37px;
@@ -1168,25 +1202,37 @@ header .container {
       @media (max-width: 420px) {
         margin-top: 33px;
       }
-      .arrow {
+      .video__arrow {
+        position: static;
         width: 10px;
         height: 12px;
+        margin: 0;
+        background: url(../img/svg/left-guille­mets.svg);
+        &.swiper-button-next {
+          background: url(../img/svg/right-guille­mets.svg);
+        }
+        &::after {
+          content: "";
+        }
         @media (max-width: 420px) {
           transform: scale(calc(7 / 10));
         }
       }
       .video-index {
+        position: static;
         display: flex;
+        width: auto;
         justify-content: center;
         align-items: center;
         margin: 0 20px;
-        .video-circle {
+        .swiper-pagination-bullet {
           display: inline-block;
           width: 12px;
           height: 12px;
           background-color: #999999;
+          opacity: 1;
           border-radius: 50%;
-          margin-right: 20px;
+          margin: 0 20px 0 0;
           &:last-of-type {
             margin: 0;
           }
@@ -1194,7 +1240,7 @@ header .container {
             cursor: pointer;
             background-color: #710707;
           }
-          &.active-circle {
+          &.swiper-pagination-bullet-active {
             background-color: #333333;
           }
           @media (max-width: 768px) {
@@ -1251,24 +1297,25 @@ header .container {
       .gallery-img-container {
         width : calc((100% - 72px) / 3);
         margin-bottom: 24px;
-        transition: transform 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
         @media(max-width: 768px) {
           width: calc((100% - 24px) / 2);
+        }
+        &.non-active {
+          transform: translateY(35%);
+          opacity: 0.5;
         }
         img {
           display: block;
           width: 100%;
           height: auto;
         }
-        &:hover {
-          box-shadow: 0 0 5px 5px lighten($font-gold, 10%);
-          transform: scale(1.05);
-        }
         &:nth-child(3n+1) { order: 1; }
         &:nth-child(3n+2) { order: 2; }
         &:nth-child(3n)   { order: 3; }
         &:first-child     { margin-top: 50px; }
         &:nth-child(3)    { margin-top: 50px; }
+
         @media (max-width: 768px) {
           &:nth-child(2n+1) { order: 1; }
           &:nth-child(2n)   { order: 2; }
@@ -1597,29 +1644,21 @@ header .container {
       }
     }
   }
-  .contacts__map-img {
+  .contacts__map {
     width: 960px;
     height: 620px;
-    background-image: url(../img/contacts/contacts-louvre-1920.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     @media (max-width: 1024px) {
-      background-image: url(../img/contacts/contacts-louvre-1024.jpg);
       width: 694px;
       height: 454px;
     }
     @media (max-width: 768px) {
-      background-image: url(../img/contacts/contacts-louvre-768.jpg);
       width: 100%;
       height: 476px;
       margin-top: 40px;
     }
     @media (max-width: 420px) {
-      background-image: url(../img/contacts/contacts-louvre-420.jpg);
       height: 248px;
     }
-    
   }
 }
 
@@ -1785,7 +1824,7 @@ aside.booking-ticket {
     padding: 91px 0;
     position: relative;
     top: calc((100% - 845px) / 2);
-    left: 100%;
+    left: -100%;
     z-index: 10;
     transition: all 0.75s ease-out;
     @media (max-width: 1440px) {
@@ -1878,6 +1917,13 @@ aside.booking-ticket {
         }
         .icon-handler {
           position: relative;
+          .error-hint {
+            top: 47px;
+            // left: 20px;
+            position: absolute;
+            color: #dd0000;
+            font-size: 12px;
+          }
           &::before {
             display: inline-block;
             width: 13px;
@@ -1946,23 +1992,12 @@ aside.booking-ticket {
               left: 15px;
               background-image: url(../img/svg/clock.svg);
             }
-            input {
+            select {
               width: 100%;
-              &::-webkit-calendar-picker-indicator {
-                background: url(../img/svg/input-options.svg) no-repeat;
-                width: 17px;
-                height: 17px;
-                position: relative;
-                left: 6px;
-                top: 5px;
-              }
-              &:not(.has-value):before{
-                content: "Time";
-                padding-right: calc(100% - 72px);
-                font-size: 18px;
-                position: relative;
-                top: 2px;
-              }
+              appearance: none;
+              background: transparent url(../img/svg/input-options.svg) no-repeat 100% center;
+              background-position-x: calc(100% - 13px);
+              font-weight: 300;
             }
           }
           &.email::before {
