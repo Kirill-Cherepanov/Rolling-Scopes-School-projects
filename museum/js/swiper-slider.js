@@ -37,18 +37,22 @@ new Swiper(".swiper", {
   // скорость
   speed: 800,
   breakpoints: {
-    1024: {
+    1025: {
       spaceBetween: 42,
       slidesPerView: 3,
     },
-    768: {
-      slidesPerView: 3,
+    769: {
       spaceBetween: 41,
+      slidesPerView: 3,
     },
-    420: {
+    421: {
       spaceBetween: 20,
       slidesPerView: 2,
     },
+    280: {
+      spaceBetween: 20,
+      slidesPerView: 2,
+    }
   },
   // отключить подгрузку картинок
 });

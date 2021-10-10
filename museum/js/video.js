@@ -117,6 +117,7 @@ runOnKeys(() => video.playbackRate += 0.2, 'ShiftRight', 'Comma');
 runOnKeys(() => video.playbackRate -= 0.2, 'ShiftLeft', 'Period');
 runOnKeys(() => video.playbackRate -= 0.2, 'ShiftRight', 'Period');
 
+// Video-slider
 const changeMainVid = function() {
   if (!video.paused) togglePlay();
 
@@ -126,14 +127,6 @@ const changeMainVid = function() {
   video.poster = `./video/poster${videoIndex}.jpg`;
 };
 
-const pauseIframes = function() {
-  let iframes = document.querySelectorAll('#video iframe');
-  iframes.forEach(iframe => {
-    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-  })
-}
-
-// Video-slider
 const onChangeSlide = function(e) {
   if (e.target.tagName != 'BUTTON' && !e.target.classList.contains('swiper-pagination-bullet')) return;
 
@@ -146,6 +139,13 @@ const onChangeSlide = function(e) {
     bgChange(progress);
   });
 };
+
+const pauseIframes = function() {
+  let iframes = document.querySelectorAll('#video iframe');
+  iframes.forEach(iframe => {
+    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+  })
+}
 
 sliderControls.addEventListener('pointerdown', onChangeSlide);
 videoBlock.addEventListener('pointerdown', (e) => {

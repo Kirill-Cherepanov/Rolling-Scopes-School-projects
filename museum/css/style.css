@@ -1760,7 +1760,6 @@ header .container .header__burger.active-burger .dash:nth-of-type(3) {
 
 @media (max-width: 768px) {
   #video .container .video-block .video__slider-wrapper iframe {
-    width: calc((100% - 20px) / 2);
     height: calc( 0.28161 * 100vw + -17.27586px);
     margin-right: 20px;
   }

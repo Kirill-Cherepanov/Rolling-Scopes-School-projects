@@ -37,9 +37,9 @@ function compareImages(img) {
     img.style.width = x * 100 + "%";
 
     let sliderOffsetX = 20;
-    if (screen.width < 420) sliderOffsetX = 10;
-    else if (screen.width < 768) sliderOffsetX = 20;
-    else if (screen.width < 1024) sliderOffsetX = 15;
+    if (screen.width <= 420) sliderOffsetX = 10;
+    else if (screen.width <= 768) sliderOffsetX = 20;
+    else if (screen.width <= 1024) sliderOffsetX = 20;
 
     slider.style.left = `calc(${x * 100 + "%"} - ${sliderOffsetX}px)`;
   }

@@ -1184,7 +1184,6 @@ header .container {
           height: getFormulaeVW(254px, 170px, 1480px, 1024px);
         }
         @media (max-width: 768px) {
-          width: calc((100% - 20px) / 2);
           height: getFormulaeVW(199px, 101px, 768px, 420px);
           margin-right: 20px;
         }
