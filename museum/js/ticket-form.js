@@ -250,8 +250,8 @@ function validateName() {
   else if (!Array.from(name.value).every(n => {
     n = n.charCodeAt(0);
 
-    // 32: space, 65 - 90: A-Z, 97-122: a-z, 192-255: А-я
-    return n === 32 || (n >= 65 && n <= 90) || (n >= 97 && n <= 122) || (n >= 192 && n <= 255); 
+    // 32: space, 65 - 90: A-Z, 97-122: a-z, 1072-1103: А-я
+    return n === 32 || (n >= 65 && n <= 90) || (n >= 97 && n <= 122) || (n >= 1072 && n <= 1103); 
   })) {
     showValidationError(name, "A name must only contain letters of Latin, Russian alphabet or space!");
   } else {
