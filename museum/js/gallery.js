@@ -47,4 +47,4 @@ function checkSlide(e) {
 }
 
 window.addEventListener('scroll', debounce(checkSlide));
-// setTimeout(debounce(checkSlide), 1000);
+setTimeout(debounce(checkSlide), 1000);

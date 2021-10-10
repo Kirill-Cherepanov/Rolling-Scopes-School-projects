@@ -309,6 +309,7 @@ function validateEmail() {
 
 function validateTel() {
   const tel = document.querySelector('aside .personal-info-column .icon-handler.phone input');
+  const tValue = tel.value.split('+').join('');
 
   const splitValidation = function(value, separator) {
     if (!value.includes(separator)) {}
@@ -321,12 +322,12 @@ function validateTel() {
     return true;
   }
 
-  if (!tel.value) {
+  if (!tValue) {
     showValidationError(tel, "Number must not be empty!");
   }
-  else if (tel.value.split('-').join('').split(' ').join('').length > 10) {
+  else if (tValue.split('-').join('').split(' ').join('').length > 10) {
     showValidationError(tel, "Incorrect amount of characters!");
-  } else if (!tel.value.split('').every(n => {
+  } else if (!tValue.split('').every(n => {
     n = n.charCodeAt(0);
 
     // 48-57: 0-9, 45: -, 32: space
@@ -334,7 +335,7 @@ function validateTel() {
   })) {
     showValidationError(tel, "Must only contain numbrers, hyphen or space!");
   }
-  else if (!splitValidation(tel.value, '-') || !splitValidation(tel.value, ' ')) {
+  else if (!splitValidation(tValue, '-') || !splitValidation(tValue, ' ')) {
     showValidationError(tel, "Incorrect way of splitting the number");
   } else {
     removeValidationError(tel);
