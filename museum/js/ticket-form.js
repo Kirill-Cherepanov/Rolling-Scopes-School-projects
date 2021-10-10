@@ -1,5 +1,8 @@
 'use strict'
 
+// Изменить на true для потипового расчета стоимости билетов (можно будет выбрать билеты разных типов одновременно)
+const PER_TICKET_TYPE_VALUE_CALCULATION = false;
+
 const bookBtn = document.querySelector("button.book-btn");
 const closeBtn = document.querySelector("button.close-booking-form");
 const bookingTicketForm = document.querySelector("aside.booking-ticket");
@@ -129,11 +132,11 @@ class FormCalculator {
     this.perTypeValues[this.currentTicketType].totalCost = 
     tPrice * (basicCounter + seniorCounter / 2);
 
-    /* Заменить на 
-    this.totalAmount = this.perTypeValues.permanent.totalCost + this.perTypeValues.temporary.totalCost + this.perTypeValues.combined.totalCost; 
-    Для потипового расчета стоимости билетов
-    */
-    this.totalAmount = this.perTypeValues[this.currentTicketType].totalCost;
+    if (PER_TICKET_TYPE_VALUE_CALCULATION) {
+      this.totalAmount = this.perTypeValues.permanent.totalCost + this.perTypeValues.temporary.totalCost + this.perTypeValues.combined.totalCost; 
+    } else {
+      this.totalAmount = this.perTypeValues[this.currentTicketType].totalCost;
+    }
   }
 
   setFormValues() {

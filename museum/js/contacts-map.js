@@ -8,6 +8,7 @@ function initMapboxGLJS() {
     zoom: 15.78,
   });
 
+  map.addControl(new mapboxgl.NavigationControl());
   const marker1 = new mapboxgl.Marker({
     color: "#000000",
   }).setLngLat([2.3364, 48.86091]).addTo(map);
