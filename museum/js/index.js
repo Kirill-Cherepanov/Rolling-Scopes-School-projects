@@ -1,19 +1,72 @@
-console.log(`Ваша оценка - 157 баллов
-Доп функционал:
-+4 баллов: Страница полностью адаптивна, т.е. все скрипты работают с тачскринами, не ломают дизайн на малых разрешениях, благодаря чему сайт полностью соответствует макету на всех разрешениях (с погрешностью не более 5 пикселей)
+// Scroll to top
+const scrollBtn = document.getElementById('scroll-to-top');
+const shadeColor = function(color, percent) {
 
-+3 балла: в Booking Tickets форме при изменении типа билета, выбранные значения остальных типов билетов (кол-во, стоимость) сохраняются. Также в ticket-form.js можно включить возможность выбора одновременно нескольких типов билетов
+  var R = parseInt(color.substring(1,3),16);
+  var G = parseInt(color.substring(3,5),16);
+  var B = parseInt(color.substring(5,7),16);
+  
+  R = parseInt(R * (100 + percent) / 100);
+  G = parseInt(G * (100 + percent) / 100);
+  B = parseInt(B * (100 + percent) / 100);
+  
+  R = (R<255)?R:255;
+  G = (G<255)?G:255;
+  B = (B<255)?B:255;
+  
+  var RR = ((R.toString(16).length==1)?"0"+R.toString(16):R.toString(16));
+  var GG = ((G.toString(16).length==1)?"0"+G.toString(16):G.toString(16));
+  var BB = ((B.toString(16).length==1)?"0"+B.toString(16):B.toString(16));
+  
+  return "#"+RR+GG+BB;
+}
+const scrollBtnAppearanceHandler = function(e) {
+  if (window.scrollY > 0) {
+    scrollBtn.hidden = false;
+  } else {
+    scrollBtn.hidden = true;
+  }
+
+  let body = document.body, html = document.documentElement;
+  let height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+  scrollBtn.style.backgroundColor = shadeColor('#9d8665', 100 - Math.round(window.scrollY / height * 100));
+}
+const scrollToTop = function(e) {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  
+  // requestAnimationFrame: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+  if (scrollTop > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, scrollTop * 0.8);
+  }
+}
+scrollBtnAppearanceHandler();
+document.addEventListener('scroll', scrollBtnAppearanceHandler);
+scrollBtn.addEventListener("click", scrollToTop);
+
+// Самооценка
+console.log(`Ваша оценка - 159 баллов
+
+===============================
+Доп функционал:
++4 балла кнопка прокрутки страницы вверх с динамической сменой цвета фона. Вверху страницы она белая, снизу имеет золотистый цвет подстать дизайну (#9d8665)
+
++3 балла: Страница полностью адаптивна, т.е. все скрипты работают с тачскринами, не ломают дизайн на малых разрешениях, благодаря чему сайт полностью соответствует макету на всех разрешениях (с погрешностью не более 5 пикселей)
+
++2 балла: в Booking Tickets форме при изменении типа билета, выбранные значения остальных типов билетов (кол-во, стоимость) сохраняются. Также в ticket-form.js можно включить возможность выбора одновременно нескольких типов билетов
 
 +1 балл: дополнительные (также полностью адаптивные) элементы дизайна (их не так много, поэтому только +1)
+===============================
 
 
 Отзыв по пунктам ТЗ:
 Частично выполненные пункты:
 1) если видео с YouTube проигрывается, клик по кнопке Pause останавливает его проигрывание. Также проигрывание видео останавливается, если кликнуть по другому слайду или кнопке Play в центре другого слайда. В указанной ситуации другое видео должно запуститься, а текущее остановиться. Невозможно проигрывание нескольких YouTube видео одновременно 
 
-2) Дополницельный функционал смотреть выше!!! 
-
 Выполненные пункты:
+0) Под функционал смотреть выше!!!
+
 1) есть возможность перелистывания слайдов влево и вправо кликами по стрелкам 
 
 2) есть возможность перелистывания слайдов влево и вправо свайпами (движениями) мышки 

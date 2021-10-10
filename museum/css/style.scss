@@ -208,6 +208,28 @@ h3.logo {
     gap: 5px;
   }
 }
+// Scroll to top button
+#scroll-to-top {
+  // display: none;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 8;
+  cursor: pointer;
+  background: no-repeat url(../img/svg/scrollToTop.svg);
+  background-size: 105% 105%;
+  background-position: center;
+  background-color: #fff;
+  border-radius: 50%;
+  &:hover {
+    background-color: $dark-red;
+  }
+  &:active {
+    background-color: $dark-red;
+  }
+}
 .go-left {
   transition: 0.75s left;
   left: -100vw;
