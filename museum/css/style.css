@@ -264,11 +264,11 @@ h3.logo::before {
 }
 
 #scroll-to-top:hover {
-  background-color: #710707;
+  background-color: #710707 !important;
 }
 
 #scroll-to-top:active {
-  background-color: #710707;
+  background-color: #710707 !important;
 }
 
 .go-left {

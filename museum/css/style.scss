@@ -224,10 +224,10 @@ h3.logo {
   background-color: #fff;
   border-radius: 50%;
   &:hover {
-    background-color: $dark-red;
+    background-color: $dark-red !important;
   }
   &:active {
-    background-color: $dark-red;
+    background-color: $dark-red !important;
   }
 }
 .go-left {
