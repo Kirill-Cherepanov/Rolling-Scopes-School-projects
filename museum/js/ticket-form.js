@@ -84,7 +84,7 @@ class FormCalculator {
       'November',
       'December'
     ]
-    let formattedDate = `${DAYS[selectedDate.getDay()]}, ${MONTHS[selectedDate.getMonth()]} ${selectedDate.getDate()}`;
+    let formattedDate = `${DAYS[selectedDate.getDay() - 1]}, ${MONTHS[selectedDate.getMonth()]} ${selectedDate.getDate()}`;
 
     document.querySelector('aside .payment-info-column p').innerText = formattedDate;
   }
@@ -150,6 +150,7 @@ class FormCalculator {
     document.querySelector('aside .basic-cost .basic-count').innerText = basicCounter;
     document.querySelector('aside .senior-cost .senior-count').innerText = seniorCounter;
 
+    document.querySelector('aside .payment-info-column p:last-of-type').innerText = bookingForm['ticket-type'].options[bookingForm['ticket-type'].selectedIndex].innerText;
     document.getElementById('basic-form').value = basicCounter;
     document.getElementById('senior-form').value = seniorCounter;
   
@@ -312,9 +313,8 @@ function validateTel() {
   const tValue = tel.value.split('+').join('');
 
   const splitValidation = function(value, separator) {
-    if (!value.includes(separator)) {}
-    else if ( value.split(separator).every(n => n.length == 2) || 
-              value.split(separator).every(n => n.length == 3) ) {}
+    if (!value.includes(separator)) { }
+    else if (value.split(separator).every(n => n.length <= 3)) { }
     else {
       console.log(value);
       return false;
@@ -336,7 +336,7 @@ function validateTel() {
     showValidationError(tel, "Must only contain numbrers, hyphen or space!");
   }
   else if (!splitValidation(tValue, '-') || !splitValidation(tValue, ' ')) {
-    showValidationError(tel, "Incorrect way of splitting the number");
+    showValidationError(tel, "Incorrect way of splitting the number!");
   } else {
     removeValidationError(tel);
     return true;

@@ -19,7 +19,7 @@ const shadeColor = function(color, percent) {
   var BB = ((B.toString(16).length==1)?"0"+B.toString(16):B.toString(16));
   
   return "#"+RR+GG+BB;
-}
+};
 const scrollBtnAppearanceHandler = function(e) {
   if (window.scrollY > 0) {
     scrollBtn.hidden = false;
@@ -31,19 +31,15 @@ const scrollBtnAppearanceHandler = function(e) {
   let height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
 
   scrollBtn.style.backgroundColor = shadeColor('#9d8665', 100 - Math.round(window.scrollY / height * 100));
-}
+};
 const scrollToTop = function(e) {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  
-  // requestAnimationFrame: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
-  if (scrollTop > 0) {
-    window.requestAnimationFrame(scrollToTop);
-    window.scrollTo(0, scrollTop * 0.8);
+  if (document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
+    window.scrollTo(0, 0);
   }
-}
+};
 scrollBtnAppearanceHandler();
 document.addEventListener('scroll', scrollBtnAppearanceHandler);
-scrollBtn.addEventListener("click", scrollToTop);
+scrollBtn.addEventListener("pointerdown", scrollToTop);
 
 // Самооценка
 console.log(`Ваша оценка - 159 баллов
