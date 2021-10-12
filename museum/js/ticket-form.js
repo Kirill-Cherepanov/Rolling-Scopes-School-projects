@@ -310,7 +310,7 @@ function validateEmail() {
 
 function validateTel() {
   const tel = document.querySelector('aside .personal-info-column .icon-handler.phone input');
-  const tValue = tel.value.split('+').join('');
+  const tValue = tel.value.startsWith('+') ? tel.value.slice(1) : tel.value;
 
   const splitValidation = function(value, separator) {
     if (!value.includes(separator)) { }
@@ -333,7 +333,7 @@ function validateTel() {
     // 48-57: 0-9, 45: -, 32: space
     return (n >= 48 && n <= 57) || n == 32 || n == 45;
   })) {
-    showValidationError(tel, "Must only contain numbrers, hyphen or space!");
+    showValidationError(tel, "Must only contain numbers, hyphen, space or a + sign at the beginning!");
   }
   else if (!splitValidation(tValue, '-') || !splitValidation(tValue, ' ')) {
     showValidationError(tel, "Incorrect way of splitting the number!");
