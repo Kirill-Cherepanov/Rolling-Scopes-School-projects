@@ -12,7 +12,7 @@ if (globalSettings.imgsrc === 'github') {
     let slideNum = parseInt(body.style.backgroundImage.match(/\d\d.jpg/));
 
     if (e.target.classList.contains('slide-next')) slideNum = slideNum + 1 <= 20 ? slideNum + 1 : 1; 
-    else slideNum = slideNum - 1 >= 1 ? slideNum - 1 : 20;
+    else slideNum = slideNum >= 1 ? slideNum - 1 : 20;
 
     if (slideNum < 10) slideNum = '0' + slideNum;
     slideNum = slideNum + '.jpg';
@@ -34,7 +34,7 @@ if (globalSettings.imgsrc === 'github') {
 
       sliderBtns.addEventListener('pointerdown', e => {
         if (e.target.classList.contains('slide-next')) slideNum = slideNum + 1 < len ? slideNum + 1 : 0;
-        else slideNum = slideNum - 1 >= 1 ? slideNum - 1 : len;
+        else slideNum = slideNum >= 1 ? slideNum - 1 : len - 1;
 
         setBg(`${r.results[slideNum].urls.raw}&w=1920&h=1080`);
       });
@@ -57,7 +57,7 @@ if (globalSettings.imgsrc === 'github') {
       if (r.length) setBg(imgUrl);
 
       sliderBtns.addEventListener('pointerdown', e => {
-        if (e.target.classList.contains('slide-next')) slideNum = slideNum + 1 < len ? slideNum + 1 : 0;
+        if (e.target.classList.contains('slide-next')) slideNum = slideNum + 1 <= len ? slideNum + 1 : 0;
         else slideNum = slideNum - 1 >= 1 ? slideNum - 1 : len;
 
         imgUrl = `https://farm${r[slideNum].farm}.staticflickr.com/${r[slideNum].server}/${r[slideNum].id}_${r[slideNum].secret}.jpg`;
