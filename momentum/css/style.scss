@@ -344,6 +344,7 @@ body {
         border: 2px solid #fff;
         border-radius: 5px;
         margin-bottom: 15px;
+        overflow: hidden;
         .tag {
           display: inline-flex;
           align-items: center;
@@ -377,5 +378,70 @@ body {
   }
   .author {
     min-height: 20px;
+  }
+  .todo-block {
+    position:absolute;
+    right: 20px;
+    bottom: 20px;
+    width: max-content;
+    h2 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .input-todo-wrapper {
+      display: flex;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      .input-todo {
+        font-size: 16px;
+        border: 0;
+        outline: 0;
+        padding: 3px;
+        width: calc(100% - 36px)
+      }
+      .add-todo {
+        background-color: #55F;
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 1000;
+        color: #fff;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+    }
+    .todos-container {
+      display: flex;
+      flex-direction: column;
+      min-width: 250px;
+      min-height: 36px;
+      max-height: 350px;
+      background: rgba(255, 255, 255, 0.3);
+      overflow-y: auto;
+      list-style: none;
+      .todo {
+        height: 36px;
+        font-size: 18px;
+        color: #fff;
+        text-align: left;
+        padding: 5px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+        .delete-todo {
+          position: absolute;
+          right: 0;
+          top: 0;
+          background-color: #F00;
+          font-size: 20px;
+          line-height: 20px;
+          font-weight: 1000;
+          color: #fff;
+          padding: 7px 10px;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }

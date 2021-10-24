@@ -4,7 +4,7 @@ const langSelect = document.getElementById('lang');
 const imgSource = document.querySelectorAll('input[name="img-src"]');
 const tagInput = document.getElementById('add-tag');
 const tagsField = document.querySelector('.tags-field');
-let tags = JSON.parse(localStorage.getItem('imgtags') || []);
+let tags = JSON.parse(localStorage.getItem('imgtags')) || [];
 
 settingsBtn.addEventListener('pointerdown', () => settingsForm.classList.toggle('active'));
 
