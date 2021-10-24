@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="css/owfont-regular.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/owfont-regular.css">
+  <title>momentum</title>
+</head>
+<body>
+  <header class="header">
+    <div class="player">
+      <p class="track-name"></p>
+      <div class="player-controls">
+        <div class="main-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+        <div class="progress-controls">
+          <div class="progress-bar">
+            <div class="progress-bar-filler"></div>
+          </div>
+          <p class="progress-time"><span class="current-time">00:00</span> | <span class="duration">01:50</span></p>
+        </div>
+        <div class="sound-controls">
+          <button class="mute"></button>
+          <div class="volume-bar">
+            <div class="volume-bar-filler"></div>
+          </div>
+        </div>
+      </div>
+      <ul class="play-list">
+        <li class="play-item">Aqua Caelestis</li>
+        <li class="play-item">Ennio Morricone</li>
+        <li class="play-item">River Flows In You</li>
+        <li class="play-item">Summer Wind</li>
+      </ul>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" value="Minsk">
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time">66:69:99</time>
+    <date class="date">Tuesday, October 5</date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" id="username">
+    </div>
+  </main>
+  <footer class="footer">
+    <button class="settings"></button>
+    <ul class="settings-form">
+      <li class="language-change">
+        <label for="lang">Choose preferred language:</label>
+        <select name="language" id="lang">
+          <option value="en">English</option>
+          <option value="ru">Russian</option>
+        </select>
+      </li>
+      <li class="img-source">
+        <p class="img-source-label">Choose the method of image search</p>
+        <input type="radio" name="img-src" id="github">
+        <label for="github">Github</label><br>
+        <input type="radio" name="img-src" id="unsplash">
+        <label for="unsplash">Unsplash API</label><br>
+        <input type="radio" name="img-src" id="flickr">
+        <label for="flickr">Flickr API</label>
+      </li>
+      <li class="img-tags">
+        <input type="text" name="add-tag" id="add-tag" placeholder="Add a tag for background search">
+        <div class="tags-field">
+        </div>
+      </li>
+      <li class="submit-notice">
+        <p>Refresh the page to apply all the changes</p>
+      </li>
+    </ul>
+    <button class="change-quote"></button>
+    <div>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+    <div class="todo-block">
+      <h2>TODO List</h2>
+      <div class="input-todo-wrapper">
+        <input class="input-todo" type="text" placeholder="Add a new todo">
+        <button class="add-todo">+</button>
+      </div>
+      <ul class="todos-container"></ul>
+    </div>
+  </footer>
+  <script src="js/settings.js"></script>
+  <script type="module" src="js/play-list.js"></script>
+  <script src="js/clock-n-calendar.js"></script>
+  <script src="js/background-slider.js"></script>
+  <script src="js/weather-widget.js"></script>
+  <script src="js/quote-for-a-day.js"></script>
+  <script type="module" src="js/audio-player.js"></script>
+  <script src="js/todo.js"></script>
+</body></html>
