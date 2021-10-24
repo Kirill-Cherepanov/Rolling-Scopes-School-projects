@@ -552,6 +552,20 @@ body {
   cursor: pointer;
 }
 
+.footer .settings-form .hide-blocks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+}
+
+.footer .settings-form .hide-blocks label[for=hide-blocks] {
+  margin-right: 10px;
+}
+
 .footer .change-quote {
   margin-bottom: 30px;
   background-image: url("../assets/svg/reload.svg");

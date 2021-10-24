@@ -86,12 +86,23 @@
         <div class="tags-field">
         </div>
       </li>
+      <li class="hide-blocks">
+        <label for="hide-blocks">Use Ctrl to Show/Hide blocks:</label>
+        <select name="hide-blocks" id="hide-blocks" multiple size="3">
+          <option value="player">Player</option>
+          <option value="weather">Weather</option>
+          <option value="time-date">Date & Time</option>
+          <option value="greeting-container">Greeting</option>
+          <option value="quotes">Quotes</option>
+          <option value="todo-block">TODO List</option>
+        </select>
+      </li>
       <li class="submit-notice">
         <p>Refresh the page to apply all the changes</p>
       </li>
     </ul>
-    <button class="change-quote"></button>
-    <div>
+    <div class="quotes">
+      <button class="change-quote"></button>
       <div class="quote"></div>
       <div class="author"></div>
     </div>

@@ -370,6 +370,14 @@ body {
         }
       }
     }
+    .hide-blocks {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      label[for=hide-blocks] {
+        margin-right: 10px;
+      }
+    }
   }
   .change-quote {
     margin-bottom: 30px;
