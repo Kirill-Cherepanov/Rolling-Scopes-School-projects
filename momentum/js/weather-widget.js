@@ -15,7 +15,7 @@ async function setWeather() {
   weatherIcon.className = 'weather-icon owf';
 
   const city = cityInput.value;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${'en'}&appid=5d756035dd854660fcb22f425be201e3&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${globalSettings.language}&appid=5d756035dd854660fcb22f425be201e3&units=metric`;
   const result = await fetch(url);
 
   if (result.ok) {
@@ -24,10 +24,19 @@ async function setWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${Math.round(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
-    wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${data.main.humidity}%`;
+    if (globalSettings.language === 'en') {
+      wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
+      humidity.textContent = `Humidity: ${data.main.humidity}%`;
+    } else {
+      wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`;
+      humidity.textContent = `Влажнось: ${data.main.humidity}%`;
+    }
   } else {
-    weatherError.textContent = `Error! city not found for '${city}'!`;
+    if (globalSettings.language == 'en') {
+      weatherError.textContent = `Error! City not found for '${city}'!`;
+    } else {
+      weatherError.textContent = `Ошибка! Город '${city}' не обнаружен!`;
+    }
   }
 }
 cityInput.addEventListener('change', setWeather);

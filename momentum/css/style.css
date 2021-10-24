@@ -43,7 +43,20 @@ body {
   padding: 20px;
 }
 
+.header .player .track-name {
+  text-align: left;
+  opacity: .8;
+  -webkit-transition: .3s;
+  transition: .3s;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
 .header .player .player-controls {
+  margin-bottom: 10px;
+}
+
+.header .player .player-controls .main-controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,26 +67,93 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 120px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
-.header .player .player-controls .play {
+.header .player .player-controls .main-controls .play {
   width: 40px;
   height: 40px;
   background-size: 40px 40px;
   background-image: url("../assets/svg/play.svg");
 }
 
-.header .player .player-controls .pause {
+.header .player .player-controls .main-controls .pause {
   background-image: url("../assets/svg/pause.svg");
 }
 
-.header .player .player-controls .play-prev {
+.header .player .player-controls .main-controls .play-prev {
   background-image: url("../assets/svg/play-prev.svg");
 }
 
-.header .player .player-controls .play-next {
+.header .player .player-controls .main-controls .play-next {
   background-image: url("../assets/svg/play-next.svg");
+}
+
+.header .player .player-controls .progress-controls .progress-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 6px;
+  background-color: #fff;
+  opacity: .8;
+  margin-bottom: 7px;
+  cursor: pointer;
+}
+
+.header .player .player-controls .progress-controls .progress-bar-filler {
+  background-color: #55F;
+  width: 0%;
+  height: 6px;
+}
+
+.header .player .player-controls .progress-controls .progress-time {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.header .player .player-controls .sound-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .player .player-controls .sound-controls .mute {
+  height: 25px;
+  width: 25px;
+  background: no-repeat url(../assets/svg/sound.svg);
+  background-size: contain;
+  opacity: .8;
+  background-position: center;
+  cursor: pointer;
+}
+
+.header .player .player-controls .sound-controls .mute.muted {
+  background-image: url(../assets/svg/mute.svg);
+}
+
+.header .player .player-controls .sound-controls .volume-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% - 40px);
+  height: 6px;
+  background-color: #fff;
+  opacity: .8;
+  cursor: pointer;
+  position: relative;
+}
+
+.header .player .player-controls .sound-controls .volume-bar-filler {
+  background-color: #55F;
+  width: 100%;
+  height: 6px;
 }
 
 .header .player .play-list {
@@ -83,7 +163,7 @@ body {
 .header .player .play-list .play-item {
   position: relative;
   padding: 5px;
-  padding-left: 20px;
+  padding-left: 25px;
   list-style: none;
   opacity: .8;
   cursor: pointer;
@@ -96,15 +176,18 @@ body {
 }
 
 .header .player .play-list .play-item::before {
-  content: "\2713";
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(../assets/svg/play.svg);
+  background-size: contain;
   position: absolute;
   left: 0;
-  top: 2px;
-  font-weight: 900;
 }
 
 .header .player .play-list .play-item.item-active::before {
-  color: #C5B358;
+  background-image: url(../assets/svg/pause.svg);
 }
 
 .player-icon,
@@ -232,7 +315,7 @@ body {
   width: 100%;
   height: 40vh;
   min-height: 260px;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .main .slider-icon {
@@ -368,6 +451,99 @@ body {
   height: 30vh;
   min-height: 160px;
   padding: 20px;
+}
+
+.footer .settings {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: no-repeat url(../assets/svg/settings.svg);
+  background-size: contain;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  -webkit-filter: invert(100%) sepia(35%) saturate(626%) hue-rotate(247deg) brightness(120%) contrast(100%);
+          filter: invert(100%) sepia(35%) saturate(626%) hue-rotate(247deg) brightness(120%) contrast(100%);
+  opacity: .8;
+  cursor: pointer;
+}
+
+.footer .settings:hover {
+  opacity: 1;
+}
+
+.footer .settings-form {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  list-style: none;
+  text-align: left;
+  font-size: 18px;
+  position: absolute;
+  left: -500px;
+  bottom: 100px;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.footer .settings-form.active {
+  left: 20px;
+}
+
+.footer .settings-form .language-change {
+  margin-bottom: 15px;
+}
+
+.footer .settings-form .language-change label {
+  margin-right: 5px;
+}
+
+.footer .settings-form .img-source {
+  margin-bottom: 15px;
+}
+
+.footer .settings-form .img-tags input {
+  margin-bottom: 10px;
+  background-color: transparent;
+  color: #fff;
+  width: 100%;
+}
+
+.footer .settings-form .img-tags .tags-field {
+  min-height: 34px;
+  max-width: 400px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.footer .settings-form .img-tags .tags-field .tag {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1px 3px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.footer .settings-form .img-tags .tags-field .tag::after {
+  content: "";
+  display: inline-block;
+  margin-left: 3px;
+  height: 20px;
+  width: 20px;
+  background: no-repeat url(../assets/svg/close.svg);
+  background-size: contain;
+  -webkit-filter: invert(100%) sepia(35%) saturate(626%) hue-rotate(247deg) brightness(120%) contrast(100%);
+          filter: invert(100%) sepia(35%) saturate(626%) hue-rotate(247deg) brightness(120%) contrast(100%);
+  cursor: pointer;
 }
 
 .footer .change-quote {
