@@ -32,3 +32,8 @@ const addTodo = function(text) {
 };
 
 for (t of todos) addTodo(t);
+
+if (globalSettings.language === 'ru') {
+  document.querySelector('.todo-block h2').textContent = 'Список дел';
+  todoInput.placeholder = 'Добавьте задачу';
+}
