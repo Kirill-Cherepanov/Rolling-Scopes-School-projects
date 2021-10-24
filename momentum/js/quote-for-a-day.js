@@ -9,7 +9,7 @@ async function getQuotes(url) {
 }
 
 async function changeQuote() {
-  const quoteArr = await getQuotes('../assets/json/quotes.json');
+  const quoteArr = await getQuotes('./assets/json/quotes.json');
   let currQuoteText = quote.innerText;
   let currQuoteIndex;
   let newQuoteIndex;
