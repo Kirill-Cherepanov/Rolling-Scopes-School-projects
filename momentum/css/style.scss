@@ -32,6 +32,8 @@ body {
   min-height: 220px;  
   padding: 20px;
   .player {
+    position: relative;
+    z-index: 1;
     .track-name {
       text-align: left;
       opacity: .8;

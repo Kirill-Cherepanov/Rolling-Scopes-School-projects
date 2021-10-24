@@ -43,6 +43,11 @@ body {
   padding: 20px;
 }
 
+.header .player {
+  position: relative;
+  z-index: 1;
+}
+
 .header .player .track-name {
   text-align: left;
   opacity: .8;
