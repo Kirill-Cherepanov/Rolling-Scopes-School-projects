@@ -40,8 +40,6 @@ if (globalSettings.imgsrc === 'github') {
       });
     });
 } else {
-  if (globalSettings.language == 'en') alert("Flickr API's is moronic. You are warned");
-  else alert('Flickr API ужасен. Я предупредил')
   let tags = globalSettings.tags.length ? globalSettings.tags : [getTimeOfTheDay()];
   const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=3965e25f53c9f23e6a8ac1f59aee23c1&tags=${tags.join('+')}&per_page=20&format=json&nojsoncallback=1`;
   fetch(url)
@@ -53,8 +51,6 @@ if (globalSettings.imgsrc === 'github') {
     .then(r => {
       const len = r.length <= 20 ? r.length : 20;
       let slideNum = 0;
-      console.log(r);
-      console.log(slideNum);
       let imgUrl = `https://farm${r[slideNum].farm}.staticflickr.com/${r[slideNum].server}/${r[slideNum].id}_${r[slideNum].secret}.jpg`;
       if (r.length) setBg(imgUrl);
 
