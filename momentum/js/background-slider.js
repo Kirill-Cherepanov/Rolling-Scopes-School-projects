@@ -40,10 +40,10 @@ if (globalSettings.imgsrc === 'github') {
       });
     });
 } else {
-  if (globalSettings.language == 'en') alert("Flickr API's search algorithm is moronic. You are warned");
-  else alert('Поисковый алгоритм Flickr API ужасен. Я предупредил')
+  if (globalSettings.language == 'en') alert("Flickr API's is moronic. You are warned");
+  else alert('Flickr API ужасен. Я предупредил')
   let tags = globalSettings.tags.length ? globalSettings.tags : [getTimeOfTheDay()];
-  const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=1dd4112c56f403396a5690556ab626c0&tags=${tags.join('+')}&per_page=20&format=json&nojsoncallback=1`;
+  const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=3965e25f53c9f23e6a8ac1f59aee23c1&tags=${tags.join('+')}&per_page=20&format=json&nojsoncallback=1`;
   fetch(url)
     .then(r => {
       if (!r.ok) alert('Flickr API Access error!' + r.status);
@@ -51,14 +51,16 @@ if (globalSettings.imgsrc === 'github') {
     })
     .then(r => r.photos.photo)
     .then(r => {
-      const len = r.len <= 20 ? r.len : 20;
+      const len = r.length <= 20 ? r.length : 20;
       let slideNum = 0;
+      console.log(r);
+      console.log(slideNum);
       let imgUrl = `https://farm${r[slideNum].farm}.staticflickr.com/${r[slideNum].server}/${r[slideNum].id}_${r[slideNum].secret}.jpg`;
       if (r.length) setBg(imgUrl);
 
       sliderBtns.addEventListener('pointerdown', e => {
-        if (e.target.classList.contains('slide-next')) slideNum = slideNum + 1 <= len ? slideNum + 1 : 0;
-        else slideNum = slideNum - 1 >= 1 ? slideNum - 1 : len;
+        if (e.target.classList.contains('slide-next')) slideNum = slideNum + 1 < len ? slideNum + 1 : 0;
+        else slideNum = slideNum >= 1 ? slideNum - 1 : len - 1;
 
         imgUrl = `https://farm${r[slideNum].farm}.staticflickr.com/${r[slideNum].server}/${r[slideNum].id}_${r[slideNum].secret}.jpg`;
         setBg(imgUrl);

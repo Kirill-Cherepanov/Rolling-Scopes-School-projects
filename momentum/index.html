@@ -64,43 +64,45 @@
   </main>
   <footer class="footer">
     <button class="settings"></button>
-    <ul class="settings-form">
-      <li class="language-change">
-        <label for="lang">Choose preferred language:</label>
-        <select name="language" id="lang">
-          <option value="en">English</option>
-          <option value="ru">Russian</option>
-        </select>
-      </li>
-      <li class="img-source">
-        <p class="img-source-label">Choose the method of image search</p>
-        <input type="radio" name="img-src" id="github">
-        <label for="github">Github</label><br>
-        <input type="radio" name="img-src" id="unsplash">
-        <label for="unsplash">Unsplash API</label><br>
-        <input type="radio" name="img-src" id="flickr">
-        <label for="flickr">Flickr API</label>
-      </li>
-      <li class="img-tags">
-        <input type="text" name="add-tag" id="add-tag" placeholder="Add a tag for background search">
-        <div class="tags-field">
-        </div>
-      </li>
-      <li class="hide-blocks">
-        <label for="hide-blocks">Use Ctrl to Show/Hide blocks:</label>
-        <select name="hide-blocks" id="hide-blocks" multiple size="3">
-          <option value="player">Player</option>
-          <option value="weather">Weather</option>
-          <option value="time-date">Date & Time</option>
-          <option value="greeting-container">Greeting</option>
-          <option value="quotes">Quotes</option>
-          <option value="todo-block">TODO List</option>
-        </select>
-      </li>
-      <li class="submit-notice">
-        <p>Refresh the page to apply all the changes</p>
-      </li>
-    </ul>
+    <div class="settings-form">
+      <ul>
+        <li class="language-change">
+          <label for="lang">Choose preferred language:</label>
+          <select name="language" id="lang">
+            <option value="en">English</option>
+            <option value="ru">Russian</option>
+          </select>
+        </li>
+        <li class="img-source">
+          <p class="img-source-label">Choose the method of image search</p>
+          <input type="radio" name="img-src" id="github">
+          <label for="github">Github</label><br>
+          <input type="radio" name="img-src" id="unsplash">
+          <label for="unsplash">Unsplash API</label><br>
+          <input type="radio" name="img-src" id="flickr">
+          <label for="flickr">Flickr API</label>
+        </li>
+        <li class="img-tags">
+          <input type="text" name="add-tag" id="add-tag" placeholder="Add a tag for background search">
+          <div class="tags-field">
+          </div>
+        </li>
+        <li class="hide-blocks">
+          <label for="hide-blocks">Use Ctrl to Show/Hide blocks:</label>
+          <select name="hide-blocks" id="hide-blocks" multiple size="3">
+            <option value="player">Player</option>
+            <option value="weather">Weather</option>
+            <option value="time-date">Date & Time</option>
+            <option value="greeting-container">Greeting</option>
+            <option value="quotes">Quotes</option>
+            <option value="todo-block">TODO List</option>
+          </select>
+        </li>
+        <li class="submit-notice">
+          <p>Refresh the page to apply all the changes</p>
+        </li>
+      </ul>
+    </div>
     <div class="quotes">
       <button class="change-quote"></button>
       <div class="quote"></div>

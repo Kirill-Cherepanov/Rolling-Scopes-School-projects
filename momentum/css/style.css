@@ -1,8 +1,6 @@
-@charset "UTF-8";
 @font-face {
   font-family: 'Arial-MT';
   src: url("../assets/fonts/Arial-MT.woff");
-  /* Путь к файлу со шрифтом */
 }
 
 * {
@@ -15,7 +13,6 @@
 }
 
 body {
-  min-width: 480px;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
@@ -25,6 +22,12 @@ body {
   background-blend-mode: multiply;
   -webkit-transition: background-image 1s ease-in-out;
   transition: background-image 1s ease-in-out;
+}
+
+@media (max-width: 420px) {
+  body {
+    font-size: 12px;
+  }
 }
 
 .header {
@@ -243,8 +246,14 @@ body {
   text-align: left;
 }
 
+@media (max-width: 420px) {
+  .weather {
+    width: 40%;
+  }
+}
+
 .weather .city {
-  width: 170px;
+  width: calc(100% - 10px);
   height: 34px;
   padding: 5px;
   font-size: 20px;
@@ -355,10 +364,39 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .main .time {
+    font-size: 48px;
+    min-height: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .main .time {
+    letter-spacing: 2px;
+    font-size: 32px;
+  }
+}
+
 .main .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .main .date {
+    font-size: 16px;
+    min-height: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .main .date {
+    font-size: 12px;
+  }
 }
 
 .main .greeting-container {
@@ -382,6 +420,18 @@ body {
   .main .greeting-container {
     min-height: 40px;
     font-size: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main .greeting-container {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .main .greeting-container {
+    font-size: 16px;
   }
 }
 
@@ -418,6 +468,18 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .main .greeting-container .name {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .main .greeting-container .name {
+    font-size: 16px;
+  }
+}
+
 .main .greeting-container .name::-webkit-input-placeholder {
   color: #fff;
   opacity: .6;
@@ -442,16 +504,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   width: 100%;
   height: 30vh;
   min-height: 160px;
@@ -464,13 +522,12 @@ body {
   height: 50px;
   background: no-repeat url(../assets/svg/settings.svg);
   background-size: contain;
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
   -webkit-filter: invert(100%) sepia(35%) saturate(626%) hue-rotate(247deg) brightness(120%) contrast(100%);
           filter: invert(100%) sepia(35%) saturate(626%) hue-rotate(247deg) brightness(120%) contrast(100%);
   opacity: .8;
   cursor: pointer;
+  position: relative;
+  z-index: 100;
 }
 
 .footer .settings:hover {
@@ -478,20 +535,57 @@ body {
 }
 
 .footer .settings-form {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  list-style: none;
   text-align: left;
   font-size: 18px;
   position: absolute;
+  z-index: 10;
   left: -500px;
   bottom: 100px;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
 
+@media (max-width: 1300px) {
+  .footer .settings-form {
+    left: -100vw;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .footer .settings-form {
+    font-size: 14px;
+  }
+}
+
 .footer .settings-form.active {
   left: 20px;
+}
+
+@media (max-width: 1300px) {
+  .footer .settings-form.active {
+    left: 0;
+  }
+}
+
+.footer .settings-form ul {
+  list-style: none;
 }
 
 .footer .settings-form .language-change {
@@ -566,31 +660,63 @@ body {
   margin-right: 10px;
 }
 
-.footer .change-quote {
+.footer .quotes {
+  position: absolute;
+  left: calc(50vw - (50vw - 140px) / 2);
+}
+
+@media (max-width: 800px) {
+  .footer .quotes {
+    left: calc(25vw + 25px);
+  }
+}
+
+.footer .quotes .change-quote {
   margin-bottom: 30px;
   background-image: url("../assets/svg/reload.svg");
 }
 
-.footer .quote {
+.footer .quotes .quote {
   min-height: 32px;
+  width: calc(50vw - 140px);
+  margin-bottom: 5px;
 }
 
-.footer .author {
+@media (max-width: 800px) {
+  .footer .quotes .quote {
+    width: calc(50vw - 50px);
+  }
+}
+
+.footer .quotes .author {
   min-height: 20px;
 }
 
+@media (max-width: 800px) {
+  .footer .quotes .author {
+    font-size: 13px;
+  }
+}
+
 .footer .todo-block {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: 250px;
+}
+
+@media (max-width: 800px) {
+  .footer .todo-block {
+    width: 25vw;
+  }
 }
 
 .footer .todo-block h2 {
   font-size: 18px;
   margin-bottom: 5px;
+}
+
+@media (max-width: 420px) {
+  .footer .todo-block h2 {
+    font-size: 14px;
+  }
 }
 
 .footer .todo-block .input-todo-wrapper {
@@ -606,6 +732,12 @@ body {
   outline: 0;
   padding: 3px;
   width: calc(100% - 36px);
+}
+
+@media (max-width: 420px) {
+  .footer .todo-block .input-todo-wrapper .input-todo {
+    font-size: 12px;
+  }
 }
 
 .footer .todo-block .input-todo-wrapper .add-todo {
@@ -626,7 +758,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-width: 250px;
   min-height: 36px;
   max-height: 350px;
   background: rgba(255, 255, 255, 0.3);
