@@ -12,7 +12,7 @@ if (globalSettings.imgsrc === 'github') {
     let slideNum = parseInt(body.style.backgroundImage.match(/\d\d.jpg/));
 
     if (e.target.classList.contains('slide-next')) slideNum = slideNum + 1 <= 20 ? slideNum + 1 : 1; 
-    else slideNum = slideNum >= 1 ? slideNum - 1 : 20;
+    else slideNum = slideNum > 1 ? slideNum - 1 : 20;
 
     if (slideNum < 10) slideNum = '0' + slideNum;
     slideNum = slideNum + '.jpg';
