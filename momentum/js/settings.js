@@ -80,6 +80,7 @@ const globalSettings = {
 const langLabel = document.querySelector('.language-change label[for="lang"]');
 const imgSrcLabel = document.querySelector('.img-source-label');
 const submitNotice = document.querySelector('.submit-notice p');
+const hideBLocksLabel = document.querySelector('.hide-blocks label[for="hide-blocks"]');
 
 if (globalSettings.language === 'ru') {
   langLabel.textContent = 'Выберите предпочитаемый язык:';
@@ -88,4 +89,5 @@ if (globalSettings.language === 'ru') {
   imgSrcLabel.textContent = 'Выберите метод поиска картинок';
   tagInput.placeholder = 'Введите тег для поиска картинок';
   submitNotice.textContent = 'Перезагрузите страницу для применения настроек';
+  hideBLocksLabel.textContent = 'CTRL + Клик чтобы спрятать блоки:';
 }

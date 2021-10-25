@@ -65,11 +65,7 @@ function setDate() {
   const DAYS = DATE_INT[globalSettings.language].DAYS;
   const MONTHS = DATE_INT[globalSettings.language].MONTHS;
   let curDate = new Date();
-  if (globalSettings.language === 'en') {
-    date.innerText = `${DAYS[curDate.getDay()]}, ${MONTHS[curDate.getMonth()]} ${curDate.getDate()}`;
-  } else {
-    date.innerText = `${MONTHS[curDate.getMonth()]} ${curDate.getDate()}, ${DAYS[curDate.getDay()]}`;
-  }
+  date.innerText = `${DAYS[curDate.getDay()]}, ${MONTHS[curDate.getMonth()]} ${curDate.getDate()}`;
 };
 
 // Setting Greetings message
