@@ -15,7 +15,7 @@ body
 
   .artists-quiz, .arts-quiz
     width: 100%
-    height: 80%
+    height: calc(100% - 125px)
     display: flex
     flex-direction: column
     align-items: center
@@ -37,7 +37,6 @@ body
       
 
   .artists-quiz
-    display: none
     .img-wrapper
       overflow: hidden
       display: flex
@@ -60,30 +59,29 @@ body
         align-items: center
         color: #fff
         background-color: $main-color
+        cursor: pointer
 
   .arts-quiz
     .pictures
       width: 100%
-      height: 100%
+      height: calc(100% - 64px)
       display: flex
       flex-direction: column
       align-content: center
       gap: 20px
       @media (min-width: 1024px)
         flex-wrap: wrap
-      .img-wrapper
-        padding: 0
-        flex-grow: 1
-        display: inline-block
+      .img-btn
         height: 20%
-        overflow: hidden
-        display: flex
-        align-items: center
+        flex-grow: 1
+        padding: 0
+        display: inline-block
+        background-size: cover
+        background-position: center
+        background-repeat: no-repeat
+        // background-image: url(../assets/img/squared/0.jpg)
         cursor: pointer
         @media (min-width: 1024px)
           flex-shrink: 0
           height: 48%
           width: 48%
-
-        img 
-          width: 100%
