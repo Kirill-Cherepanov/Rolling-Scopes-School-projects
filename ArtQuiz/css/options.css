@@ -1,0 +1,60 @@
+body {
+  padding: 20px;
+  font-size: 20px;
+}
+
+body h1 {
+  margin: 0 0 50px;
+}
+
+body .sound-option {
+  margin-bottom: 20px;
+}
+
+body .sound-option label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+body .sound-option .sound-tools #volume {
+  width: 25%;
+  cursor: pointer;
+}
+
+body .sound-option .sound-tools .mute {
+  display: inline-block;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  background: no-repeat url("../assets/svg/mute.svg");
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+body .sound-option .sound-tools .mute.muted {
+  background-image: url("../assets/svg/muted.svg");
+}
+
+body .timer-option label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+body .timer-option #time {
+  display: block;
+  cursor: pointer;
+}
+
+body .return {
+  width: calc(100% - 40px);
+  position: absolute;
+  bottom: 20px;
+}
+
+@media (min-width: 1024px) {
+  body .return {
+    width: 1024px;
+  }
+}
+/*# sourceMappingURL=options.css.map */

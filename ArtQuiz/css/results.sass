@@ -1,0 +1,32 @@
+body
+  padding: 20px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  
+  h1
+    margin: 0 0 35px
+    text-align: center
+  
+  .picture-container
+    width: 100%
+    height: calc(100% - 170px)
+    display: grid
+    gap: 20px 0
+    justify-items: center
+    grid-template-columns: repeat(3, 1fr)
+    grid-template-rows: repeat(4, calc(25% - 20px))
+    img
+      cursor: pointer
+      width: 100%
+      border-radius: 50%
+      filter: grayscale(100%)
+      @media (min-width: 568px)
+        height: 100%
+        width: auto
+    .correct
+      filter: none
+        
+
+  .return
+    margin-top: 35px

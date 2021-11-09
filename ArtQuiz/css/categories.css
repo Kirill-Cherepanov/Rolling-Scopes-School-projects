@@ -1,0 +1,34 @@
+body {
+  height: auto;
+  padding: 20px;
+}
+
+body h1 {
+  letter-spacing: 0;
+  margin: 0 0 35px;
+}
+
+body .questions-container a {
+  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2vh 5vw;
+  font-size: 40px;
+  color: #fff;
+  background-color: #000;
+  margin-bottom: 15px;
+  border-radius: 5vw;
+}
+
+body .questions-container a .result {
+  font-size: 1rem;
+}
+
+body .return {
+  margin-top: 35px;
+}
+/*# sourceMappingURL=categories.css.map */

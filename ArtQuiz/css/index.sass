@@ -1,0 +1,44 @@
+// Royal purple idk
+$main-color: #7851a9
+
+body
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+
+  h1
+    margin: 25px 0 0
+
+  .buttons
+    width: 60%
+    a
+      text-transform: uppercase
+      letter-spacing: 2px
+      font-weight: 600
+      border-radius: 5px
+      display: flex
+      justify-content: center
+      align-items: center
+      color: #fff
+      background-color: $main-color
+      margin-bottom: 15px
+      height: 40px
+      &:last-of-type
+        margin-bottom: 5px
+  
+  img
+    width: 60%
+  
+  footer
+    background-color: $main-color
+    color: #fff
+    display: flex
+    align-items: center
+    width: calc(100%)
+    padding: 0 20px
+    justify-content: space-between
+    @media (min-width: 1024px) 
+      width: 60%
+    a
+      color: #fff
