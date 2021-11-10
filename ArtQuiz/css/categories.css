@@ -9,7 +9,7 @@ body h1 {
 }
 
 body .questions-container a {
-  height: 15vh;
+  height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,6 +22,10 @@ body .questions-container a {
   background-color: #000;
   margin-bottom: 15px;
   border-radius: 5vw;
+}
+
+body .questions-container a.played {
+  background-color: #f00;
 }
 
 body .questions-container a .result {
