@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/options.css">
+  <title>Options</title>
+</head>
+<body>
+  <h1>Настройки</h1>
+  <div class="sound-option">
+    <label for="volume">Настройки звука: </label>
+    <div class="sound-tools">
+      <button class="mute"></button>
+      <input type="range" id="volume" value="100">
+    </div>
+  </div>
+  <div class="timer-option">
+    <label for="time">Настройки таймера: </label>
+    <select id="time">
+      <option value="0">Без таймера</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+    </select>
+  </div>
+  <a href="index.html" class="return">Назад</a>
+  <script src="./js/options.js"></script>
+</body>
+</html>
