@@ -25,6 +25,5 @@ for (let i = 0; i < 10; i++) {
   imgWrappers[i].append(tooltip);
 
   imgWrappers[i].style.backgroundImage = `url(./assets/img/squared/${initPicture + i}.jpg)`;
-  console.log(answers);
   if (answers[quizType][initPicture / 10][i]) imgWrappers[i].classList.add('correct');
 }

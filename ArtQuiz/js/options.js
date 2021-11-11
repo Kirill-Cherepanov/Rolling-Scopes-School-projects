@@ -4,7 +4,6 @@ const timer = document.getElementById('time');
 
 
 // Init values
-console.log(Boolean(Number(localStorage.getItem('muted'))));
 if (!localStorage.getItem('volume')) localStorage.setItem('volume', '100');
 else volume.value = localStorage.getItem('volume');
 if (!localStorage.getItem('muted')) localStorage.setItem('muted', '0');
@@ -12,7 +11,7 @@ else if (Boolean(Number(localStorage.getItem('muted')))) {
   muteBtn.classList.toggle('muted');
 }
 if (!localStorage.getItem('timer')) localStorage.setItem('timer', '0');
-else 
+else timer.value = localStorage.getItem('timer');
 
 // EventListeners
 muteBtn.addEventListener('pointerdown', () => {

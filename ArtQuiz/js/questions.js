@@ -62,7 +62,7 @@ if (!quizType) { // Artists
       throw '';
     }
 
-    qImg.src = `./assets/img/full/${questionNum}full.jpg`;
+    qImg.src = `./assets/img/squared/${questionNum}.jpg`;
 
     // Set author answers
     authors.shuffle()[0].textContent = images[questionNum].author;
