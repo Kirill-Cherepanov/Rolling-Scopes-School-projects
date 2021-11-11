@@ -94,6 +94,12 @@ body .artists-quiz .authors button {
   color: #fff;
   background-color: #7851a9;
   cursor: pointer;
+  -webkit-transition: all ease-in-out  0.3s;
+  transition: all ease-in-out  0.3s;
+}
+
+body .artists-quiz .authors button:hover {
+  background-color: #473064;
 }
 
 body .arts-quiz .pictures {

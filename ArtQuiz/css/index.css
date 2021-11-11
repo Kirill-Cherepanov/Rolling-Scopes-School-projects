@@ -64,6 +64,7 @@ body footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  text-align: center;
 }
 
 @media (min-width: 1024px) {

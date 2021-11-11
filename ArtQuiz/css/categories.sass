@@ -8,21 +8,54 @@ body
     letter-spacing: 0
     margin: 0 0 35px
   
-  .questions-container
-    a
-      height: 10vh
-      display: flex
-      justify-content: space-between
-      padding: 2vh 5vw
-      font-size: 40px
+  .categories-container
+    display: flex
+    width: 100%
+    height: calc(100% - 151px)
+    flex-wrap: wrap
+    justify-content: space-between
+    .category
+      flex-shrink: 0
+      flex-basis: 30%
+      margin-bottom: 20px
       color: #fff
-      background-color: #000
-      margin-bottom: 15px
-      border-radius: 5vw
-      &.played
-        background-color: #f00
-      .result
-        font-size: 1rem
+      background-color: #444
+      cursor: pointer
+      transition: transform ease-in-out 0.3s
+      @media (min-width: 1024px)
+        flex-basis: 19%
+        font-size: 36px
+      &:hover
+        transform: scale(1.1)
+      &.played img
+        filter: none
+      img
+        display: flex // Чтобы убрать лишние пиксели снизу
+        width: 100%
+        filter: grayscale(100%)
+        transition: filter ease-in-out 0.3s
+        &:hover
+          filter: none
+      .category-stats
+        padding: 5px
+        display: flex
+        justify-content: space-evenly
+        font-size: 32px
+        transition: all ease-in-out 0.3s
+        @media (min-width: 1024px)
+          padding: 10px
+          font-size: 48px
+        &:hover
+          color: #444
+          background-color: #fff
+        .result
+          margin-top: 10px
+          font-size: 10px
+          font-weight: 100
+          font-style: italic
+          @media (min-width: 1024px)
+            font-size: 16px
+            align-self: flex-start
   
   .return
     margin-top: 35px

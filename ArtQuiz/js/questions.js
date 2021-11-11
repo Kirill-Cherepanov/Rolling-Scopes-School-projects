@@ -18,7 +18,7 @@ const setTimer = function() {
       timer.textContent = '00:' + (timerCounter >= 10 ? timerCounter : ('0' + timerCounter));
       if (timerCounter <= 0) {
         clearInterval(timerHandler);
-        setQuestion();
+        setQuestion(false);
       }
       timerCounter--;
     }, 1000);
@@ -52,7 +52,9 @@ answers[quizType][initQuestion / 10] = Array(10).fill(0);
 if (!quizType) { // Artists
   artsQuiz.style.display = 'none';
 
-  setQuestion = function() {
+  setQuestion = function(correct) {
+    answers[quizType][initQuestion / 10][questionNum - initQuestion - 1] = correct ? 1 : 0;
+
     if (questionNum - initQuestion === 10) {
       window.location.href = 'results.html';
       answers[quizType][initQuestion / 10][10] = 1;
@@ -80,13 +82,8 @@ if (!quizType) { // Artists
       author.addEventListener('pointerdown', function () {
         document.addEventListener('pointerup', function d(e) {
           if (authors.includes(e.target)) {
-            if (authors[0] === e.target) {
-              e.target.style.backgroundColor = '#4BB543';
-              answers[quizType][initQuestion / 10][questionNum - initQuestion - 1] = 1;
-            } else {
-              e.target.style.backgroundColor = '#FC100D';
-              answers[quizType][initQuestion / 10][questionNum - initQuestion - 1] = 0;
-            }
+            correct = authors[0] === e.target;
+            e.target.style.backgroundColor = correct ? '#4BB543' : '#FC100D';
 
             // Delete all the Event Listeners on authors and reassign it
             const authorsContainer = document.querySelector('.authors');
@@ -99,7 +96,7 @@ if (!quizType) { // Artists
               authors.forEach(author => {
                 author.style.backgroundColor = '#7851a9';
               });
-              setQuestion();
+              setQuestion(correct);
             }, 1000);
           }
 
@@ -114,7 +111,9 @@ if (!quizType) { // Artists
 } else { // Arts
   artistsQuiz.style.display = 'none';
 
-  setQuestion = function() {
+  setQuestion = function(correct) {
+    answers[quizType][initQuestion / 10][questionNum - initQuestion - 1] = correct ? 1 : 0;
+
     if (questionNum - initQuestion === 10) {
       window.location.href = 'results.html';
       answers[quizType][initQuestion / 10][10] = 1;
@@ -142,11 +141,7 @@ if (!quizType) { // Artists
       picture.addEventListener('pointerdown', function () {
         document.addEventListener('pointerup', function d(e) {
           if (pictures.includes(e.target)) {
-            if (pictures[0] === e.target) {
-              answers[quizType][initQuestion / 10][questionNum - initQuestion - 1] = 1;
-            } else {
-              answers[quizType][initQuestion / 10][questionNum - initQuestion - 1] = 0;
-            }
+            correct = pictures[0] === e.target;
 
             pictures.slice(1).forEach(picture => {
               picture.style.filter = 'grayscale(100%)';
@@ -163,7 +158,7 @@ if (!quizType) { // Artists
               pictures.forEach(picture => {
                 picture.style.filter = 'none';
               });
-              setQuestion();
+              setQuestion(correct);
             }, 1000);
           }
 
