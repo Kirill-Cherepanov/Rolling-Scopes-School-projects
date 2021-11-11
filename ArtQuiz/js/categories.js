@@ -21,6 +21,11 @@ Array.from(categories.children).forEach((category, i) => {
       return false;
     });
   });
+  categoryImg.addEventListener('pointerdown', e => {
+    e.currentTarget.addEventListener('pointerup', e => {
+      if (e.target === categoryImg) window.location.href = 'questions.html';
+    });
+  });
 
   categoryImg.src = `./assets/img/squared/${(Number(categoryNum) - 1) * 10 + Number(quizType)}.jpg`;
 
