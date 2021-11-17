@@ -14,7 +14,7 @@ body .timer {
 
 body .artists-quiz, body .arts-quiz {
   width: 100%;
-  height: calc(100% - 125px);
+  height: calc(100vh - 100px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,6 +28,12 @@ body .artists-quiz, body .arts-quiz {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (min-width: 600px) {
+  body .artists-quiz, body .arts-quiz {
+    height: calc(100vh - 125px);
+  }
 }
 
 body p.question {
