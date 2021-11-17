@@ -91,6 +91,13 @@ if (!quizType) { // Artists
             authorsContainer.parentNode.replaceChild(authorsClone, authorsContainer);
             authors = Array.from(authorsClone.children);
 
+            // Play sound effects
+            const audio = document.createElement('audio');
+            audio.src = './assets/sounds/' + (correct ? 'success' : 'failure') + '.wav';
+            audio.volume = Number(localStorage.getItem('volume')) / 100;
+            audio.muted = !!Number(localStorage.getItem('muted'));
+            audio.play();
+
             clearInterval(timerHandler);
             setTimeout(() => {
               authors.forEach(author => {
@@ -128,7 +135,7 @@ if (!quizType) { // Artists
     pictures.slice(1).reduce((usedNums, picture) => {
       let randomNum;
       do { randomNum = Math.floor(Math.random() * 100);
-      } while (usedNums.includes(randomNum) && images[questionNum].author === images[randomNum].author);
+      } while (usedNums.includes(randomNum) || images[questionNum].author === images[randomNum].author);
       
       picture.style.backgroundImage = `url(./assets/img/squared/${randomNum}.jpg)`;
       
@@ -153,13 +160,23 @@ if (!quizType) { // Artists
             picturesContainer.parentNode.replaceChild(picturesClone, picturesContainer);
             pictures = Array.from(picturesClone.children);
 
+            // Play sound effects
+            const audio = document.createElement('audio');
+            audio.src = './assets/sounds/' + (correct ? 'success' : 'failure') + '.wav';
+            audio.volume = Number(localStorage.getItem('volume')) / 100;
+            audio.muted = !!Number(localStorage.getItem('muted'));
+            audio.play();
+
             clearInterval(timerHandler);
-            setTimeout(() => {
+            audio.addEventListener('ended', () => {
+              console.log(audio.muted);
+              console.log(audio.volume);
               pictures.forEach(picture => {
                 picture.style.filter = 'none';
               });
               setQuestion(correct);
-            }, 1000);
+            });
+
           }
 
           document.removeEventListener('pointerup', d);

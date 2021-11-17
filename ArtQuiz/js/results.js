@@ -27,3 +27,12 @@ for (let i = 0; i < 10; i++) {
   imgWrappers[i].style.backgroundImage = `url(./assets/img/squared/${initPicture + i}.jpg)`;
   if (answers[quizType][initPicture / 10][i]) imgWrappers[i].classList.add('correct');
 }
+
+// Play 'complete' sound effect
+document.addEventListener('DOMContentLoaded', () => {
+  const audio = document.createElement('audio');
+  audio.src = './assets/sounds/complete.wav';
+  audio.volume = Number(localStorage.getItem('volume')) / 100;
+  audio.muted = !!Number(localStorage.getItem('muted'));
+  audio.play().catch(err => console.log(err));
+});
