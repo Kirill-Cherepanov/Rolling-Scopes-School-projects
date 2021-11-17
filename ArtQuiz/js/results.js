@@ -29,6 +29,8 @@ for (let i = 0; i < 10; i++) {
 }
 
 // Play 'complete' sound effect
+if (!localStorage.getItem('volume')) localStorage.setItem('volume', '100');
+
 document.addEventListener('DOMContentLoaded', () => {
   const audio = document.createElement('audio');
   audio.src = './assets/sounds/complete.wav';

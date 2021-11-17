@@ -3,13 +3,116 @@ Array.prototype.shuffle = function() {
   return this.sort(() => Math.random() - 0.5);
 };
 
-
-// Timer handler
 const timer = document.querySelector('.timer');
-const timerTime = localStorage.getItem('timer');
 let timerHandler;
+const artistsQuiz = document.querySelector('.artists-quiz');
+const qImg = document.querySelector('.q-img');
+const artsQuiz = document.querySelector('.arts-quiz');
+const author = document.querySelector('.author');
+const quizType = Number(localStorage.getItem('quiz'));
+const initQuestion = (Number(localStorage.getItem('category')) - 1) * 10;
+let questionNum = initQuestion;
+let globalResults = JSON.parse(localStorage.getItem('answers')) || {
+  '0': Array(10).fill(Array(11).fill(0)),
+  '1': Array(10).fill(Array(11).fill(0)),
+};
+globalResults[quizType][initQuestion / 10] = Array(10).fill(0);
 
-const setTimer = function() {
+if (!localStorage.getItem('volume')) localStorage.setItem('volume', '100');
+
+if (!quizType) artsQuiz.style.display = 'none';
+else artistsQuiz.style.display = 'none';
+
+setQuestion();
+
+
+function setQuestion(correct) {
+  // Initialization of the quizes common for both
+  const initQuiz = function(correct) {
+    globalResults[quizType][initQuestion / 10][questionNum - initQuestion - 1] = correct ? 1 : 0;
+  
+    if (questionNum - initQuestion === 10) {
+      window.location.href = 'results.html';
+      globalResults[quizType][initQuestion / 10][10] = 1;
+      localStorage.setItem('answers', JSON.stringify(globalResults));
+      throw '';
+    }
+  };
+  // setAnswers for quizes
+  const setAnswers = function(answers) {
+    const setSource = function(answer, n) {
+      if (quizType) answer.style.backgroundImage = `url(./assets/img/squared/${n}.jpg)`;
+      else answer.textContent = images[n].author;
+    }
+  
+    setSource(answers.shuffle()[0], questionNum);
+    answers.slice(1).reduce((usedNums, answer) => {
+      let randomNum;
+      do { randomNum = Math.floor(Math.random() * 100);
+      } while (usedNums.includes(randomNum) || images[questionNum].author === images[randomNum].author);
+  
+      setSource(answer, randomNum);
+  
+      usedNums.push(randomNum);
+      return usedNums;
+    }, [questionNum]);
+  };
+  // Event listeners for clicks on answers
+  const quizClickEventsHandler = function(answers) {
+    const decorateAnswers = function(answer, correct) {
+      if (quizType) answers.slice(1).forEach(picture => picture.style.filter = 'grayscale(100%)');
+      else answer.style.backgroundColor = correct ? '#4BB543' : '#FC100D';
+    };
+    // Play sound effects
+    const playSounds = function(correct) {
+      const audio = document.createElement('audio');
+      audio.src = './assets/sounds/' + (correct ? 'success' : 'failure') + '.wav';
+      audio.volume = Number(localStorage.getItem('volume')) / 100;
+      audio.muted = !!Number(localStorage.getItem('muted'));
+      audio.play();
+      return audio;
+    };
+    // Delete all the Event Listeners on authors and reassign it
+    const clearEventListeners = function(answers) {
+      const answersContainer = document.querySelector(quizType ? '.pictures' : '.authors');
+      const answersClone = answersContainer.cloneNode(true);
+      answersContainer.parentNode.replaceChild(answersClone, answersContainer);
+      return Array.from(answersClone.children);
+    };
+  
+    answers.forEach(answer => {
+      answer.addEventListener('click', e => {
+        correct = answers[0] === e.target;
+        decorateAnswers(answer, correct);
+
+        answers = clearEventListeners(answers);
+        const audio = playSounds(correct);
+  
+        clearInterval(timerHandler);
+        audio.addEventListener('ended', () => {
+          answers.forEach(answer => {
+            answer.style.filter = 'none';
+            answer.style.backgroundColor = '#7851a9';
+          });
+          setQuestion(correct);
+        });
+      });
+    });
+  };
+
+  initQuiz(correct);
+  let answers = Array.from(document.querySelector(quizType ? '.pictures' : '.authors').children);
+  if (!quizType) qImg.src = `./assets/img/squared/${questionNum}.jpg`;
+  setAnswers(answers);
+  quizClickEventsHandler(answers);
+
+  questionNum++;
+  setTimer();
+}
+
+function setTimer() {
+  const timerTime = localStorage.getItem('timer');
+
   if (Number(timerTime)) {
     timer.textContent = '00:' + timerTime;
     let timerCounter = Number(timerTime) - 1;
@@ -25,167 +128,4 @@ const setTimer = function() {
   } else {
     timer.textContent = '';
   }
-};
-
-
-
-// Quiz setup
-const artistsQuiz = document.querySelector('.artists-quiz');
-const qImg = document.querySelector('.q-img');
-let authors = Array.from(document.querySelector('.authors').children);
-
-const artsQuiz = document.querySelector('.arts-quiz');
-const author = document.querySelector('.author');
-let pictures = Array.from(document.querySelector('.pictures').children);
-
-const questions = document.querySelectorAll('p.question');
-const quizType = Number(localStorage.getItem('quiz'));
-const initQuestion = (Number(localStorage.getItem('category')) - 1) * 10;
-let questionNum = initQuestion;
-let setQuestion;
-let answers = JSON.parse(localStorage.getItem('answers')) || {
-  '0': Array(10).fill(Array(11).fill(0)),
-  '1': Array(10).fill(Array(11).fill(0)),
-};
-answers[quizType][initQuestion / 10] = Array(10).fill(0);
-
-if (!quizType) { // Artists
-  artsQuiz.style.display = 'none';
-
-  setQuestion = function(correct) {
-    answers[quizType][initQuestion / 10][questionNum - initQuestion - 1] = correct ? 1 : 0;
-
-    if (questionNum - initQuestion === 10) {
-      window.location.href = 'results.html';
-      answers[quizType][initQuestion / 10][10] = 1;
-      localStorage.setItem('answers', JSON.stringify(answers));
-      throw '';
-    }
-
-    qImg.src = `./assets/img/squared/${questionNum}.jpg`;
-
-    // Set author answers
-    authors.shuffle()[0].textContent = images[questionNum].author;
-    authors.slice(1).reduce((usedImgs, author) => {
-      let randomAuthor;
-      do { randomAuthor = images[Math.floor(Math.random() * 100)].author;
-      } while (usedImgs.includes(randomAuthor));
-      
-      author.textContent = randomAuthor;
-      usedImgs.push(randomAuthor);
-
-      return usedImgs;
-    }, [images[questionNum].author]);
-
-    // Event listeners for clicks on answers
-    authors.forEach(author => {
-      author.addEventListener('pointerdown', function () {
-        document.addEventListener('pointerup', function d(e) {
-          if (authors.includes(e.target)) {
-            correct = authors[0] === e.target;
-            e.target.style.backgroundColor = correct ? '#4BB543' : '#FC100D';
-
-            // Delete all the Event Listeners on authors and reassign it
-            const authorsContainer = document.querySelector('.authors');
-            const authorsClone = authorsContainer.cloneNode(true);
-            authorsContainer.parentNode.replaceChild(authorsClone, authorsContainer);
-            authors = Array.from(authorsClone.children);
-
-            // Play sound effects
-            const audio = document.createElement('audio');
-            audio.src = './assets/sounds/' + (correct ? 'success' : 'failure') + '.wav';
-            audio.volume = Number(localStorage.getItem('volume')) / 100;
-            audio.muted = !!Number(localStorage.getItem('muted'));
-            audio.play();
-
-            clearInterval(timerHandler);
-            setTimeout(() => {
-              authors.forEach(author => {
-                author.style.backgroundColor = '#7851a9';
-              });
-              setQuestion(correct);
-            }, 1000);
-          }
-
-          document.removeEventListener('pointerup', d);
-        });
-      });
-    });
-
-    questionNum++;
-    setTimer();
-  }
-} else { // Arts
-  artistsQuiz.style.display = 'none';
-
-  setQuestion = function(correct) {
-    answers[quizType][initQuestion / 10][questionNum - initQuestion - 1] = correct ? 1 : 0;
-
-    if (questionNum - initQuestion === 10) {
-      window.location.href = 'results.html';
-      answers[quizType][initQuestion / 10][10] = 1;
-      localStorage.setItem('answers', JSON.stringify(answers));
-      throw '';
-    }
-
-    author.textContent = images[questionNum].author;
-
-    // Set images answers
-    pictures.shuffle()[0].style.backgroundImage = `url(./assets/img/squared/${questionNum}.jpg)`;
-    pictures.slice(1).reduce((usedNums, picture) => {
-      let randomNum;
-      do { randomNum = Math.floor(Math.random() * 100);
-      } while (usedNums.includes(randomNum) || images[questionNum].author === images[randomNum].author);
-      
-      picture.style.backgroundImage = `url(./assets/img/squared/${randomNum}.jpg)`;
-      
-      usedNums.push(randomNum);
-      return usedNums;
-    }, [questionNum]);
-
-    // Event listeners for clicks on answers
-    pictures.forEach(picture => {
-      picture.addEventListener('pointerdown', function () {
-        document.addEventListener('pointerup', function d(e) {
-          if (pictures.includes(e.target)) {
-            correct = pictures[0] === e.target;
-
-            pictures.slice(1).forEach(picture => {
-              picture.style.filter = 'grayscale(100%)';
-            });
-
-            // Delete all the Event Listeners on pictures and reassign it
-            const picturesContainer = document.querySelector('.pictures');
-            const picturesClone = picturesContainer.cloneNode(true);
-            picturesContainer.parentNode.replaceChild(picturesClone, picturesContainer);
-            pictures = Array.from(picturesClone.children);
-
-            // Play sound effects
-            const audio = document.createElement('audio');
-            audio.src = './assets/sounds/' + (correct ? 'success' : 'failure') + '.wav';
-            audio.volume = Number(localStorage.getItem('volume')) / 100;
-            audio.muted = !!Number(localStorage.getItem('muted'));
-            audio.play();
-
-            clearInterval(timerHandler);
-            audio.addEventListener('ended', () => {
-              console.log(audio.muted);
-              console.log(audio.volume);
-              pictures.forEach(picture => {
-                picture.style.filter = 'none';
-              });
-              setQuestion(correct);
-            });
-
-          }
-
-          document.removeEventListener('pointerup', d);
-        });
-      });
-    });
-
-    questionNum++;
-    setTimer();
-  };
 }
-setQuestion();
