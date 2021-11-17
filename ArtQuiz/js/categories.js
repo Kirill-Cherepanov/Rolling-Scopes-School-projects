@@ -11,18 +11,18 @@ Array.from(categories.children).forEach((category, i) => {
   const categoryNum = categoryStats.childNodes[0].wholeText;
 
   categoryStats.addEventListener('pointerdown', e => {
-    e.currentTarget.addEventListener('pointerup', e => {
-      if (e.target !== categoryStats) return;
-
-      if (results[quizType][i][10]) {
-        window.location.href = 'results.html';
-      } else alert('Данный тест еще не пройден!');
-
-      return false;
+    document.addEventListener('pointerup', function d(e){
+      if (e.target.closest('.category-stats')) {
+        if (results[quizType][i][10]) {
+          window.location.href = 'results.html';
+        } else alert('Данный тест еще не пройден!');
+      }
+      document.removeEventListener('pointerup', d);
     });
   });
   categoryImg.addEventListener('pointerdown', e => {
-    e.currentTarget.addEventListener('pointerup', e => {
+    document.addEventListener('pointerup', function d(e) {
+      document.removeEventListener('pointerup', d);
       if (e.target === categoryImg) window.location.href = 'questions.html';
     });
   });

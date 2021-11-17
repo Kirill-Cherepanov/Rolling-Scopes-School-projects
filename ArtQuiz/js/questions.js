@@ -67,15 +67,15 @@ if (!quizType) { // Artists
     // Set author answers
     authors.shuffle()[0].textContent = images[questionNum].author;
     authors.slice(1).reduce((usedImgs, author) => {
-      let randomNum;
-      do { randomNum = Math.floor(Math.random() * 100);
-      } while (usedImgs.includes(randomNum));
+      let randomAuthor;
+      do { randomAuthor = images[Math.floor(Math.random() * 100)].author;
+      } while (usedImgs.includes(randomAuthor));
       
-      author.textContent = images[randomNum].author;
+      author.textContent = randomAuthor;
+      usedImgs.push(randomAuthor);
 
-      usedImgs.push(randomNum);
       return usedImgs;
-    }, [questionNum]);
+    }, [images[questionNum].author]);
 
     // Event listeners for clicks on answers
     authors.forEach(author => {
@@ -128,7 +128,7 @@ if (!quizType) { // Artists
     pictures.slice(1).reduce((usedNums, picture) => {
       let randomNum;
       do { randomNum = Math.floor(Math.random() * 100);
-      } while (usedNums.includes(randomNum));
+      } while (usedNums.includes(randomNum) && images[questionNum].author === images[randomNum].author);
       
       picture.style.backgroundImage = `url(./assets/img/squared/${randomNum}.jpg)`;
       
