@@ -3,6 +3,9 @@ $main-color: #7851a9
   
 body
   padding: 0 5px 20px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
 
   .timer
     height: 25px
@@ -15,24 +18,21 @@ body
 
   .artists-quiz, .arts-quiz
     width: 100%
-    height: calc(100vh - 100px)
+    height: calc(100% - 125px)
     display: flex
     flex-direction: column
     align-items: center
     justify-content: space-between
-    @media (min-width: 600px)
-      height: calc(100vh - 125px)
 
   p.question
+    text-align: center
     font-size: 24px
     font-weight: 800
     letter-spacing: 1px
     margin: 0 0 10px
   
   .return 
-    position: absolute
-    bottom: 20px
-    width: calc(100% - 10px)
+    width: 100%
     margin-top: 20px
     @media ( min-width: 1024px )
       width: 1014px

@@ -1,5 +1,15 @@
 body {
   padding: 0 5px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 body .timer {
@@ -14,7 +24,7 @@ body .timer {
 
 body .artists-quiz, body .arts-quiz {
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100% - 125px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,13 +40,8 @@ body .artists-quiz, body .arts-quiz {
           justify-content: space-between;
 }
 
-@media (min-width: 600px) {
-  body .artists-quiz, body .arts-quiz {
-    height: calc(100vh - 125px);
-  }
-}
-
 body p.question {
+  text-align: center;
   font-size: 24px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -44,9 +49,7 @@ body p.question {
 }
 
 body .return {
-  position: absolute;
-  bottom: 20px;
-  width: calc(100% - 10px);
+  width: 100%;
   margin-top: 20px;
 }
 
